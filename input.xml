@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<assets>
+<com.tbf.assets.DepositAccount>
+  <assetCode>aabi</assetCode>
+  <label>Apple Bee Inn</label>
+  <apr>0.0125</apr>
+</com.tbf.assets.DepositAccount>
+<com.tbf.assets.DepositAccount>
+  <assetCode>CB1Y3X</assetCode>
+  <label>2-year Rollover CD</label>
+  <apr>0.0375</apr>
+</com.tbf.assets.DepositAccount>
+<com.tbf.assets.DepositAccount>
+  <assetCode>CB1Y3Y</assetCode>
+  <label>3-year Rollover CD</label>
+  <apr>0.0375</apr>
+</com.tbf.assets.DepositAccount>
+<com.tbf.assets.Stock>
+  <assetCode>Rebook</assetCode>
+  <label>Rebook Inc.</label>
+  <baseQuarterlyDividend>13.0</baseQuarterlyDividend>
+  <baseRateOfReturn>0.14</baseRateOfReturn>
+  <stockSymbol>Rebo</stockSymbol>
+  <sharePrice>224.23</sharePrice>
+  <beta>-0.1</beta>
+</com.tbf.assets.Stock>
+<com.tbf.assets.DepositAccount>
+  <assetCode>Alphabhet</assetCode>
+  <label>Google</label>
+  <apr>0.0234</apr>
+</com.tbf.assets.DepositAccount>
+<com.tbf.assets.Stock>
+  <assetCode>Passion</assetCode>
+  <label>Panda Express</label>
+  <baseQuarterlyDividend>55.57</baseQuarterlyDividend>
+  <baseRateOfReturn>0.0419</baseRateOfReturn>
+  <stockSymbol>PEI</stockSymbol>
+  <sharePrice>351.91</sharePrice>
+  <beta>0.0</beta>
+</com.tbf.assets.Stock>
+<com.tbf.assets.Stock>
+  <assetCode>Epic</assetCode>
+  <label>Game Systems</label>
+  <baseQuarterlyDividend>0.0</baseQuarterlyDividend>
+  <baseRateOfReturn>0.0325</baseRateOfReturn>
+  <stockSymbol>GSE</stockSymbol>
+  <sharePrice>34.4</sharePrice>
+  <beta>0.04</beta>
+</com.tbf.assets.Stock>
+<com.tbf.assets.Stock>
+  <assetCode>Valve</assetCode>
+  <label>Steam</label>
+  <baseQuarterlyDividend>10.0</baseQuarterlyDividend>
+  <baseRateOfReturn>0.0425</baseRateOfReturn>
+  <stockSymbol>Vavve</stockSymbol>
+  <sharePrice>107.13</sharePrice>
+  <beta>0.33</beta>
+</com.tbf.assets.Stock>
+<com.tbf.assets.PrivateInvestment>
+  <assetCode>BUYY445</assetCode>
+  <label>Buy Twice</label>
+  <baseQuarterlyDividend>2500.0</baseQuarterlyDividend>
+  <baseRateOfReturn>0.0125</baseRateOfReturn>
+  <totalAmount>1200.0</totalAmount>
+  <omega>0.25</omega>
+</com.tbf.assets.PrivateInvestment>
+<com.tbf.assets.Stock>
+  <assetCode>coki</assetCode>
+  <label>coki</label>
+  <baseQuarterlyDividend>5.35</baseQuarterlyDividend>
+  <baseRateOfReturn>0.31</baseRateOfReturn>
+  <stockSymbol>cok</stockSymbol>
+  <sharePrice>41.18</sharePrice>
+  <beta>0.035</beta>
+</com.tbf.assets.Stock>
+<com.tbf.assets.DepositAccount>
+  <assetCode>HON</assetCode>
+  <label>Honda</label>
+  <apr>0.178</apr>
+</com.tbf.assets.DepositAccount>
+<com.tbf.assets.DepositAccount>
+  <assetCode>C9312</assetCode>
+  <label>2-year CD</label>
+  <apr>0.0235</apr>
+</com.tbf.assets.DepositAccount>
+<com.tbf.assets.DepositAccount>
+  <assetCode>ESP</assetCode>
+  <label>ESPN</label>
+  <apr>0.015</apr>
+</com.tbf.assets.DepositAccount>
+<com.tbf.assets.DepositAccount>
+  <assetCode>ALI993</assetCode>
+  <label>ALI Baba</label>
+  <apr>0.032</apr>
+</com.tbf.assets.DepositAccount>
+<com.tbf.assets.Stock>
+  <assetCode>DUCK</assetCode>
+  <label>DUCK! GO.</label>
+  <baseQuarterlyDividend>0.0</baseQuarterlyDividend>
+  <baseRateOfReturn>0.134</baseRateOfReturn>
+  <stockSymbol>DUCGO</stockSymbol>
+  <sharePrice>22.17</sharePrice>
+  <beta>-0.13</beta>
+</com.tbf.assets.Stock>
+<com.tbf.assets.Stock>
+  <assetCode>CASIO</assetCode>
+  <label>CASIO Innovation</label>
+  <baseQuarterlyDividend>2.0</baseQuarterlyDividend>
+  <baseRateOfReturn>0.132</baseRateOfReturn>
+  <stockSymbol>CASIIO</stockSymbol>
+  <sharePrice>12.75</sharePrice>
+  <beta>0.02</beta>
+</com.tbf.assets.Stock>
+<com.tbf.assets.PrivateInvestment>
+  <assetCode>THRE456</assetCode>
+  <label>Three-14 Pi Shop</label>
+  <baseQuarterlyDividend>1050.5</baseQuarterlyDividend>
+  <baseRateOfReturn>0.055999999999999994</baseRateOfReturn>
+  <totalAmount>23006.53</totalAmount>
+  <omega>0.33</omega>
+</com.tbf.assets.PrivateInvestment>
+</assets>
