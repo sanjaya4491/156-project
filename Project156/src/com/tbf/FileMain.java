@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class main {
+public class FileMain {
 	
 	public static void main(String args[]) {
 		
@@ -17,6 +17,13 @@ public class main {
 	} catch (FileNotFoundException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
+	};
+
+	int numlines = Integer.parseInt(sc.nextLine());
+	int i = 0;
+	while (i < numlines) {
+		String[] line = sc.nextLine().split(";");
+		System.out.print(line);
 	}
 
 
