@@ -2,6 +2,7 @@ package com.tbf;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,9 +22,10 @@ public class FileMain {
 
 	int numlines = Integer.parseInt(sc.nextLine());
 	int i = 0;
-	while (i < numlines) {
+	while (i < numlines - 1) {
 		String[] line = sc.nextLine().split(";");
-		System.out.print(line);
+		System.out.print(Arrays.deepToString(line));
+		i++;
 	}
 
 
