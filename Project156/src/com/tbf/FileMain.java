@@ -12,6 +12,7 @@ public class FileMain {
 	public static void main(String args[]) {
 
 		List<Person> personList = new ArrayList<Person>();
+		
 		File file = new File("data/Persons.dat");
 		Scanner sc = null;
 		try {
@@ -56,6 +57,18 @@ public class FileMain {
 		sc.close();
 		
 		file = new File("data/Assets.dat");
+		try {
+			sc = new Scanner(file);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		numlines = Integer.parseInt(sc.nextLine());
+		i = 0;
+		while(i < numlines - 1) {
+			String line[] = sc.nextLine().split(",");
+			
+		}
 		
 
 		for (Person x : personList) {
