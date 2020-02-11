@@ -4,14 +4,16 @@ public class Person {
 	
 	private String personCode;
 	private String broker;
+	private String section;
 	private String lastName;
 	private String firstName;
 	private Address address;
 	private Email email;
 	
-	public Person(String personCode, String broker, String lastName, String firstName, Address address, Email email) {
+	public Person(String personCode, String broker, String section, String lastName, String firstName, Address address, Email email) {
 		this.personCode = personCode;
 		this.broker = broker;
+		this.section = section;
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.address = address;
@@ -19,6 +21,15 @@ public class Person {
 	}
 	
 	
+
+	@Override
+	public String toString() {
+		return "Person [personCode=" + personCode + ", broker=" + broker + ", section=" + section + ", lastName="
+				+ lastName + ", firstName=" + firstName + ", address=" + address + ", email=" + email + "]";
+	}
+
+
+
 	public String getPersonCode() {
 		return this.personCode;
 	}
@@ -26,6 +37,17 @@ public class Person {
 
 	public String getBroker() {
 		return this.broker;
+	}
+	
+
+
+	public String getSection() {
+		return section;
+	}
+
+
+	public void setSection(String section) {
+		this.section = section;
 	}
 
 
