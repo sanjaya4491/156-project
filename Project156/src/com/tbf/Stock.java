@@ -4,16 +4,18 @@ public class Stock {
 	
 	private String code;
 	private String type;
+	private String label;
 	private String quarterlyDividend;
 	private String baseReturn;
 	private String betaMeasure;
 	private String stockSymbol;
 	private String sharePrice;
 	
-	public Stock(String code, String type, String quarterlyDividend, String baseReturn, String betaMeasure,
+	public Stock(String code, String type, String label, String quarterlyDividend, String baseReturn, String betaMeasure,
 			String stockSymbol, String sharePrice) {
 		this.code = code;
 		this.type = type;
+		this.label = label;
 		this.quarterlyDividend = quarterlyDividend;
 		this.baseReturn = baseReturn;
 		this.betaMeasure = betaMeasure;
@@ -21,8 +23,19 @@ public class Stock {
 		this.sharePrice = sharePrice;
 	}
 
+	@Override
+	public String toString() {
+		return "Stock [code=" + code + ", type=" + type + ", label=" + label + ", quarterlyDividend="
+				+ quarterlyDividend + ", baseReturn=" + baseReturn + ", betaMeasure=" + betaMeasure + ", stockSymbol="
+				+ stockSymbol + ", sharePrice=" + sharePrice + "]";
+	}
+
 	public String getCode() {
 		return this.code;
+	}
+
+	public String getLabel() {
+		return label;
 	}
 
 	public String getType() {
@@ -55,6 +68,10 @@ public class Stock {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
 	}
 
 	public void setQuarterlyDividend(String quarterlyDividend) {

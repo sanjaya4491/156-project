@@ -4,19 +4,28 @@ public class PrivateInvestment {
 	
 	private String code;
 	private String type;
+	private String label;
 	private String quarterlyDividend;
 	private String baseReturn;
 	private String baseOmegaMeasure;
 	private String totalValue;
 	
-	public PrivateInvestment(String code, String type, String quarterlyDividend, String baseReturn,
+	public PrivateInvestment(String code, String type, String label, String quarterlyDividend, String baseReturn,
 			String baseOmegaMeasure, String totalValue) {
 		this.code = code;
 		this.type = type;
+		this.label = label;
 		this.quarterlyDividend = quarterlyDividend;
 		this.baseReturn = baseReturn;
 		this.baseOmegaMeasure = baseOmegaMeasure;
 		this.totalValue = totalValue;
+	}
+
+	@Override
+	public String toString() {
+		return "PrivateInvestment [code=" + code + ", type=" + type + ", label=" + label + ", quarterlyDividend="
+				+ quarterlyDividend + ", baseReturn=" + baseReturn + ", baseOmegaMeasure=" + baseOmegaMeasure
+				+ ", totalValue=" + totalValue + "]";
 	}
 
 	public String getCode() {
@@ -25,6 +34,10 @@ public class PrivateInvestment {
 
 	public String getType() {
 		return this.type;
+	}
+
+	public String getLabel() {
+		return label;
 	}
 
 	public String getQuarterlyDividend() {
@@ -49,6 +62,10 @@ public class PrivateInvestment {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
 	}
 
 	public void setQuarterlyDividend(String quarterlyDividend) {

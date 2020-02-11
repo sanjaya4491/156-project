@@ -12,6 +12,9 @@ public class FileMain {
 	public static void main(String args[]) {
 
 		List<Person> personList = new ArrayList<Person>();
+		List<Stock> stockList = new ArrayList<Stock>();
+		List<DepositAccount> depositAccountList = new ArrayList<DepositAccount>();
+		List<PrivateInvestment> privateInvestmentList = new ArrayList<PrivateInvestment>();
 		
 		File file = new File("data/Persons.dat");
 		Scanner sc = null;
@@ -72,13 +75,55 @@ public class FileMain {
 		
 		numlines = Integer.parseInt(sc.nextLine());
 		i = 0;
-		while(i < numlines - 1) {
-			String line[] = sc.nextLine().split(",");
-			
+		while(i < numlines) {
+			String line[] = sc.nextLine().split(";");
+			if(line.length == 4) {
+				String code = line[0];
+				String type = line[1];
+				String label = line[2];
+				String apr = line[3];
+				DepositAccount depositAccount = new DepositAccount(code, type, label, apr);
+				depositAccountList.add(depositAccount);
+			} else if(line.length == 8) {
+				String code = line[0];
+				String type = line[1];
+				String label = line[2];
+				String quarterlyDividend = line[3];
+				String baseReturn = line[4];
+				String betaMeasure = line[5];
+				String stockSymbol = line[6];
+				String sharePrice = line[7];
+				Stock stock = new Stock(code, type, label, quarterlyDividend, baseReturn, betaMeasure, stockSymbol, sharePrice);
+				stockList.add(stock);
+			} else if(line.length == 7) {
+				String code = line[0];
+				String type = line[1];
+				String label = line[2];
+				String quarterlyDividend = line[3];
+				String baseReturn = line[4];
+				String baseOmegaMeasure = line[5];
+				String totalValue = line[6];
+				PrivateInvestment privateInvestment = new PrivateInvestment(code, type, label, quarterlyDividend, baseReturn, baseOmegaMeasure, totalValue);
+				privateInvestmentList.add(privateInvestment);
+			}
+			i++;
 		}
+		sc.close();
 		
 
 		for (Person x : personList) {
+			System.out.println(x);
+		}
+		
+		for (DepositAccount x : depositAccountList) {
+			System.out.println(x);
+		}
+		
+		for (PrivateInvestment x : privateInvestmentList) {
+			System.out.println(x);
+		}
+		
+		for (Stock x : stockList) {
 			System.out.println(x);
 		}
 

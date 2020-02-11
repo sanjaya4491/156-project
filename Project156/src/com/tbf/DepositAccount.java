@@ -13,6 +13,15 @@ public class DepositAccount {
 		this.label = label;
 		this.apr = apr;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "DepositAccount [code=" + code + ", type=" + type + ", label=" + label + ", apr=" + apr + "]";
+	}
+
+
 
 	public void setCode(String code) {
 		this.code = code;
