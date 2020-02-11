@@ -19,15 +19,12 @@ public class Person {
 		this.address = address;
 		this.email = email;
 	}
-	
-	
 
 	@Override
 	public String toString() {
 		return "Person [personCode=" + personCode + ", broker=" + broker + ", section=" + section + ", lastName="
 				+ lastName + ", firstName=" + firstName + ", address=" + address + ", email=" + email + "]";
 	}
-
 
 
 	public String getPersonCode() {
@@ -39,7 +36,6 @@ public class Person {
 		return this.broker;
 	}
 	
-
 
 	public String getSection() {
 		return section;

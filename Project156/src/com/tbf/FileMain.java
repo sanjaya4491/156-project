@@ -7,6 +7,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 public class FileMain {
 
 	public static void main(String args[]) {
@@ -45,16 +48,10 @@ public class FileMain {
 			String firstName = name[1];
 			String location[] = line[3].split(",");
 			Address address = new Address(location[0], location[1], location[2], location[3], location[4]);
-			Email email = null;
+			Email email;
 			if (line.length == 5) {
-				if (line[4].contains(",")) {
-					String multipleEmails [] = line[4].split(",");
-					for (int j = 0 ; j < multipleEmails.length; j++) {
-						email =  new Email (multipleEmails[j]);
-					}
-				}else {
-					email = new Email(line[4]);
-				}
+				String addresses[] = line[4].split(",");
+				email = new Email(addresses);
 				Person person = new Person(personCode, broker, section, lastName, firstName, address, email);
 				personList.add(person);
 			} else {
@@ -110,6 +107,12 @@ public class FileMain {
 		}
 		sc.close();
 		
+		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		for(Person x : personList) {
+		String json = gson.toJson(x);
+		System.out.println(json);
+		}
 
 		for (Person x : personList) {
 			System.out.println(x);
