@@ -42,9 +42,16 @@ public class FileMain {
 			String firstName = name[1];
 			String location[] = line[3].split(",");
 			Address address = new Address(location[0], location[1], location[2], location[3], location[4]);
-			Email email;
+			Email email = null;
 			if (line.length == 5) {
-				email = new Email(line[4]);
+				if (line[4].contains(",")) {
+					String multipleEmails [] = line[4].split(",");
+					for (int j = 0 ; j < multipleEmails.length; j++) {
+						email =  new Email (multipleEmails[j]);
+					}
+				}else {
+					email = new Email(line[4]);
+				}
 				Person person = new Person(personCode, broker, section, lastName, firstName, address, email);
 				personList.add(person);
 			} else {
