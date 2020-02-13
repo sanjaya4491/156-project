@@ -38,11 +38,11 @@ public class FileUtils {
 			String firstName = name[1].replaceAll("\\s+", "");
 			String location[] = line[3].split(",");
 			Address address = new Address(location[0], location[1], location[2], location[3], location[4]);
-			ArrayList<String> emails = new ArrayList<>();
+			List<Email> emails = new ArrayList<>();
 			if (line.length == 5) {
 				String email[] = line[4].split(",");
 				for (int j = 0; j < email.length; j++) {
-					emails.add(email[j]);
+					emails.add(new Email(email[j]));
 				}
 				Person person = new Person(personCode, broker, section, lastName, firstName, address, emails);
 				result.add(person);

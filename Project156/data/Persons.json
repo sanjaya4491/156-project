@@ -1,4 +1,5 @@
-[
+{
+"persons": [
   {
     "personCode": "944c",
     "lastName": "Castro",
@@ -11,8 +12,12 @@
       "country": "USA"
     },
     "emails": [
-      "scastro@cubs.com",
-      "starlin_castro13@gmail.com"
+      {
+        "address": "scastro@cubs.com"
+      },
+      {
+        "address": "starlin_castro13@gmail.com"
+      }
     ]
   },
   {
@@ -27,8 +32,12 @@
       "country": "USA"
     },
     "emails": [
-      "brock_f_sampson@gmail.com",
-      "bsampson@venture.com"
+      {
+        "address": "brock_f_sampson@gmail.com"
+      },
+      {
+        "address": "bsampson@venture.com"
+      }
     ]
   },
   {
@@ -73,8 +82,12 @@
       "country": "USA"
     },
     "emails": [
-      "bfox@gmail.com",
-      "csheen@crazy.net"
+      {
+        "address": "bfox@gmail.com"
+      },
+      {
+        "address": "csheen@crazy.net"
+      }
     ]
   },
   {
@@ -89,7 +102,9 @@
       "country": "USA"
     },
     "emails": [
-      "sveum@cubs.com"
+      {
+        "address": "sveum@cubs.com"
+      }
     ]
   },
   {
@@ -104,8 +119,12 @@
       "country": "USA"
     },
     "emails": [
-      "whartnell@doctors.com",
-      "dr@who.com"
+      {
+        "address": "whartnell@doctors.com"
+      },
+      {
+        "address": "dr@who.com"
+      }
     ]
   },
   {
@@ -120,8 +139,12 @@
       "country": "USA"
     },
     "emails": [
-      "ptroug@cse.unl.edu",
-      "ptrou32@unl.edu"
+      {
+        "address": "ptroug@cse.unl.edu"
+      },
+      {
+        "address": "ptrou32@unl.edu"
+      }
     ]
   },
   {
@@ -138,7 +161,9 @@
       "country": " Canada"
     },
     "emails": [
-      "jpet@whofan.com"
+      {
+        "address": "jpet@whofan.com"
+      }
     ]
   },
   {
@@ -155,10 +180,18 @@
       "country": " Canada"
     },
     "emails": [
-      "famousdoc@who.com",
-      "tbaker@cse.unl.edu",
-      "mostfamous@whovian.com",
-      "thedoctor@bbc.com"
+      {
+        "address": "famousdoc@who.com"
+      },
+      {
+        "address": "tbaker@cse.unl.edu"
+      },
+      {
+        "address": "mostfamous@whovian.com"
+      },
+      {
+        "address": "thedoctor@bbc.com"
+      }
     ]
   },
   {
@@ -188,8 +221,12 @@
       "country": " Mexico"
     },
     "emails": [
-      "rhurndall@cse.unl.edu",
-      "richard@unl.edu"
+      {
+        "address": "rhurndall@cse.unl.edu"
+      },
+      {
+        "address": "richard@unl.edu"
+      }
     ]
   },
   {
@@ -206,7 +243,9 @@
       "country": "USA"
     },
     "emails": [
-      "dr@baker.com"
+      {
+        "address": "dr@baker.com"
+      }
     ]
   },
   {
@@ -221,8 +260,12 @@
       "country": "USA"
     },
     "emails": [
-      "slyguy@hotmail.com",
-      "mccoy@whofan.com"
+      {
+        "address": "slyguy@hotmail.com"
+      },
+      {
+        "address": "mccoy@whofan.com"
+      }
     ]
   },
   {
@@ -239,9 +282,15 @@
       "country": "USA"
     },
     "emails": [
-      "pmcgann@mlb.com",
-      "foo@bar.com",
-      "pmc@unl.edu"
+      {
+        "address": "pmcgann@mlb.com"
+      },
+      {
+        "address": "foo@bar.com"
+      },
+      {
+        "address": "pmc@unl.edu"
+      }
     ]
   },
   {
@@ -258,7 +307,9 @@
       "country": "USA"
     },
     "emails": [
-      "newguy@whovian.com"
+      {
+        "address": "newguy@whovian.com"
+      }
     ]
   },
   {
@@ -273,8 +324,12 @@
       "country": "USA"
     },
     "emails": [
-      "actor@shakespeare.com",
-      "tdavid@unl.edu"
+      {
+        "address": "actor@shakespeare.com"
+      },
+      {
+        "address": "tdavid@unl.edu"
+      }
     ]
   },
   {
@@ -289,8 +344,12 @@
       "country": "USA"
     },
     "emails": [
-      "msmith@who.com",
-      "thedoc@cse.unl.edu"
+      {
+        "address": "msmith@who.com"
+      },
+      {
+        "address": "thedoc@cse.unl.edu"
+      }
     ]
   },
   {
@@ -318,7 +377,9 @@
       "country": "CUBA"
     },
     "emails": [
-      "fcastro@socialist.gov"
+      {
+        "address": "fcastro@socialist.gov"
+      }
     ]
   },
   {
@@ -359,7 +420,9 @@
       "country": "USA"
     },
     "emails": [
-      "heisenburg@savewalter.com"
+      {
+        "address": "heisenburg@savewalter.com"
+      }
     ]
   },
   {
@@ -374,8 +437,12 @@
       "country": "USA"
     },
     "emails": [
-      "ezpleazin@iamnotvanillaicethanks.net",
-      "neverforgetthatiamnotvanillaice@jokesonyou.edu"
+      {
+        "address": "ezpleazin@iamnotvanillaicethanks.net"
+      },
+      {
+        "address": "neverforgetthatiamnotvanillaice@jokesonyou.edu"
+      }
     ]
   },
   {
@@ -390,8 +457,12 @@
       "country": "USA"
     },
     "emails": [
-      "tommy.frazier@unl.edu",
-      "tpayne@history.gov"
+      {
+        "address": "tommy.frazier@unl.edu"
+      },
+      {
+        "address": "tpayne@history.gov"
+      }
     ]
   },
   {
@@ -408,8 +479,12 @@
       "country": " England"
     },
     "emails": [
-      "damnu@tommytutone.edu",
-      "gummybears@myspace.com"
+      {
+        "address": "damnu@tommytutone.edu"
+      },
+      {
+        "address": "gummybears@myspace.com"
+      }
     ]
   },
   {
@@ -441,7 +516,9 @@
       "country": "USA"
     },
     "emails": [
-      "takeoffthatbraziermydear@thisisbarry.edu"
+      {
+        "address": "takeoffthatbraziermydear@thisisbarry.edu"
+      }
     ]
   },
   {
@@ -458,8 +535,12 @@
       "country": " USA"
     },
     "emails": [
-      "spooky@fbi.gov",
-      "iwnt2bleve@yahoo.com"
+      {
+        "address": "spooky@fbi.gov"
+      },
+      {
+        "address": "iwnt2bleve@yahoo.com"
+      }
     ]
   },
   {
@@ -474,7 +555,9 @@
       "country": "USA"
     },
     "emails": [
-      "cfalcon@fzero.com"
+      {
+        "address": "cfalcon@fzero.com"
+      }
     ]
   },
   {
@@ -506,8 +589,12 @@
       "country": "USA"
     },
     "emails": [
-      "jjohnson@somewhere.com",
-      "averagejoe@someplace.com"
+      {
+        "address": "jjohnson@somewhere.com"
+      },
+      {
+        "address": "averagejoe@someplace.com"
+      }
     ]
   },
   {
@@ -524,7 +611,9 @@
       "country": " USA"
     },
     "emails": [
-      "barak@obama.com"
+      {
+        "address": "barak@obama.com"
+      }
     ]
   },
   {
@@ -539,7 +628,9 @@
       "country": " USA"
     },
     "emails": [
-      "george@bush.com"
+      {
+        "address": "george@bush.com"
+      }
     ]
   },
   {
@@ -569,9 +660,15 @@
       "country": " USA"
     },
     "emails": [
-      "     george@bush.com",
-      " bush@whitehouse.com",
-      " bush@taxas.gov"
+      {
+        "address": "     george@bush.com"
+      },
+      {
+        "address": " bush@whitehouse.com"
+      },
+      {
+        "address": " bush@taxas.gov"
+      }
     ]
   },
   {
@@ -601,7 +698,9 @@
       "country": "USA"
     },
     "emails": [
-      "jimmy@carter.com"
+      {
+        "address": "jimmy@carter.com"
+      }
     ]
   },
   {
@@ -616,7 +715,9 @@
       "country": " USA"
     },
     "emails": [
-      "bobsmith2343@gmail.com"
+      {
+        "address": "bobsmith2343@gmail.com"
+      }
     ]
   },
   {
@@ -631,7 +732,9 @@
       "country": "USA"
     },
     "emails": [
-      "aj@gmail.com"
+      {
+        "address": "aj@gmail.com"
+      }
     ]
   },
   {
@@ -646,7 +749,9 @@
       "country": "USA"
     },
     "emails": [
-      "jr1834@hotmail.com"
+      {
+        "address": "jr1834@hotmail.com"
+      }
     ]
   },
   {
@@ -661,8 +766,12 @@
       "country": "USA"
     },
     "emails": [
-      "wc345@gmail.com",
-      "wc345@who.com"
+      {
+        "address": "wc345@gmail.com"
+      },
+      {
+        "address": "wc345@who.com"
+      }
     ]
   },
   {
@@ -703,7 +812,9 @@
       "country": "China"
     },
     "emails": [
-      "123@gwoo.com"
+      {
+        "address": "123@gwoo.com"
+      }
     ]
   },
   {
@@ -718,7 +829,9 @@
       "country": "USA"
     },
     "emails": [
-      "wweiz2@gmail.com"
+      {
+        "address": "wweiz2@gmail.com"
+      }
     ]
   },
   {
@@ -746,7 +859,9 @@
       "country": "USA"
     },
     "emails": [
-      "fj2@zoo.com"
+      {
+        "address": "fj2@zoo.com"
+      }
     ]
   },
   {
@@ -763,7 +878,9 @@
       "country": "USA"
     },
     "emails": [
-      "tadison@unl.edu"
+      {
+        "address": "tadison@unl.edu"
+      }
     ]
   },
   {
@@ -780,8 +897,12 @@
       "country": "USA"
     },
     "emails": [
-      "ps1991@huskers.unl.edu",
-      "ps1991@gmail.com"
+      {
+        "address": "ps1991@huskers.unl.edu"
+      },
+      {
+        "address": "ps1991@gmail.com"
+      }
     ]
   },
   {
@@ -798,7 +919,9 @@
       "country": "USA"
     },
     "emails": [
-      "gfrank001@huskers.unl.edu"
+      {
+        "address": "gfrank001@huskers.unl.edu"
+      }
     ]
   },
   {
@@ -815,8 +938,12 @@
       "country": "USA"
     },
     "emails": [
-      "emike@hotmail.com",
-      "emike2@yahoo.com"
+      {
+        "address": "emike@hotmail.com"
+      },
+      {
+        "address": "emike2@yahoo.com"
+      }
     ]
   },
   {
@@ -833,7 +960,9 @@
       "country": "USA"
     },
     "emails": [
-      "tpaul@who.com"
+      {
+        "address": "tpaul@who.com"
+      }
     ]
   }
-]
+]}

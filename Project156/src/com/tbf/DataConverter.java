@@ -2,10 +2,12 @@ package com.tbf;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.lang.reflect.Type;
 import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 public class DataConverter {
 	
@@ -25,9 +27,8 @@ public class DataConverter {
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		
-		String json = gson.toJson(personList);
+		String json = "{" + "\n" + "\"persons\": " + gson.toJson(personList)  + "}";
 		outPerson.write(json);
-		
 		
 		String json2 = gson.toJson(assetList);
 		outAsset.write(json2);

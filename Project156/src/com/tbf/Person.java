@@ -1,6 +1,6 @@
 package com.tbf;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Person {
 	
@@ -10,10 +10,10 @@ public class Person {
 	private String lastName;
 	private String firstName;
 	private Address address;
-	private ArrayList<String> emails;
+	private List<Email> emails;
 
 	public Person(String personCode, String broker, String section, String lastName, String firstName, Address address,
-			ArrayList<String> email) {
+			List<Email> email) {
 		this.personCode = personCode;
 		this.broker = broker;
 		this.section = section;
@@ -22,8 +22,8 @@ public class Person {
 		this.address = address;
 		this.emails = email;
 	}
-
-
+	
+	
 	@Override
 	public String toString() {
 		return "Person [personCode=" + personCode + ", broker=" + broker + ", section=" + section + ", lastName="
@@ -66,7 +66,7 @@ public class Person {
 	}
 
 
-	public ArrayList<String> getEmail() {
+	public List<Email> getEmail() {
 		return this.emails;
 	}
 
@@ -85,7 +85,7 @@ public class Person {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	public void setEmail(ArrayList<String> email) {
+	public void setEmail(List<Email> email) {
 		this.emails = email;
 	}
 
