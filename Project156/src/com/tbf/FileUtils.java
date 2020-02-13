@@ -1,5 +1,11 @@
 package com.tbf;
 
+/*
+ * This utils files creates lists of person and opens/closes
+ * the data file. And Uses that data assigns into persons class.
+ * And puts all the persons into an arrays  
+ */
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;

@@ -1,7 +1,9 @@
 package com.tbf;
+/**
+ * Persons class with their names, address, emails, broker, and personCode.
+ */
 
 import java.util.List;
-
 public class Person {
 	
 	private String personCode;

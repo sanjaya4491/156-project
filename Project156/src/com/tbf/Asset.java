@@ -1,7 +1,11 @@
 package com.tbf;
 
+/**
+ * This Asset class stores all the information about the
+ * including code, type, and label. 
+ */
+
 public class Asset {
-	
 	private String code;
 	private String type;
 	private String label;

@@ -1,5 +1,8 @@
 package com.tbf;
 
+/**
+ * This class stores the lists of persons emails
+ */
 public class Email {
 	
 	private String address;

@@ -1,5 +1,7 @@
 package com.tbf;
-
+/**
+ * This class has the total value of the investment , qurterlyDividend, baseReturn, and baseOmegaMeasure.
+ */
 public class PrivateInvestment extends Asset {
 	
 	private String quarterlyDividend;
@@ -21,7 +23,6 @@ public class PrivateInvestment extends Asset {
 	}
 
 	public void setQuarterlyDividend(String quarterlyDividend) {
-		this.quarterlyDividend = quarterlyDividend;
 	}
 
 	public String getBaseReturn() {

@@ -1,5 +1,10 @@
 package com.tbf;
 
+/**
+ * This Stores the the deposit account of the assets a
+ * and gets the apr.
+ */
+
 public class DepositAccount extends Asset {
 
 	private String apr;

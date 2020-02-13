@@ -3,7 +3,6 @@ package com.tbf;
  * This class stores all the informating about the stock for ex the name and the symbol and the price.
  */
 public class Stock extends Asset {
-
 	private String quarterlyDividend;
 	private String baseReturn;
 	private String betaMeasure;

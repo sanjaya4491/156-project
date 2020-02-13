@@ -1,5 +1,10 @@
 package com.tbf;
 
+/**
+ * This "Address" class stores the Address of a person. That contains thier
+ * street, city, state, zipcode and their country
+ */
+
 public class Address {
 	
 	private String street;

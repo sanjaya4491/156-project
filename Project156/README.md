@@ -1,4 +1,3 @@
-# 156-project Phase 1
 Authors: Daniel Godoy & Sanjaya Dhakal
 
 Date: 2/14/20
