@@ -45,7 +45,7 @@ public class FileUtils {
 					emails.add(new Email(email[j]));
 				}
 				Person person = new Person(personCode, broker, section, lastName, firstName, address, emails);
-				result.add(person);
+				result.add (person);
 			} else {
 				Person person = new Person(personCode, broker, section, lastName, firstName, address, emails);
 				result.add(person);

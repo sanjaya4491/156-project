@@ -27,7 +27,7 @@ public class DataConverter {
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		
-		String json = "{" + "\n" + "\"persons\": " + gson.toJson(personList)  + "}";
+		String json = "{" + "\n" + "\"persons\": " + gson.toJson(personList)  + " }";
 		outPerson.write(json);
 		
 		String json2 = gson.toJson(assetList);
