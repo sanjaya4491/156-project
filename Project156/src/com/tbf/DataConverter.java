@@ -30,7 +30,7 @@ public class DataConverter {
 		String json = "{" + "\n" + "\"persons\": " + gson.toJson(personList)  + " }";
 		outPerson.write(json);
 		
-		String json2 = gson.toJson(assetList);
+		String json2 = "{" + "\n" + "\"assets\": " + gson.toJson(assetList) + " }";
 		outAsset.write(json2);
 		
 		outPerson.close();
