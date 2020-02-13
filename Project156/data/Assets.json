@@ -1,0 +1,421 @@
+[
+  {
+    "apr": "1.05",
+    "code": "BX001-23",
+    "type": "D",
+    "label": "Money Market Savings"
+  },
+  {
+    "apr": "0.25",
+    "code": "AGTSAV",
+    "type": "D",
+    "label": "Savings Account"
+  },
+  {
+    "apr": "4.35",
+    "code": "CD99312",
+    "type": "D",
+    "label": "5-year CD"
+  },
+  {
+    "apr": "2.75",
+    "code": "CD1Y3X",
+    "type": "D",
+    "label": "1-year Rollover CD"
+  },
+  {
+    "apr": "2.75",
+    "code": "CD1Y3Y",
+    "type": "D",
+    "label": "1-year Rollover CD"
+  },
+  {
+    "apr": "3.4",
+    "code": "RIRA01",
+    "type": "D",
+    "label": "Roth IRA"
+  },
+  {
+    "quarterlyDividend": "0.0",
+    "baseReturn": "5.6",
+    "betaMeasure": "-0.05",
+    "stockSymbol": "GOOG",
+    "sharePrice": "814.708",
+    "code": "GOOG001",
+    "type": "S",
+    "label": "Google Inc."
+  },
+  {
+    "quarterlyDividend": "12.00",
+    "baseReturn": "3.2",
+    "betaMeasure": "0.01",
+    "stockSymbol": "DEO",
+    "sharePrice": "122.75",
+    "code": "DIAGEO12",
+    "type": "S",
+    "label": "Diageo PLC"
+  },
+  {
+    "quarterlyDividend": "24.50",
+    "baseReturn": "4.3",
+    "betaMeasure": "-0.07",
+    "stockSymbol": "AAPL",
+    "sharePrice": "429.80",
+    "code": "123APP",
+    "type": "S",
+    "label": "Apple"
+  },
+  {
+    "quarterlyDividend": "5.45",
+    "baseReturn": "3.1",
+    "betaMeasure": "0.075",
+    "stockSymbol": "KO",
+    "sharePrice": "41.08",
+    "code": "321CC",
+    "type": "S",
+    "label": "Coca-Cola"
+  },
+  {
+    "quarterlyDividend": "45.57",
+    "baseReturn": "3.19",
+    "betaMeasure": "0.0",
+    "stockSymbol": "CMG",
+    "sharePrice": "341.91",
+    "code": "No1BURR",
+    "type": "S",
+    "label": "Chipotle Mexican Grill"
+  },
+  {
+    "quarterlyDividend": "10.00",
+    "baseReturn": "2.25",
+    "betaMeasure": "0.13",
+    "stockSymbol": "COST",
+    "sharePrice": "106.13",
+    "code": "B0oWM",
+    "type": "S",
+    "label": "Costco"
+  },
+  {
+    "quarterlyDividend": "0.0",
+    "baseReturn": "1.25",
+    "betaMeasure": "0.08",
+    "stockSymbol": "DDD",
+    "sharePrice": "35.40",
+    "code": "N0TPIX",
+    "type": "S",
+    "label": "3D Systems"
+  },
+  {
+    "quarterlyDividend": "2.75",
+    "baseReturn": "4.6",
+    "betaMeasure": "0.12",
+    "stockSymbol": "CNI",
+    "sharePrice": "97.75",
+    "code": "wOOWoo1S",
+    "type": "S",
+    "label": "Canadian National Railway"
+  },
+  {
+    "quarterlyDividend": "0.0",
+    "baseReturn": "7.2",
+    "betaMeasure": "-0.10",
+    "stockSymbol": "BRK-B",
+    "sharePrice": "107.04",
+    "code": "BERK-B",
+    "type": "S",
+    "label": "Berkshire Hathaway"
+  },
+  {
+    "quarterlyDividend": "2400.00",
+    "baseReturn": "0.25",
+    "baseOmegaMeasure": "0.15",
+    "totalValue": "120000",
+    "code": "RENT445",
+    "type": "P",
+    "label": "Rental Property"
+  },
+  {
+    "quarterlyDividend": "14240",
+    "baseReturn": "5.35",
+    "baseOmegaMeasure": "0.25",
+    "totalValue": "10456000",
+    "code": "CMPROP0121",
+    "type": "P",
+    "label": "Commercial Property-Red Oaks Mall"
+  },
+  {
+    "quarterlyDividend": "35000.00",
+    "baseReturn": "3.0",
+    "baseOmegaMeasure": "0.32",
+    "totalValue": "1212500.00",
+    "code": "FOOD12",
+    "type": "P",
+    "label": "Cluckin\u0027s restaurant chain"
+  },
+  {
+    "quarterlyDividend": "1232",
+    "baseReturn": "1.23",
+    "baseOmegaMeasure": "0.13",
+    "totalValue": "54300.00",
+    "code": "REALStr12",
+    "type": "P",
+    "label": "Fred\u0027s Fabulous Hardware Store"
+  },
+  {
+    "quarterlyDividend": "10500",
+    "baseReturn": "2",
+    "baseOmegaMeasure": "-0.15",
+    "totalValue": "4213333",
+    "code": "IND321",
+    "type": "P",
+    "label": "Industrial Widget Manufacturers Inc."
+  },
+  {
+    "quarterlyDividend": "2453.21",
+    "baseReturn": "2.1",
+    "baseOmegaMeasure": "0.54",
+    "totalValue": "13500.00",
+    "code": "RSTOR322",
+    "type": "P",
+    "label": "7\" Vinyl Records"
+  },
+  {
+    "apr": "0.25",
+    "code": "SAVE01",
+    "type": "D",
+    "label": "Savings Account"
+  },
+  {
+    "apr": "1.05",
+    "code": "MONMO1",
+    "type": "D",
+    "label": "Money Market Savings"
+  },
+  {
+    "apr": "4.35",
+    "code": "CD5YER",
+    "type": "D",
+    "label": "5-year CD"
+  },
+  {
+    "apr": "2.75",
+    "code": "CD1YER",
+    "type": "D",
+    "label": "1-year Rollover CD"
+  },
+  {
+    "apr": "3.4",
+    "code": "ROTIRA",
+    "type": "D",
+    "label": "Roth IRA"
+  },
+  {
+    "quarterlyDividend": "0.0",
+    "baseReturn": "5.6",
+    "betaMeasure": "-0.05",
+    "stockSymbol": "MIC",
+    "sharePrice": "814.708",
+    "code": "TABLET",
+    "type": "S",
+    "label": "Surface Inc"
+  },
+  {
+    "quarterlyDividend": "12.00",
+    "baseReturn": "3.2",
+    "betaMeasure": "0.01",
+    "stockSymbol": "SSI",
+    "sharePrice": "122.75",
+    "code": "SCHROK",
+    "type": "S",
+    "label": "Schrock Innovation"
+  },
+  {
+    "quarterlyDividend": "24.50",
+    "baseReturn": "4.3",
+    "betaMeasure": "-0.07",
+    "stockSymbol": "BUB",
+    "sharePrice": "429.80",
+    "code": "BUBBAG",
+    "type": "S",
+    "label": "BubbaGump Shrimp"
+  },
+  {
+    "quarterlyDividend": "5.45",
+    "baseReturn": "3.1",
+    "betaMeasure": "0.075",
+    "stockSymbol": "PEP",
+    "sharePrice": "41.08",
+    "code": "PEPSI1",
+    "type": "S",
+    "label": "Pepsi"
+  },
+  {
+    "quarterlyDividend": "45.57",
+    "baseReturn": "3.19",
+    "betaMeasure": "0.0",
+    "stockSymbol": "USA",
+    "sharePrice": "341.91",
+    "code": "MILTEC",
+    "type": "S",
+    "label": "US Army"
+  },
+  {
+    "apr": "8.76",
+    "code": "CD4523",
+    "type": "D",
+    "label": "10-year CD"
+  },
+  {
+    "apr": "0.96",
+    "code": "DTh38R",
+    "type": "D",
+    "label": "Money Market Account"
+  },
+  {
+    "quarterlyDividend": "0.0",
+    "baseReturn": "3.4",
+    "betaMeasure": "-0.03",
+    "stockSymbol": "YHOO",
+    "sharePrice": "28.17",
+    "code": "YHOO003",
+    "type": "S",
+    "label": "Yahoo! Inc."
+  },
+  {
+    "quarterlyDividend": "0.92",
+    "baseReturn": "4.1",
+    "betaMeasure": "0.17",
+    "stockSymbol": "MSFT",
+    "sharePrice": "31.15",
+    "code": "MSFT007",
+    "type": "S",
+    "label": "Microsoft Corporation"
+  },
+  {
+    "quarterlyDividend": "1050.50",
+    "baseReturn": "5.6",
+    "baseOmegaMeasure": "0.33",
+    "totalValue": "23006.53",
+    "code": "THRE456",
+    "type": "P",
+    "label": "Three-14 Pi Shop"
+  },
+  {
+    "quarterlyDividend": "3678.19",
+    "baseReturn": "3.9",
+    "baseOmegaMeasure": "0.48",
+    "totalValue": "47800.35",
+    "code": "BIKE035",
+    "type": "P",
+    "label": "Buck\u0027s Bike Store"
+  },
+  {
+    "apr": "0.08",
+    "code": "SVSVNGS",
+    "type": "D",
+    "label": "Savings Account"
+  },
+  {
+    "quarterlyDividend": "23",
+    "baseReturn": "11",
+    "betaMeasure": "-0.1",
+    "stockSymbol": "TWTR",
+    "sharePrice": "324.23",
+    "code": "TWTTER01",
+    "type": "S",
+    "label": "Twitter Inc."
+  },
+  {
+    "quarterlyDividend": "0",
+    "baseReturn": "0.24",
+    "baseOmegaMeasure": "0.12",
+    "totalValue": "2343212",
+    "code": "GLDSD03",
+    "type": "P",
+    "label": "Gold"
+  },
+  {
+    "quarterlyDividend": "12",
+    "baseReturn": "0.013",
+    "betaMeasure": "0.45",
+    "stockSymbol": "MSFT",
+    "sharePrice": "30.23",
+    "code": "MSFT32",
+    "type": "S",
+    "label": "Microsoft Inc."
+  },
+  {
+    "quarterlyDividend": "1",
+    "baseReturn": "0.11",
+    "baseOmegaMeasure": "0.15",
+    "totalValue": "1111",
+    "code": "CPPRD03",
+    "type": "P",
+    "label": "Copper"
+  },
+  {
+    "apr": "8.5",
+    "code": "ESPN001",
+    "type": "D",
+    "label": "Huskers"
+  },
+  {
+    "apr": "1.34",
+    "code": "SEARCH8",
+    "type": "D",
+    "label": "Yahoo"
+  },
+  {
+    "apr": "1.78",
+    "code": "VTST",
+    "type": "D",
+    "label": "Geigco"
+  },
+  {
+    "quarterlyDividend": "3.25",
+    "baseReturn": "2.4",
+    "betaMeasure": "0.02",
+    "stockSymbol": "BOA",
+    "sharePrice": "143.18",
+    "code": "WESYT129",
+    "type": "S",
+    "label": "Bank of America"
+  },
+  {
+    "quarterlyDividend": "5.24",
+    "baseReturn": "8.14",
+    "betaMeasure": "0.03",
+    "stockSymbol": "PEP",
+    "sharePrice": "87.25",
+    "code": "PWES912",
+    "type": "S",
+    "label": "PEPSI INC"
+  },
+  {
+    "quarterlyDividend": "4789.32",
+    "baseReturn": "0.32",
+    "baseOmegaMeasure": "0.17",
+    "totalValue": "1004780.66",
+    "code": "YUOPCT",
+    "type": "P",
+    "label": "WALMART"
+  },
+  {
+    "quarterlyDividend": "7812.41",
+    "baseReturn": "2.5",
+    "baseOmegaMeasure": "0.39",
+    "totalValue": "58963.27",
+    "code": "DR0U7Z5TW",
+    "type": "P",
+    "label": "TARGET"
+  },
+  {
+    "quarterlyDividend": "9631.45",
+    "baseReturn": "0.64",
+    "baseOmegaMeasure": "0.25",
+    "totalValue": "296352.87",
+    "code": "TEWS4A1MO",
+    "type": "P",
+    "label": "AMAZON"
+  }
+]
