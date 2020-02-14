@@ -1,6 +1,6 @@
 package com.tbf;
 
-/*
+/**
  * This utils files creates lists of person and opens/closes
  * the data file. And Uses that data assigns into persons class.
  * And puts all the persons into an arrays  
@@ -17,7 +17,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class FileUtils {
-
+	
+	/**
+	 * Method that reads from a flat data file containing person information and returns a list of person objects
+	 * @return
+	 */
 	public static List<Person> parsePersonDataFile() {
 		List<Person> result = new ArrayList<Person>();
 		File file = new File("data/Persons.dat");
@@ -30,7 +34,7 @@ public class FileUtils {
 
 		int numlines = Integer.parseInt(sc.nextLine());
 		int i = 0;
-		while (i < numlines - 1) {
+		while (i < numlines) {
 			String line[] = sc.nextLine().split(";");
 			String personCode = line[0];
 			String brok[] = line[1].split(",");
@@ -65,7 +69,11 @@ public class FileUtils {
 		sc.close();
 		return result;
 	}
-
+	
+	/**
+	 * Method that reads from a flat data file containing asset information and returns a list of asset objects
+	 * @return
+	 */
 	public static List<Asset> parseAssetDataFile() {
 		List<Asset> result = new ArrayList<Asset>();
 		File file = new File("data/Assets.dat");
@@ -108,6 +116,9 @@ public class FileUtils {
 		return result;
 	}
 	
+	/**
+	 *	Method that converts a list of person objects into Json strings and prints them to a file
+	 */
 	public static void personListToJsonFile() {
 		List<Person> personList = FileUtils.parsePersonDataFile();
 		PrintWriter out = null;
@@ -123,6 +134,9 @@ public class FileUtils {
 		out.close();
 	}
 	
+	/**
+	 * Method that converts a list of asset objects into Json strings and prints them to a file
+	 */
 	public static void assetListToJsonFile() {
 		List<Asset> assetList = FileUtils.parseAssetDataFile();
 		PrintWriter out = null;
