@@ -2,8 +2,10 @@
 "persons": [
   {
     "personCode": "007Y",
-    "broker": "E",
-    "section": " sec123",
+    "broker": {
+      "title": "E",
+      "section": " sec123"
+    },
     "lastName": "Cordova",
     "firstName": "Salvatore",
     "address": {
@@ -54,8 +56,10 @@
   },
   {
     "personCode": "PK9B",
-    "broker": "J",
-    "section": " sec290",
+    "broker": {
+      "title": "J",
+      "section": " sec290"
+    },
     "lastName": "De Angelis",
     "firstName": "Lillian",
     "address": {

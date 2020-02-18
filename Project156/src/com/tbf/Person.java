@@ -1,35 +1,34 @@
 package com.tbf;
+
 /**
- * Persons class with their names, address, emails, broker, and personCode.
+ * Persons class with their names, address, email's, broker, and personCode.
  */
 
 import java.util.List;
 public class Person {
 	
 	private String personCode;
-	private String broker;
-	private String section;
+	private Broker broker;
 	private String lastName;
 	private String firstName;
 	private Address address;
 	private List<Email> emails;
 
-	public Person(String personCode, String broker, String section, String lastName, String firstName, Address address,
+	public Person(String personCode, Broker broker, String lastName, String firstName, Address address,
 			List<Email> email) {
 		this.personCode = personCode;
 		this.broker = broker;
-		this.section = section;
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.address = address;
 		this.emails = email;
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
-		return "Person [personCode=" + personCode + ", broker=" + broker + ", section=" + section + ", lastName="
-				+ lastName + ", firstName=" + firstName + ", address=" + address + ", email=" + emails + "]";
+		return "Person [personCode=" + personCode + ", broker=" + broker + ", lastName=" + lastName + ", firstName="
+				+ firstName + ", address=" + address + ", emails=" + emails + "]";
 	}
 
 
@@ -38,20 +37,10 @@ public class Person {
 	}
 
 
-	public String getBroker() {
+	public Broker getBroker() {
 		return this.broker;
 	}
 	
-
-	public String getSection() {
-		return section;
-	}
-
-
-	public void setSection(String section) {
-		this.section = section;
-	}
-
 
 	public String getLastName() {
 		return this.lastName;
@@ -75,7 +64,7 @@ public class Person {
 	public void setPersonCode(String personCode) {
 		this.personCode = personCode;
 	}
-	public void setBroker(String broker) {
+	public void setBroker(Broker broker) {
 		this.broker = broker;
 	}
 	public void setLastName(String lastName) {

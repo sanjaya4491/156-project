@@ -38,14 +38,9 @@ public class FileUtils {
 			String line[] = sc.nextLine().split(";");
 			String personCode = line[0];
 			String brok[] = line[1].split(",");
-			String broker;
-			String section;
+			Broker broker = null;
 			if (brok.length == 2) {
-				broker = brok[0];
-				section = brok[1];
-			} else {
-				broker = null;
-				section = null;
+				broker = new Broker(brok[0], brok[1]);
 			}
 			String name[] = line[2].split(",");
 			String lastName = name[0];
@@ -58,10 +53,10 @@ public class FileUtils {
 				for (int j = 0; j < email.length; j++) {
 					emails.add(new Email(email[j]));
 				}
-				Person person = new Person(personCode, broker, section, lastName, firstName, address, emails);
+				Person person = new Person(personCode, broker, lastName, firstName, address, emails);
 				result.add(person);
 			} else {
-				Person person = new Person(personCode, broker, section, lastName, firstName, address, emails);
+				Person person = new Person(personCode, broker, lastName, firstName, address, emails);
 				result.add(person);
 			}
 			i++;
