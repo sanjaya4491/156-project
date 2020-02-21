@@ -1,0 +1,76 @@
+Portfolio Summary Report
+===============================================================================================================================
+Portfolio  Owner                Manager                       Fees     Commisions  Weighted Risk         Return          Total
+PT001      Handscomb, Dionis    Cordova, Salvatore   $      0.00   $         .52         0.00  $       13.94  $   	   100
+PT002      Cordova, Salvatore   De Angelis, Lillian  $       300   $         .46         0.00  $       36.88  $   	  1400
+PT003      Carress, Quinn       De Angelis, Lillian  $       300   $      579.58         -.15  $    46366.63  $       28392.01
+
+Portfolio Details
+================================================================================================================
+Portfolio PT001
+------------------------------------------
+Owner:
+Handscomb, Dionis
+[]
+8 Ronald Regan Hill
+Omaha, NE USA 68116
+Manager:
+Cordova, Salvatore
+Beneficiary:
+Sickling, Adora
+[asickling1@a8.net, ohyeah@ohyea.com]
+1 School Road
+Chicago, IL USA 60613
+Assets
+Code       Asset                           Return Rate          Risk  Annual Return          Value
+BX001-23   Money Market Savings                  13.94    	0.00          13.94            100
+                                                        --------------------------------------------
+                                                Totals          0.00  $       13.94 $         100
+
+Portfolio PT002
+------------------------------------------
+Owner:
+Cordova, Salvatore
+[cordova0@zdnet.com]
+9903 Jenifer Streets
+Fremont,NE USA 68025
+Manager:
+De Angelis, Lillian
+Beneficiary:
+none
+Assets
+Code       Asset                           Return Rate          Risk  Annual Return          Value
+CCBB00	   Savings Account			.0024		0.00          .4806		200
+99800      4-year CD				.0445		0.00	      13.34		300
+apple      3-year Rollover			.0238		0.00	      9.115		400
+dell22     2-year Rollover 			.0279		0.00	      13.94		500
+                                                        --------------------------------------------
+                                                Totals          0.00  $       36.88 $   	1400
+
+Portfolio PT003
+------------------------------------------
+Owner:
+Carress, Quinn
+[qcarress4@toplist.cz]
+64516 Golf View Drive
+Omaha, NE USA 68116
+Manager:
+De Angelis, Lillian
+Beneficiary:
+none
+Assets
+Code       Asset                           Return Rate          Risk  Annual Return          Value
+google	   chrome Inc.				5.6		-.05	     526.54	   9402.59
+dadooe90   Diageo PLC			     379.67 		 .01	   10746.58	    2830.5
+324yoo     acccv			     233.27		-.07       33246.85	   14252.4
+AME21      Many Midget Manufacturers Man.     96.86		-.15	    1846.66	   1906.52
+                                                        --------------------------------------------
+                                                Totals          -.15  $    46366.63  $    28392.01
+
+
+
+
+
+
+
+
