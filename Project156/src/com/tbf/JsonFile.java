@@ -1,5 +1,9 @@
 package com.tbf;
 
+/**
+ * Class that contains methods for serializing lists of objects into Json files
+ */
+
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -12,8 +16,8 @@ public class JsonFile {
 	/**
 	 *	Method that converts a list of person objects into Json strings and prints them to a file
 	 */
-	public static void personListToJsonFile() {
-		List<Person> personList = DataParser.parsePersonDataFile();
+	public static void personListToJsonFile(List<Person> personList) {
+		personList = DataParser.parsePersonDataFile();
 		PrintWriter out = null;
 		try {
 			out = new PrintWriter("data/Persons.json");
@@ -30,8 +34,8 @@ public class JsonFile {
 	/**
 	 * Method that converts a list of asset objects into Json strings and prints them to a file
 	 */
-	public static void assetListToJsonFile() {
-		List<Asset> assetList = DataParser.parseAssetDataFile();
+	public static void assetListToJsonFile(List<Asset> assetList) {
+		assetList = DataParser.parseAssetDataFile();
 		PrintWriter out = null;
 		try {
 			out = new PrintWriter("data/Assets.json");

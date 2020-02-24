@@ -1,23 +1,24 @@
 package com.tbf;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
- * This class Converts a list of person and a asset into a Json format Then it
- * is written in output file.
+ * This class Converts a list of person and a asset into a Json format and it
+ * is written to a file.
  */
 
 public class DataConverter {
 	
 	public static void main(String args[]) {
 		
-		JsonFile.personListToJsonFile();
-		JsonFile.assetListToJsonFile();
+		List<Person> personList = DataParser.parsePersonDataFile();
+		List<Asset> assetList = DataParser.parseAssetDataFile();
+		JsonFile.personListToJsonFile(personList);
+		JsonFile.assetListToJsonFile(assetList);
 		
-		List <Portfolio> portfollio = DataParser.parsePortfolioDataFile();
+		List <Portfolio> portfolio = DataParser.parsePortfolioDataFile();
 		
-		   for (Portfolio num : portfollio) { 		      
+		   for (Portfolio num : portfolio) { 		      
 	           System.out.println(num); 		
 	      }
 	}
