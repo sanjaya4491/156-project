@@ -1,5 +1,6 @@
 package com.tbf;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -15,8 +16,10 @@ public class DataConverter {
 		JsonFile.assetListToJsonFile();
 		
 		List <Portfolio> portfollio = DataParser.parsePortfolioDataFile();
-		System.out.println(portfollio);
 		
+		   for (Portfolio num : portfollio) { 		      
+	           System.out.println(num); 		
+	      }
 	}
 	
 }

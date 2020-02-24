@@ -134,18 +134,18 @@ public class DataParser {
 			String ownerCode = line[1];
 			String managerCode = line[2];
 			String beneficiaryCode = line[3];
-			String assestsList[] = line[4].split(",");
+			String assetsList[] = line[4].split(",");
 			Map<String, Double> assestsMap = new HashMap <String, Double>();  
-			for (int j = 0 ; j < assestsList.length; j++) {
-				String assests[] = line[j].split(":");
-				assestsMap.put(assests[0],  Double.parseDouble(assests[1]));	
+			for (int j = 0 ; j < assetsList.length; j++) {
+				String assets[] = assetsList[j].split(":");
+				assestsMap.put(assets[0],  Double.parseDouble(assets[1]));	
 			}
 			
 			Portfolio portfolio = new Portfolio (portfolioCode, ownerCode,
 												managerCode, beneficiaryCode,
 												assestsMap);
 			result.add(portfolio);
-	
+			i ++;
 		}
 
 		return result;

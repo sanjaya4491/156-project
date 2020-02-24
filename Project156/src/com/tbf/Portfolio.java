@@ -50,6 +50,16 @@ public class Portfolio {
 	public void setAssestList(Map<String, Double> assestList) {
 		this.assestList = assestList;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Portfolio [portfolioCode=" + portfolioCode + ", ownerCode=" + ownerCode + ", managerCode=" + managerCode
+				+ ", beneficiaryCode=" + beneficiaryCode + ", assestList=" + assestList + "]";
+	}
+	
+	
+	
 	
 	
 	
