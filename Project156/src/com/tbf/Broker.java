@@ -1,6 +1,8 @@
 package com.tbf;
 
-public class Broker {
+import java.util.List;
+
+public class Broker implements Payable {
 	
 	private String title;
 	private String section;
@@ -25,9 +27,17 @@ public class Broker {
 	public void setSection(String section) {
 		this.section = section;
 	}
-	
-	
-	
-	
 
+	@Override
+	public double getFee(List<Asset> assetList) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getCommission(List<Asset> assetList, Portfolio that) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
 }

@@ -1,5 +1,7 @@
 package com.tbf;
 
+import java.util.List;
+
 /**
  * This Asset class stores all the information about the
  * including code, type, and label. 
@@ -42,10 +44,33 @@ public abstract class Asset {
 	
 	public abstract double getAnnualReturn(Portfolio that);
 	
-	public abstract double getReturnRate();
+	public abstract double getReturnRate(Portfolio that);
 	
-	public abstract double getTotal();
+	public abstract double getTotal(Portfolio that);
 	
 	public abstract double getRisk();
 	
+	public static double getTotalPortfolioValue(List<Asset> assetList, Portfolio that) {
+		double total = 0;
+		for(Asset a : assetList) {
+			total = total + a.getTotal(that);
+		}
+		return total;
+	}
+	
+	public static double getWeightedRisk(List<Asset> assetList, Portfolio that) {
+		double totalRisk = 0;
+		for(Asset a : assetList) {
+			totalRisk = totalRisk + (a.getRisk() * (a.getTotal(that) / Asset.getTotalPortfolioValue(assetList, that)));
+		}
+		return totalRisk;
+	}
+	
+	public static double getTotalRateOfReturn(List<Asset> assetList, Portfolio that) {
+		double total = 0;
+		for(Asset a : assetList) {
+			total = total + a.getAnnualReturn(that);
+		}
+		return total;
+	}
 }

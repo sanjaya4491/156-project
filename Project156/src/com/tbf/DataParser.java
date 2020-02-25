@@ -45,7 +45,13 @@ public class DataParser {
 			Broker broker = null;
 			//check if the person is a broker 
 			if (brok.length == 2) {
-				broker = new Broker(brok[0], brok[1]);
+				//check if the broker is a junior broker
+				if(brok[0].compareTo("J") == 0) {
+					broker = new JuniorBroker(brok[0], brok[1]);
+				} else {
+					//else its an expert broker
+					broker = new ExpertBroker(brok[0], brok[1]);
+				}
 			}
 			String name[] = line[2].split(",");
 			String lastName = name[0];

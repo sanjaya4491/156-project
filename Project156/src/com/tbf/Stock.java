@@ -60,27 +60,35 @@ public class Stock extends Asset {
 	}
 
 	@Override
-	public double getReturnRate() {
+	public double getReturnRate(Portfolio that) {
 		// TODO Auto-generated method stub
-		return 0;
+		String assetCode = this.getCode(); 
+		Double assetValue = that.getAssetList().get(assetCode);
+		double annualReturn = this.getAnnualReturn(that);
+		return (annualReturn / (Double.parseDouble(this.getSharePrice()) * assetValue)) * 100;
 	}
 
 	@Override
-	public double getTotal() {
+	public double getTotal(Portfolio that) {
 		// TODO Auto-generated method stub
-		return 0;
+		String assetCode = this.getCode(); 
+		Double assetValue = that.getAssetList().get(assetCode);
+		return assetValue * Double.parseDouble(this.getSharePrice());
 	}
 
 	@Override
 	public double getRisk() {
 		// TODO Auto-generated method stub
-		return 0;
+		return Double.parseDouble(this.getBetaMeasure());
 	}
 
 	@Override
 	public double getAnnualReturn(Portfolio that) {
 		// TODO Auto-generated method stub
-		return 0;
+		String assetCode = this.getCode(); 
+		Double assetValue = that.getAssetList().get(assetCode);
+		return ((Double.parseDouble(this.getBaseReturn()) / 100) * Double.parseDouble(this.getSharePrice()) * assetValue) +
+				(4 * Double.parseDouble(this.getQuarterlyDividend()) * assetValue);
 	}
 	
 }
