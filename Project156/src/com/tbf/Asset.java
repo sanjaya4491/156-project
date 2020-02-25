@@ -1,5 +1,7 @@
 package com.tbf;
 
+import java.util.List;
+
 /**
  * This Asset class stores all the information about the
  * including code, type, and label. 
@@ -40,7 +42,7 @@ public abstract class Asset {
 		this.label = label;
 	}
 	
-	public abstract double getAnnualReturn();
+	public abstract double getAnnualReturn(Portfolio that);
 	
 	public abstract double getReturnRate();
 	

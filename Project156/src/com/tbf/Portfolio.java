@@ -8,15 +8,15 @@ public class Portfolio {
 	private String ownerCode;
 	private String managerCode;
 	private String beneficiaryCode;
-	private Map <String, Double> assestList ;
+	private Map <String, Double> assetList ;
 
 	public Portfolio(String portfolioCode, String ownerCode, String managerCode, String beneficiaryCode,
-			Map<String, Double> assestList) {
+			Map<String, Double> assetList) {
 		this.portfolioCode = portfolioCode;
 		this.ownerCode = ownerCode;
 		this.managerCode = managerCode;
 		this.beneficiaryCode = beneficiaryCode;
-		this.assestList = assestList;
+		this.assetList = assetList;
 	}
 	
 	
@@ -44,18 +44,18 @@ public class Portfolio {
 	public void setBeneficiaryCode(String beneficiaryCode) {
 		this.beneficiaryCode = beneficiaryCode;
 	}
-	public Map<String, Double> getAssestList() {
-		return assestList;
+	public Map<String, Double> getAssetList() {
+		return assetList;
 	}
-	public void setAssestList(Map<String, Double> assestList) {
-		this.assestList = assestList;
+	public void setAssestList(Map<String, Double> assetList) {
+		this.assetList = assetList;
 	}
 
 
 	@Override
 	public String toString() {
 		return "Portfolio [portfolioCode=" + portfolioCode + ", ownerCode=" + ownerCode + ", managerCode=" + managerCode
-				+ ", beneficiaryCode=" + beneficiaryCode + ", assestList=" + assestList + "]";
+				+ ", beneficiaryCode=" + beneficiaryCode + ", assestList=" + assetList + "]";
 	}
 	
 	

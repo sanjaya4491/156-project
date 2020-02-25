@@ -82,5 +82,11 @@ public class Stock extends Asset {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public double getAnnualReturn(Portfolio that) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }
