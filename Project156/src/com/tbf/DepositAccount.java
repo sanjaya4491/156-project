@@ -21,5 +21,29 @@ public class DepositAccount extends Asset {
 	public void setApr(String apr) {
 		this.apr = apr;
 	}
+
+	@Override
+	public double getAnnualReturn() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getReturnRate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getTotal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getRisk() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

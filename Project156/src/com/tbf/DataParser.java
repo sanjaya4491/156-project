@@ -188,7 +188,7 @@ public class DataParser {
 				}
 				//create the portfolio
 				Portfolio portfolio = new Portfolio(portfolioCode, ownerCode, managerCode, beneficiaryCode, assetsMap);
-				//add it to the portfolio lust
+				//add it to the portfolio list
 				result.add(portfolio);
 				//if the record does not have any assets
 			} else {

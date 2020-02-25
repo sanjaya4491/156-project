@@ -58,5 +58,29 @@ public class Stock extends Asset {
 	public void setSharePrice(String sharePrice) {
 		this.sharePrice = sharePrice;
 	}
+
+	@Override
+	public double getAnnualReturn() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getReturnRate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getTotal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getRisk() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

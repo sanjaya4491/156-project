@@ -5,7 +5,7 @@ package com.tbf;
  * including code, type, and label. 
  */
 
-public class Asset {
+public abstract class Asset {
 	private String code;
 	private String type;
 	private String label;
@@ -39,5 +39,13 @@ public class Asset {
 	public void setLabel(String label) {
 		this.label = label;
 	}
+	
+	public abstract double getAnnualReturn();
+	
+	public abstract double getReturnRate();
+	
+	public abstract double getTotal();
+	
+	public abstract double getRisk();
 
 }
