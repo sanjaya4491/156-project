@@ -1,7 +1,5 @@
 package com.tbf;
 
-import java.util.List;
-
 /**
  * This Asset class stores all the information about the
  * including code, type, and label. 
@@ -49,5 +47,5 @@ public abstract class Asset {
 	public abstract double getTotal();
 	
 	public abstract double getRisk();
-
+	
 }

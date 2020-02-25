@@ -50,7 +50,7 @@ public class PrivateInvestment extends Asset {
 	}
 
 	@Override
-	public double getAnnualReturn() {
+	public double getAnnualReturn(Portfolio that) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -69,12 +69,6 @@ public class PrivateInvestment extends Asset {
 
 	@Override
 	public double getRisk() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public double getAnnualReturn(Portfolio that) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
