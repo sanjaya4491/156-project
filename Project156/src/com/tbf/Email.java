@@ -19,4 +19,11 @@ public class Email {
 		this.address = address;
 	}
 
+	@Override
+	public String toString() {
+		return String.format("%s", this.address);
+	}
+	
+	
+
 }

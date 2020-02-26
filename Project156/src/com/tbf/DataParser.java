@@ -58,7 +58,7 @@ public class DataParser {
 			//remove the space in the first name that is not needed
 			String firstName = name[1].replaceAll("\\s+", "");
 			String location[] = line[3].split(",");
-			Address address = new Address(location[0], location[1], location[2], location[3], location[4]);
+			Address address = new Address(location[0], location[1].replaceAll("\\s+", ""), location[2], location[3], location[4]);
 			List<Email> emails = new ArrayList<>();
 			//if there are 5 tokens then its a complete record with email(s)
 			if (line.length == 5) {

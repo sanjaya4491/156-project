@@ -24,12 +24,13 @@ public class Person {
 		this.emails = email;
 	}
 
+	
 
 	@Override
 	public String toString() {
-		return "Person [personCode=" + personCode + ", broker=" + broker + ", lastName=" + lastName + ", firstName="
-				+ firstName + ", address=" + address + ", emails=" + emails + "]";
+		return String.format("%s, %s", this.lastName, this.firstName);
 	}
+
 
 
 	public String getPersonCode() {
@@ -79,5 +80,7 @@ public class Person {
 	public void setEmail(List<Email> email) {
 		this.emails = email;
 	}
+	
+	
 
 }
