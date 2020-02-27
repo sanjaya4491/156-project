@@ -156,12 +156,17 @@ public class PortfolioReport {
 				System.out.println(beneficiary.getAddress().toString());
 			}
 			System.out.println("Assets");
-			System.out.println(String.format("%-10s %-20s %-26s %-16s %-16s %-16s", "Code", "Asset",
+			System.out.println(String.format("%-10s %-38s %-23s %-10s %-27s %-16s", "Code", "Asset",
 					"Return Rate", "Risk", "Annual Return", "Value"));
 			for(Asset a : tempAssets) {
-				System.out.printf("%-10s %-20s %-26.2f %-16.2f %-16.2f %-16.2f\n", a.getCode(), a.getLabel(), a.getReturnRate(x), a.getRisk(), a.getAnnualReturn(x), a.getTotal(x));
+				System.out.printf("%-10s %-30s %17.2f %%  %15.2f  $ %16.2f  $ %16.2f\n", a.getCode(), a.getLabel(), a.getReturnRate(x), a.getRisk(),a.getAnnualReturn(x), a.getTotal(x));
 			}
 			System.out.println();
+			System.out.println("                                                    ---------------------------------------------------------------------");
+			System.out.printf("%60s %17.4f  $  %15.2f  $  %15.2f", "Totals" ,Asset.getWeightedRisk(tempAssets, x) , Asset.getTotalRateOfReturn(tempAssets, x) , Asset.getTotalPortfolioValue(tempAssets, x));
+			System.out.println();
+
+
 		}
 	}
 
