@@ -51,7 +51,6 @@ public class PrivateInvestment extends Asset {
 
 	@Override
 	public double getAnnualReturn(Portfolio that) {
-		// TODO Auto-generated method stub
 		String assetCode = this.getCode(); 
 		Double assetValue = that.getAssetList().get(assetCode);
 		return ((((Double.parseDouble(this.getBaseReturn()) / 100) * Double.parseDouble(this.getTotalValue())) + 
@@ -60,7 +59,6 @@ public class PrivateInvestment extends Asset {
 
 	@Override
 	public double getReturnRate(Portfolio that) {
-		// TODO Auto-generated method stub
 		String assetCode = this.getCode(); 
 		Double assetValue = that.getAssetList().get(assetCode);
 		double annualReturn = this.getAnnualReturn(that);
@@ -69,7 +67,6 @@ public class PrivateInvestment extends Asset {
 
 	@Override
 	public double getTotal(Portfolio that) {
-		// TODO Auto-generated method stub
 		String assetCode = this.getCode(); 
 		Double assetValue = that.getAssetList().get(assetCode);
 		return Double.parseDouble(this.getTotalValue()) * (assetValue / 100);
@@ -77,7 +74,6 @@ public class PrivateInvestment extends Asset {
 
 	@Override
 	public double getRisk() {
-		// TODO Auto-generated method stub
 		return (Double.parseDouble(this.getBaseOmegaMeasure()) + Math.pow(Math.E, (-125500 / Double.parseDouble(this.getTotalValue()))));
 	}
 	

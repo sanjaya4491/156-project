@@ -21,25 +21,31 @@ public class DepositAccount extends Asset {
 	public void setApr(String apr) {
 		this.apr = apr;
 	}
-
+	
+	/**
+	 * This method returns a annualReturn of a asset given portfolio
+	 */
 	@Override
 	public double getAnnualReturn(Portfolio that) {
-		// TODO Auto-generated method stub
 		Double assetValue = this.getTotal(that);
 		return ((Math.pow (Math.E, (Double.parseDouble(this.getApr()))/100)) - 1) * assetValue ;
 	}
 
+	/**
+	 * This method returns a returnRate of a asset given portfolio
+	 */
 	@Override
 	public double getReturnRate(Portfolio that) {
-		// TODO Auto-generated method stub
 		Double assetValue = this.getTotal(that);
 		double annualReturn = this.getAnnualReturn(that);
 		return (annualReturn / assetValue) * 100;
 	}
 
+	/**
+	 * This method returns the value of asset in a portfolio
+	 */
 	@Override
 	public double getTotal(Portfolio that) {
-		// TODO Auto-generated method stub
 		String assetCode = this.getCode(); 
 		Double assetValue = that.getAssetList().get(assetCode);
 		return assetValue;
@@ -47,7 +53,6 @@ public class DepositAccount extends Asset {
 
 	@Override
 	public double getRisk() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 	
