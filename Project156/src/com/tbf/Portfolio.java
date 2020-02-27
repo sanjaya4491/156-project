@@ -61,7 +61,7 @@ public class Portfolio {
 	}
 
 	/**
-	 * This calculates the  value of all the asset in the portfolio.
+	 * This calculates the  value of all the assets in the portfolio.
 	 */
 	public static double getTotalPortfolioValue(List<Asset> assetList, Portfolio that) {
 		double total = 0;
@@ -72,7 +72,7 @@ public class Portfolio {
 	}
 	
 	/**
-	 * This calculates risk of  the asset in the portfolio.
+	 * This calculates risk of all assets in the portfolio.
 	 */
 	public static double getWeightedRisk(List<Asset> assetList, Portfolio that) {
 		double totalRisk = 0;
@@ -83,7 +83,7 @@ public class Portfolio {
 		return totalRisk;
 	}
 	/**
-	 * This gets the rateofReturn of  the asset in the portfolio.
+	 * This gets the rateofReturn of  the assets in the portfolio.
 	 */
 	public static double getTotalRateOfReturn(List<Asset> assetList, Portfolio that) {
 		double total = 0;
