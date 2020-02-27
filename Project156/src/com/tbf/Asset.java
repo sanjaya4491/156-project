@@ -40,12 +40,31 @@ public abstract class Asset {
 		this.label = label;
 	}
 	
+	/**
+	 * abstract method to get the annual return of an asset
+	 * @param that
+	 * @return
+	 */
 	public abstract double getAnnualReturn(Portfolio that);
 	
+	/**
+	 * abstract method to get the return rate of an asset
+	 * @param that
+	 * @return
+	 */
 	public abstract double getReturnRate(Portfolio that);
 	
+	/**
+	 * abstract method to the the total value of an asset
+	 * @param that
+	 * @return
+	 */
 	public abstract double getTotal(Portfolio that);
 	
+	/**
+	 * abstract method to get the risk of an asset
+	 * @return
+	 */
 	public abstract double getRisk();
 	
 }
