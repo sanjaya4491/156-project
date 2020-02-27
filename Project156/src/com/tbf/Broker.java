@@ -28,15 +28,19 @@ public class Broker implements Payable {
 		this.section = section;
 	}
 
+	/**
+	 * This method gets the fees for the broker
+	 */
 	@Override
 	public double getFee(List<Asset> assetList) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	/**
+	 * This method gets the commission for the broker
+	 */
 	@Override
 	public double getCommission(List<Asset> assetList, Portfolio that) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 	
