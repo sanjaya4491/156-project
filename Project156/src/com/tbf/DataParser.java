@@ -8,6 +8,8 @@ package com.tbf;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -146,8 +148,10 @@ public class DataParser {
 	}
 
 	public static List<Portfolio> parsePortfolioDataFile() {
-		//create list of porfolio's
+		//create list of empty porfolio's
 		List<Portfolio> result = new ArrayList<Portfolio>();
+		//create list of people calling method
+		List<Person> people = parsePersonDataFile();
 		//open file
 		File file = new File("data/Portfolios.dat");
 		Scanner sc = null;
@@ -162,9 +166,20 @@ public class DataParser {
 		while (i < numlines) {
 			//tokenize the record
 			String line[] = sc.nextLine().split(";");
+			//get codes from portfolio data file
 			String portfolioCode = line[0];
+			//only codes given to the corresponding people are given
 			String ownerCode = line[1];
 			String managerCode = line[2];
+			//create map to hold the codes and person objects
+			Map<String, Person> codePerson = new HashMap<String, Person>();
+			for(Person p : people) {
+				String personCode = p.getPersonCode();
+				codePerson.put(personCode, p);
+			}
+			//use the codes to find the person in the map
+			Person owner = codePerson.get(ownerCode);
+			Person manager = codePerson.get(managerCode);
 			//the record may or may not have a beneficiary 
 			//assume there is not a beneficiary
 			String beneficiaryCode = null;
@@ -176,6 +191,13 @@ public class DataParser {
 				if(line[3].isEmpty() == true) {
 					beneficiaryCode = null;
 				}
+			}
+			//initialize to null
+			Person beneficiary = null;
+			//if the code is not null then there is a beneficiary for the portfolio
+			if (beneficiaryCode != null) {
+				//get the person from the map
+				beneficiary = codePerson.get(beneficiaryCode);
 			}
 			//may or may not have assets
 			//assume there are no assets so set to null;
@@ -193,18 +215,36 @@ public class DataParser {
 					assetsMap.put(assets[0], Double.parseDouble(assets[1]));
 				}
 				//create the portfolio
-				Portfolio portfolio = new Portfolio(portfolioCode, ownerCode, managerCode, beneficiaryCode, assetsMap);
+				Portfolio portfolio = new Portfolio(portfolioCode, owner, manager, beneficiary, assetsMap);
 				//add it to the portfolio list
 				result.add(portfolio);
 				//if the record does not have any assets
 			} else {
-				Portfolio portfolio = new Portfolio(portfolioCode, ownerCode, managerCode, beneficiaryCode, assetsMap);
+				Portfolio portfolio = new Portfolio(portfolioCode, owner, manager, beneficiary, assetsMap);
 				result.add(portfolio);
 			}
 			i++;
 		}
 		//close the file
 		sc.close();
+		//sort the portfolio list by a custom comparator where it sorts by the owner's 
+		//last name and then by their first name
+		Collections.sort(result, new Comparator<Object> () {
+			
+			public int compare (Object o1, Object o2) {
+				String firstName1 = ((Portfolio) o1).getOwner().getLastName();
+				String firstName2 = ((Portfolio) o2).getOwner().getLastName();
+				
+				int result = firstName1.compareTo(firstName2);
+				if(result != 0) {
+					return result;
+				} else {
+					String lastName1 = ((Portfolio) o1).getOwner().getFirstName();
+					String lastName2 = ((Portfolio) o2).getOwner().getFirstName();
+					return lastName1.compareTo(lastName2);
+				}
+			}
+		});
 		return result;
 	}
 

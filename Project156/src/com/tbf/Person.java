@@ -65,18 +65,23 @@ public class Person {
 	public void setPersonCode(String personCode) {
 		this.personCode = personCode;
 	}
+	
 	public void setBroker(Broker broker) {
 		this.broker = broker;
 	}
+	
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+	
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+	
 	public void setEmail(List<Email> email) {
 		this.emails = email;
 	}

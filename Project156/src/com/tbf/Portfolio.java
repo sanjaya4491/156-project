@@ -1,22 +1,25 @@
 package com.tbf;
 
+/**
+ * Class that holds information of a clients portfolio
+ */
 import java.util.List;
 import java.util.Map;
 
 public class Portfolio {
 
 	private String portfolioCode;
-	private String ownerCode;
-	private String managerCode;
-	private String beneficiaryCode;
+	private Person owner;
+	private Person manager;
+	private Person beneficiary;
 	private Map<String, Double> assetList;
 
-	public Portfolio(String portfolioCode, String ownerCode, String managerCode, String beneficiaryCode,
+	public Portfolio(String portfolioCode, Person owner, Person manager, Person beneficiary,
 			Map<String, Double> assetList) {
 		this.portfolioCode = portfolioCode;
-		this.ownerCode = ownerCode;
-		this.managerCode = managerCode;
-		this.beneficiaryCode = beneficiaryCode;
+		this.owner = owner;
+		this.manager = manager;
+		this.beneficiary = beneficiary;
 		this.assetList = assetList;
 	}
 
@@ -28,32 +31,32 @@ public class Portfolio {
 		this.portfolioCode = portfolioCode;
 	}
 
-	public String getOwnerCode() {
-		return ownerCode;
+	public Person getOwner() {
+		return this.owner;
 	}
 
-	public void setOwnerCode(String ownerCode) {
-		this.ownerCode = ownerCode;
+	public void setOwner(Person owner) {
+		this.owner = owner;
 	}
 
-	public String getManagerCode() {
-		return managerCode;
+	public Person getManager() {
+		return manager;
 	}
 
-	public void setManagerCode(String managerCode) {
-		this.managerCode = managerCode;
+	public void setManager(Person manager) {
+		this.manager = manager;
 	}
 
-	public String getBeneficiaryCode() {
-		return beneficiaryCode;
+	public Person getBeneficiary() {
+		return this.beneficiary;
 	}
 
-	public void setBeneficiaryCode(String beneficiaryCode) {
-		this.beneficiaryCode = beneficiaryCode;
+	public void setBeneficiaryCode(Person beneficiary) {
+		this.beneficiary = beneficiary;
 	}
 
 	public Map<String, Double> getAssetList() {
-		return assetList;
+		return this.assetList;
 	}
 
 	public void setAssestList(Map<String, Double> assetList) {
@@ -82,6 +85,7 @@ public class Portfolio {
 		}
 		return totalRisk;
 	}
+	
 	/**
 	 * This gets the rateofReturn of  the assets in the portfolio.
 	 */

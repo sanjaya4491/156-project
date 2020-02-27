@@ -1,16 +1,19 @@
 package com.tbf;
 
+/**
+ * Class that produces a report on the portfolio's
+ */
+
 import java.util.List;
 
 public class PortfolioReport {
 
 	public static void main(String args[]) {
 
-		List<Portfolio> portfolio = null;
-		List<Asset> assetList = null;
-		List<Person> personList = null;
+		List<Portfolio> portfolio = DataParser.parsePortfolioDataFile();
+		List<Asset> assetList = DataParser.parseAssetDataFile();
 
-		PortfolioUtils.portfolioSummaryReport(portfolio, assetList, personList);
-		PortfolioUtils.portfolioDetails(portfolio, assetList, personList);
+		PortfolioUtils.portfolioSummaryReport(portfolio, assetList);
+		PortfolioUtils.portfolioDetails(portfolio, assetList);
 	}
 }

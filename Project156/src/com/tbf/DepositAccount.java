@@ -1,8 +1,7 @@
 package com.tbf;
 
 /**
- * This Stores the the deposit account of the assets a
- * and gets the apr.
+ * This Stores the the deposit account of the assets
  */
 
 public class DepositAccount extends Asset {
@@ -23,7 +22,7 @@ public class DepositAccount extends Asset {
 	}
 	
 	/**
-	 * This method returns a annualReturn of a asset given portfolio
+	 * This method returns a annualReturn of a deposit account
 	 */
 	@Override
 	public double getAnnualReturn(Portfolio that) {
@@ -32,7 +31,7 @@ public class DepositAccount extends Asset {
 	}
 
 	/**
-	 * This method returns a returnRate of a asset given portfolio
+	 * This method returns a returnRate of a deposit account
 	 */
 	@Override
 	public double getReturnRate(Portfolio that) {
@@ -42,7 +41,7 @@ public class DepositAccount extends Asset {
 	}
 
 	/**
-	 * This method returns the value of asset in a portfolio
+	 * This method returns the value of a deposit account
 	 */
 	@Override
 	public double getTotal(Portfolio that) {
@@ -51,6 +50,10 @@ public class DepositAccount extends Asset {
 		return assetValue;
 	}
 
+	/**
+	 * This method returns the risk of a deposit account.
+	 * Risk is always 0 for a deposit account
+	 */
 	@Override
 	public double getRisk() {
 		return 0;

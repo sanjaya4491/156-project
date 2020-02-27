@@ -60,7 +60,7 @@ public class Stock extends Asset {
 	}
 
 	/**
-	 * Method that gets the return rate of a stock
+	 * Method that gets the return rate of a stock given a portfolio
 	 */
 	@Override
 	public double getReturnRate(Portfolio that) {
@@ -71,7 +71,7 @@ public class Stock extends Asset {
 	}
 
 	/**
-	 * Method that gets the total value of the stock
+	 * Method that gets the total value of a stock given a portfolio
 	 */
 	@Override
 	public double getTotal(Portfolio that) {
@@ -81,7 +81,7 @@ public class Stock extends Asset {
 	}
 
 	/**
-	 * Method that gets the risk of the stock.
+	 * Method that gets the risk of a stock
 	 */
 	@Override
 	public double getRisk() {
@@ -89,8 +89,7 @@ public class Stock extends Asset {
 	}
 
 	/**
-	 * Method that gets the annual return of the stock
-	 * Const 4 used to get the quarterly dividends of the whole year
+	 * Method that gets the annual return of a stock given the portfolio.
 	 */
 	@Override
 	public double getAnnualReturn(Portfolio that) {
