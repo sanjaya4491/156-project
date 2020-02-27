@@ -18,7 +18,7 @@ public class JuniorBroker extends Broker {
 	@Override
 	public double getCommission(List<Asset> assetList, Portfolio that) {
 		// TODO Auto-generated method stub
-		double totalRateOfReturn = Asset.getTotalRateOfReturn(assetList, that);
+		double totalRateOfReturn = Portfolio.getTotalRateOfReturn(assetList, that);
 		return .0125 * totalRateOfReturn;
 	}
 

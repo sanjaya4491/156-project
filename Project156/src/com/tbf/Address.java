@@ -1,8 +1,8 @@
 package com.tbf;
 
 /**
- * This "Address" class stores the Address of a person. That contains thier
- * street, city, state, zipcode and their country
+ * This "Address" class stores the Address of a person. That contains their
+ * street, city, state, zip-code and their country
  */
 
 public class Address {

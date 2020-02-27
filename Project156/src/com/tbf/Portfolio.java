@@ -1,5 +1,6 @@
 package com.tbf;
 
+import java.util.List;
 import java.util.Map;
 
 public class Portfolio {
@@ -50,18 +51,30 @@ public class Portfolio {
 	public void setAssestList(Map<String, Double> assetList) {
 		this.assetList = assetList;
 	}
-
-
-	@Override
-	public String toString() {
-		return "Portfolio [portfolioCode=" + portfolioCode + ", ownerCode=" + ownerCode + ", managerCode=" + managerCode
-				+ ", beneficiaryCode=" + beneficiaryCode + ", assestList=" + assetList + "]";
+	
+	public static double getTotalPortfolioValue(List<Asset> assetList, Portfolio that) {
+		double total = 0;
+		for(Asset a : assetList) {
+			total = total + a.getTotal(that);
+		}
+		return total;
 	}
 	
+	public static double getWeightedRisk(List<Asset> assetList, Portfolio that) {
+		double totalRisk = 0;
+		for(Asset a : assetList) {
+			totalRisk = totalRisk + (a.getRisk() * (a.getTotal(that) / Portfolio.getTotalPortfolioValue(assetList, that)));
+		}
+		return totalRisk;
+	}
 	
-	
-	
-	
+	public static double getTotalRateOfReturn(List<Asset> assetList, Portfolio that) {
+		double total = 0;
+		for(Asset a : assetList) {
+			total = total + a.getAnnualReturn(that);
+		}
+		return total;
+	}
 	
 
 }
