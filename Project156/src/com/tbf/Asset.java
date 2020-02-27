@@ -1,8 +1,8 @@
 package com.tbf;
 
 /**
- * This Asset class stores all the information about the
- * including code, type, and label. 
+ * This Asset class stores all the information on a generic asset 
+ * 
  */
 
 public abstract class Asset {

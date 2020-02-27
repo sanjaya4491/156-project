@@ -1,5 +1,9 @@
 package com.tbf;
 
+/**
+ * Interface that holds abstract methods on getting fees and commissions
+ */
+
 import java.util.List;
 
 public interface Payable {

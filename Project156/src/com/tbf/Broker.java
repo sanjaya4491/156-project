@@ -30,6 +30,7 @@ public class Broker implements Payable {
 
 	/**
 	 * This method gets the fees for the broker
+	 * An expert broker has 0 fees
 	 */
 	@Override
 	public double getFee(List<Asset> assetList) {
