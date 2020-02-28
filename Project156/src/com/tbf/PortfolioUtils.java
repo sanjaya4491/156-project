@@ -54,7 +54,7 @@ public class PortfolioUtils {
 				Asset asset = assetMap.get(code);
 				portfolioAssets.add(asset);
 			}
-			//adding the total for all the portfolios
+			//adding the cumulative totals for all the portfolios
 			feesTotal += portfolio.getManager().getBroker().getFee(portfolioAssets);
 			commisionsTotal += portfolio.getManager().getBroker().getCommission(portfolioAssets, portfolio);
 			returnTotal += Portfolio.getTotalRateOfReturn(portfolioAssets, portfolio);
