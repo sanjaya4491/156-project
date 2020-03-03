@@ -9,11 +9,12 @@ package com.tbf;
 import java.util.List;
 
 public class JuniorBroker extends Broker {
-
-	public JuniorBroker(String title, String section) {
-		super(title, section);
-	}
 	
+	public JuniorBroker(String personCode, String lastName, String firstName, Address address, List<Email> email,
+			String title, String section) {
+		super(personCode, lastName, firstName, address, email, title, section);
+	}
+
 	/**
 	 * Method that gets the fees of a junior broker.
 	 * $75 is the base rate for each asset

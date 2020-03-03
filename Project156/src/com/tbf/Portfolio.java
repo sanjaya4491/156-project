@@ -10,11 +10,11 @@ public class Portfolio {
 
 	private String portfolioCode;
 	private Person owner;
-	private Person manager;
+	private Broker manager;
 	private Person beneficiary;
 	private Map<String, Double> assetList;
 
-	public Portfolio(String portfolioCode, Person owner, Person manager, Person beneficiary,
+	public Portfolio(String portfolioCode, Person owner, Broker manager, Person beneficiary,
 			Map<String, Double> assetList) {
 		this.portfolioCode = portfolioCode;
 		this.owner = owner;
@@ -39,11 +39,11 @@ public class Portfolio {
 		this.owner = owner;
 	}
 
-	public Person getManager() {
+	public Broker getManager() {
 		return manager;
 	}
 
-	public void setManager(Person manager) {
+	public void setManager(Broker manager) {
 		this.manager = manager;
 	}
 

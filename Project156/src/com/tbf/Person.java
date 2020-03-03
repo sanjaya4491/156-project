@@ -8,40 +8,28 @@ import java.util.List;
 public class Person {
 	
 	private String personCode;
-	private Broker broker;
 	private String lastName;
 	private String firstName;
 	private Address address;
 	private List<Email> emails;
 
-	public Person(String personCode, Broker broker, String lastName, String firstName, Address address,
+	public Person(String personCode, String lastName, String firstName, Address address,
 			List<Email> email) {
 		this.personCode = personCode;
-		this.broker = broker;
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.address = address;
 		this.emails = email;
 	}
 
-	
-
 	@Override
 	public String toString() {
 		return String.format("%s, %s", this.lastName, this.firstName);
 	}
 
-
-
 	public String getPersonCode() {
 		return this.personCode;
 	}
-
-
-	public Broker getBroker() {
-		return this.broker;
-	}
-	
 
 	public String getLastName() {
 		return this.lastName;
@@ -66,10 +54,6 @@ public class Person {
 		this.personCode = personCode;
 	}
 	
-	public void setBroker(Broker broker) {
-		this.broker = broker;
-	}
-	
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
@@ -85,6 +69,8 @@ public class Person {
 	public void setEmail(List<Email> email) {
 		this.emails = email;
 	}
+
+	
 	
 	
 

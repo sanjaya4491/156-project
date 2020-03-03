@@ -24,9 +24,9 @@ public class DataParser {
 	 * @return
 	 */
 	public static List<Person> parsePersonDataFile() {
-		//create empty list of people
+		// create empty list of people
 		List<Person> result = new ArrayList<Person>();
-		//open file
+		// open file
 		File file = new File("data/Persons.dat");
 		Scanner sc = null;
 		try {
@@ -34,53 +34,66 @@ public class DataParser {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		//first line in the file is the number of records in the file
+		// first line in the file is the number of records in the file
 		int numlines = Integer.parseInt(sc.nextLine());
 		int i = 0;
 		while (i < numlines) {
-			//tokenize the record
+			// tokenize the record
 			String line[] = sc.nextLine().split(";");
 			String personCode = line[0];
 			String brok[] = line[1].split(",");
-			//the person could be a client or a broker
-			//assume its a client and set to null
-			Broker broker = null;
-			//check if the person is a broker 
-			if (brok.length == 2) {
-				//check if the broker is a junior broker
-				if(brok[0].compareTo("J") == 0) {
-					broker = new JuniorBroker(brok[0], brok[1]);
-				} else {
-					//else its an expert broker
-					broker = new ExpertBroker(brok[0], brok[1]);
-				}
-			}
 			String name[] = line[2].split(",");
 			String lastName = name[0];
-			//remove the space in the first name that is not needed
+			// remove the space in the first name that is not needed
 			String firstName = name[1].replaceAll("\\s+", "");
 			String location[] = line[3].split(",");
-			Address address = new Address(location[0], location[1].replaceAll("\\s+", ""), location[2], location[3], location[4]);
+			Address address = new Address(location[0], location[1].replaceAll("\\s+", ""), location[2], location[3],
+					location[4]);
 			List<Email> emails = new ArrayList<>();
-			//if there are 5 tokens then its a complete record with email(s)
+			List<Email> emptyEmails = new ArrayList<>();
+			// initialize broker
+			Broker broker = null;
+			// if there are 5 tokens then its a complete record with email(s)
 			if (line.length == 5) {
 				String email[] = line[4].split(",");
-				//iterate over how many email's the person has and them to the email array
+				// iterate over how many email's the person has and them to the email array
 				for (int j = 0; j < email.length; j++) {
 					emails.add(new Email(email[j]));
 				}
-				//create the person object
-				Person person = new Person(personCode, broker, lastName, firstName, address, emails);
-				//add it to the list
+			}
+			// check if the broker token is not empty and if the broker has email's
+			if (brok.length == 2 && line.length == 5) {
+				// check if the broker is a junior broker
+				if (brok[0].compareTo("J") == 0) {
+					broker = new JuniorBroker(personCode, lastName, firstName, address, emails, brok[0], brok[1]);
+					result.add(broker);
+				} else {
+					// else its an expert broker
+					broker = new ExpertBroker(personCode, lastName, firstName, address, emails, brok[0], brok[1]);
+					result.add(broker);
+				}
+				// check if the broker token is not empty and if the broker has no email's
+			} else if (brok.length == 2 && line.length != 5) {
+				// check if the broker is a junior broker
+				if (brok[0].compareTo("J") == 0) {
+					broker = new JuniorBroker(personCode, lastName, firstName, address, emptyEmails, brok[0], brok[1]);
+					result.add(broker);
+				} else {
+					// else its an expert broker
+					broker = new ExpertBroker(personCode, lastName, firstName, address, emptyEmails, brok[0], brok[1]);
+					result.add(broker);
+				}
+				// check if the person is not a broker and has email's
+			} else if (brok.length != 2 && line.length == 5) {
+				Person person = new Person(personCode, lastName, firstName, address, emails);
 				result.add(person);
-				//the person has no email's 
+				// check if the person is not a broker and has no email's
 			} else {
-				Person person = new Person(personCode, broker, lastName, firstName, address, emails);
+				Person person = new Person(personCode, lastName, firstName, address, emptyEmails);
 				result.add(person);
 			}
 			i++;
 		}
-		//close the file
 		sc.close();
 		return result;
 	}
@@ -92,9 +105,9 @@ public class DataParser {
 	 * @return
 	 */
 	public static List<Asset> parseAssetDataFile() {
-		//create list of assets
+		// create list of assets
 		List<Asset> result = new ArrayList<Asset>();
-		//open file
+		// open file
 		File file = new File("data/Assets.dat");
 		Scanner sc = null;
 		try {
@@ -102,57 +115,57 @@ public class DataParser {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		//first line is the number of records in the file
+		// first line is the number of records in the file
 		int numlines = Integer.parseInt(sc.nextLine());
 		int i = 0;
 		while (i < numlines) {
-			//generic asset
+			// generic asset
 			Asset a = null;
-			//tokenize the record
+			// tokenize the record
 			String line[] = sc.nextLine().split(";");
-			//code, type, label are all common to the 3 types of assets
+			// code, type, label are all common to the 3 types of assets
 			String code = line[0];
 			String type = line[1];
 			String label = line[2];
-			//checks if the record is a deposit account
+			// checks if the record is a deposit account
 			if (line.length == 4) {
 				String apr = line[3];
-				//create deposit account
+				// create deposit account
 				a = new DepositAccount(code, type, label, apr);
-				//checks if the record is a stock
+				// checks if the record is a stock
 			} else if (line.length == 8) {
 				String quarterlyDividend = line[3];
 				String baseReturn = line[4];
 				String betaMeasure = line[5];
 				String stockSymbol = line[6];
 				String sharePrice = line[7];
-				//create stock
+				// create stock
 				a = new Stock(code, type, label, quarterlyDividend, baseReturn, betaMeasure, stockSymbol, sharePrice);
-				//checks if the record is a private investment
+				// checks if the record is a private investment
 			} else if (line.length == 7) {
 				String quarterlyDividend = line[3];
 				String baseReturn = line[4];
 				String baseOmegaMeasure = line[5];
 				String totalValue = line[6];
-				//create private investment
+				// create private investment
 				a = new PrivateInvestment(code, type, label, quarterlyDividend, baseReturn, baseOmegaMeasure,
 						totalValue);
 			}
-			//add the asset to the asset list
+			// add the asset to the asset list
 			result.add(a);
 			i++;
 		}
-		//close the file
+		// close the file
 		sc.close();
 		return result;
 	}
 
 	public static List<Portfolio> parsePortfolioDataFile() {
-		//create list of empty porfolio's
+		// create list of empty porfolio's
 		List<Portfolio> result = new ArrayList<Portfolio>();
-		//create list of people calling method
+		// create list of people calling method
 		List<Person> people = parsePersonDataFile();
-		//open file
+		// open file
 		File file = new File("data/Portfolios.dat");
 		Scanner sc = null;
 		try {
@@ -160,83 +173,83 @@ public class DataParser {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		//first line is the number of records
+		// create map to hold the codes and person objects
+		Map<String, Person> codePerson = new HashMap<String, Person>();
+		for (Person p : people) {
+			String personCode = p.getPersonCode();
+			codePerson.put(personCode, p);
+		}
+		// first line is the number of records
 		int numlines = Integer.parseInt(sc.nextLine());
 		int i = 0;
 		while (i < numlines) {
-			//tokenize the record
+			// tokenize the record
 			String line[] = sc.nextLine().split(";");
-			//get codes from portfolio data file
+			// get codes from portfolio data file
 			String portfolioCode = line[0];
-			//only codes given to the corresponding people are given
+			// only codes given to the corresponding people are given
 			String ownerCode = line[1];
 			String managerCode = line[2];
-			//create map to hold the codes and person objects
-			Map<String, Person> codePerson = new HashMap<String, Person>();
-			for(Person p : people) {
-				String personCode = p.getPersonCode();
-				codePerson.put(personCode, p);
-			}
-			//use the codes to find the person in the map
+			// use the codes to find the person in the map
 			Person owner = codePerson.get(ownerCode);
-			Person manager = codePerson.get(managerCode);
-			//the record may or may not have a beneficiary 
-			//assume there is not a beneficiary
+			Broker manager = (Broker) codePerson.get(managerCode);
+			// the record may or may not have a beneficiary
+			// assume there is not a beneficiary
 			String beneficiaryCode = null;
-			//a complete record has 5 tokens and also checks if there are 4
-			//tokens and no assets
+			// a complete record has 5 tokens and also checks if there are 4
+			// tokens and no assets
 			if (line.length == 4 || line.length == 5) {
 				beneficiaryCode = line[3];
-				//if the record has 4 tokens but no beneficiary
-				if(line[3].isEmpty() == true) {
+				// if the record has 4 tokens but no beneficiary
+				if (line[3].isEmpty() == true) {
 					beneficiaryCode = null;
 				}
 			}
-			//initialize to null
+			// initialize to null
 			Person beneficiary = null;
-			//if the code is not null then there is a beneficiary for the portfolio
+			// if the code is not null then there is a beneficiary for the portfolio
 			if (beneficiaryCode != null) {
-				//get the person from the map
+				// get the person from the map
 				beneficiary = codePerson.get(beneficiaryCode);
 			}
-			//may or may not have assets
-			//assume there are no assets so set to null;
+			// may or may not have assets
+			// assume there are no assets so set to null;
 			String assetsList[] = null;
-			//create an empty map for assets
+			// create an empty map for assets
 			Map<String, Double> assetsMap = new HashMap<String, Double>();
-			//checks if it is a complete record
+			// checks if it is a complete record
 			if (line.length == 5) {
-				//tokenize the assets if there are multiple assets
+				// tokenize the assets if there are multiple assets
 				assetsList = line[4].split(",");
 				for (int j = 0; j < assetsList.length; j++) {
-					//tokenize the individual assets to get the asset code and numeric value
+					// tokenize the individual assets to get the asset code and numeric value
 					String assets[] = assetsList[j].split(":");
-					//put it into the map
+					// put it into the map
 					assetsMap.put(assets[0], Double.parseDouble(assets[1]));
 				}
-				//create the portfolio
+				// create the portfolio
 				Portfolio portfolio = new Portfolio(portfolioCode, owner, manager, beneficiary, assetsMap);
-				//add it to the portfolio list
+				// add it to the portfolio list
 				result.add(portfolio);
-				//if the record does not have any assets
+				// if the record does not have any assets
 			} else {
 				Portfolio portfolio = new Portfolio(portfolioCode, owner, manager, beneficiary, assetsMap);
 				result.add(portfolio);
 			}
 			i++;
 		}
-		//close the file
+		// close the file
 		sc.close();
-		//sort the portfolio list by a custom comparator where it sorts by the owner's 
-		//last name and then by their first name
-		Collections.sort(result, new Comparator<Object> () {
-			
-			public int compare (Object o1, Object o2) {
+		// sort the portfolio list by a custom comparator where it sorts by the owner's
+		// last name and then by their first name
+		Collections.sort(result, new Comparator<Object>() {
+
+			public int compare(Object o1, Object o2) {
 				String firstName1 = ((Portfolio) o1).getOwner().getLastName();
 				String firstName2 = ((Portfolio) o2).getOwner().getLastName();
-				
+
 				int result = firstName1.compareTo(firstName2);
-				if(result != 0) {
+				if (result != 0) {
 					return result;
 				} else {
 					String lastName1 = ((Portfolio) o1).getOwner().getFirstName();

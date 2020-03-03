@@ -10,8 +10,9 @@ import java.util.List;
 
 public class ExpertBroker extends Broker {
 
-	public ExpertBroker(String title, String section) {
-		super(title, section);
+	public ExpertBroker(String personCode, String lastName, String firstName, Address address, List<Email> email,
+			String title, String section) {
+		super(personCode, lastName, firstName, address, email, title, section);
 	}
 
 	/**
