@@ -7,13 +7,16 @@ package com.tbf;
 import java.util.List;
 
 public class PortfolioReport {
-
+	
+	/**
+	 * main to retrieve the portfolio list and create the summary of it
+	 * @param args
+	 */
 	public static void main(String args[]) {
 
 		List<Portfolio> portfolio = DataParser.parsePortfolioDataFile();
-		List<Asset> assetList = DataParser.parseAssetDataFile();
 		
-		PortfolioUtils.portfolioSummaryReport(portfolio, assetList);
-		PortfolioUtils.portfolioDetails(portfolio, assetList);
+		PortfolioUtils.portfolioSummaryReport(portfolio);
+		PortfolioUtils.portfolioDetails(portfolio);
 	}
 }

@@ -35,43 +35,16 @@ public class Person {
 		return this.lastName;
 	}
 
-
 	public String getFirstName() {
 		return this.firstName;
 	}
-
 
 	public Address getAddress() {
 		return this.address;
 	}
 
-
 	public List<Email> getEmail() {
 		return this.emails;
 	}
-
-	public void setPersonCode(String personCode) {
-		this.personCode = personCode;
-	}
-	
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-	
-	public void setEmail(List<Email> email) {
-		this.emails = email;
-	}
-
-	
-	
-	
 
 }

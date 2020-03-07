@@ -2,7 +2,11 @@ package com.tbf;
 
 import java.util.List;
 
-public class Broker extends Person implements Payable {
+/**
+ * This class stores the information a broker and it extends the person class
+ */
+
+public abstract class Broker extends Person {
 	
 	private String title;
 	private String section;
@@ -17,31 +21,19 @@ public class Broker extends Person implements Payable {
 	public String getTitle() {
 		return this.title;
 	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
+	
 	public String getSection() {
 		return this.section;
 	}
-	public void setSection(String section) {
-		this.section = section;
-	}
 	
 	/**
-	 * This method gets the fees for the broker
-	 * An expert broker has 0 fees
+	 * abstract method that gets the fees for the broker
 	 */
-	@Override
-	public double getFee(List<Asset> assetList) {
-		return 0;
-	}
+	public abstract double getFee();
 
 	/**
-	 * This method gets the commission for the broker
+	 * abstract method gets the commission for the broker
 	 */
-	@Override
-	public double getCommission(List<Asset> assetList, Portfolio that) {
-		return 0;
-	}
+	public abstract double getCommission();
 	
 }

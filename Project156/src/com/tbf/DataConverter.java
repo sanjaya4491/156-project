@@ -13,14 +13,9 @@ public class DataConverter {
 		
 		List<Person> personList = DataParser.parsePersonDataFile();
 		List<Asset> assetList = DataParser.parseAssetDataFile();
-		JsonFile.personListToJsonFile(personList);
-		JsonFile.assetListToJsonFile(assetList);
+		JsonUtils.personListToJsonFile(personList);
+		JsonUtils.assetListToJsonFile(assetList);
 		
-		List <Portfolio> portfolio = DataParser.parsePortfolioDataFile();
-		
-		   for (Portfolio num : portfolio) { 		      
-	           System.out.println(num); 		
-	      }
 	}
 	
 }

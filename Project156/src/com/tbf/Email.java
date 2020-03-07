@@ -1,8 +1,9 @@
 package com.tbf;
 
 /**
- * This class stores the lists of persons emails
+ * This class stores a persons email
  */
+
 public class Email {
 	
 	private String address;
@@ -13,10 +14,6 @@ public class Email {
 
 	public String getAddress() {
 		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	@Override

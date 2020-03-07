@@ -6,9 +6,9 @@ package com.tbf;
  */
 
 public abstract class Asset {
-	private String code;
-	private String type;
-	private String label;
+	protected String code;
+	protected String type;
+	protected String label;
 	
 	public Asset(String code, String type, String label) {
 		this.code = code;
@@ -20,51 +20,46 @@ public abstract class Asset {
 		return this.code;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
-	}
-
 	public String getType() {
 		return this.type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 
 	public String getLabel() {
 		return this.label;
 	}
 
-	public void setLabel(String label) {
-		this.label = label;
-	}
-	
 	/**
 	 * abstract method to get the annual return of an asset
 	 * @param that
 	 * @return
 	 */
-	public abstract double getAnnualReturn(Portfolio that);
+	public abstract double getAnnualReturn();
 	
 	/**
 	 * abstract method to get the return rate of an asset
 	 * @param that
 	 * @return
 	 */
-	public abstract double getReturnRate(Portfolio that);
+	public abstract double getReturnRate();
 	
 	/**
 	 * abstract method to the the total value of an asset
 	 * @param that
 	 * @return
 	 */
-	public abstract double getTotal(Portfolio that);
+	public abstract double getTotal();
 	
 	/**
 	 * abstract method to get the risk of an asset
 	 * @return
 	 */
 	public abstract double getRisk();
+	
+	/**
+	 * abstract method to set the asset value of an asset
+	 * @param assetValue
+	 * @return
+	 */
+	public abstract double setValue(double assetValue);
 	
 }

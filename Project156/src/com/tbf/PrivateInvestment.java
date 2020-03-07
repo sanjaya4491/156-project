@@ -4,89 +4,92 @@ package com.tbf;
  */
 public class PrivateInvestment extends Asset {
 	
-	private String quarterlyDividend;
-	private String baseReturn;
-	private String baseOmegaMeasure;
-	private String totalValue;
+	private double quarterlyDividend;
+	private double baseReturn;
+	private double baseOmegaMeasure;
+	private double totalValue;
+	private double percentageStake;
 	
-	public PrivateInvestment(String code, String type, String label, String quarterlyDividend, String baseReturn,
-			String baseOmegaMeasure, String totalValue) {
+	public PrivateInvestment(String code, String type, String label, double quarterlyDividend, double baseReturn,
+			double baseOmegaMeasure, double totalValue) {
 		super(code, type, label);
 		this.quarterlyDividend = quarterlyDividend;
 		this.baseReturn = baseReturn;
 		this.baseOmegaMeasure = baseOmegaMeasure;
 		this.totalValue = totalValue;
 	}
+	
+	public PrivateInvestment(PrivateInvestment p) {
+		super(p.code, p.type, p.label);
+		this.code = p.code;
+		this.type = p.type;
+		this.label = p.label;
+		this.quarterlyDividend = p.quarterlyDividend;
+		this.baseReturn = p.baseReturn;
+		this.baseOmegaMeasure = p.baseOmegaMeasure;
+		this.totalValue = p.totalValue;
+	}
 
-	public String getQuarterlyDividend() {
+	public double getQuarterlyDividend() {
 		return this.quarterlyDividend;
 	}
 
-	public void setQuarterlyDividend(String quarterlyDividend) {
-	}
-
-	public String getBaseReturn() {
+	public double getBaseReturn() {
 		return this.baseReturn;
 	}
 
-	public void setBaseReturn(String baseReturn) {
-		this.baseReturn = baseReturn;
-	}
-
-	public String getBaseOmegaMeasure() {
+	public double getBaseOmegaMeasure() {
 		return this.baseOmegaMeasure;
 	}
 
-	public void setBaseOmegaMeasure(String baseOmegaMeasure) {
-		this.baseOmegaMeasure = baseOmegaMeasure;
-	}
-
-	public String getTotalValue() {
+	public double getTotalValue() {
 		return this.totalValue;
 	}
+	
+	public double getPercentageStake() {
+		return this.percentageStake;
+	}
 
-	public void setTotalValue(String totalValue) {
-		this.totalValue = totalValue;
-	}
-	
 	/**
-	 * Method that return the annual return of a private investment given the portfolio
+	 * Method that return the annual return of a private investment
 	 */
 	@Override
-	public double getAnnualReturn(Portfolio that) {
-		String assetCode = this.getCode(); 
-		Double assetValue = that.getAssetList().get(assetCode);
-		return ((((Double.parseDouble(this.getBaseReturn()) / 100) * Double.parseDouble(this.getTotalValue())) + 
-				(4 * Double.parseDouble(this.getQuarterlyDividend()))) * (assetValue / 100));
+	public double getAnnualReturn() {
+		return (((this.baseReturn / 100) * this.totalValue) + 
+				(4 * this.quarterlyDividend)) * (this.percentageStake / 100);
 	}
 	
 	/**
-	 * Method that returns the return rate of a private investment given a portfolio
+	 * Method that returns the return rate of a private investment
 	 */
 	@Override
-	public double getReturnRate(Portfolio that) {
-		String assetCode = this.getCode(); 
-		Double assetValue = that.getAssetList().get(assetCode);
-		double annualReturn = this.getAnnualReturn(that);
-		return (annualReturn / (Double.parseDouble(this.getTotalValue()) * (assetValue / 100))) * 100;
+	public double getReturnRate() {
+		double annualReturn = this.getAnnualReturn();
+		return (annualReturn / (this.getTotalValue() * (this.percentageStake / 100))) * 100;
 	}
 	
 	/**
-	 * Method that returns the total value of a private investment given a portfolio
+	 * Method that returns the total value of a private investment
 	 */
 	@Override
-	public double getTotal(Portfolio that) {
-		String assetCode = this.getCode(); 
-		Double assetValue = that.getAssetList().get(assetCode);
-		return Double.parseDouble(this.getTotalValue()) * (assetValue / 100);
+	public double getTotal() {
+		return this.totalValue * (this.percentageStake / 100);
 	}
 	
 	/**
-	 * Method that returns the risk of a private investment given a portfolio
+	 * Method that returns the risk of a private investment
 	 */
 	@Override
 	public double getRisk() {
-		return (Double.parseDouble(this.getBaseOmegaMeasure()) + Math.pow(Math.E, (-125500 / Double.parseDouble(this.getTotalValue()))));
+		return (this.baseOmegaMeasure + Math.pow(Math.E, (-125500 / this.totalValue)));
+	}
+
+	/**
+	 * Method that sets the percentage stake of a private investment
+	 */
+	@Override
+	public double setValue(double assetValue) {
+		return this.percentageStake = assetValue;
 	}
 	
 }

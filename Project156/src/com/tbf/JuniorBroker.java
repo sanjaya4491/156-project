@@ -20,9 +20,8 @@ public class JuniorBroker extends Broker {
 	 * $75 is the base rate for each asset
 	 */
 	@Override
-	public double getFee(List<Asset> assetList) {
-		int size = assetList.size();
-		return (75 * size);
+	public double getFee() {
+		return 75;
 	}
 
 	/**
@@ -30,9 +29,8 @@ public class JuniorBroker extends Broker {
 	 * 1.25% is the base rate
 	 */
 	@Override
-	public double getCommission(List<Asset> assetList, Portfolio that) {
-		double totalRateOfReturn = Portfolio.getTotalRateOfReturn(assetList, that);
-		return .0125 * totalRateOfReturn;
+	public double getCommission() {
+		return .0125;
 	}
 
 }

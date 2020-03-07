@@ -11,7 +11,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class JsonFile {
+public class JsonUtils {
 	
 	/**
 	 *	Method that converts a list of person objects into Json strings and prints them to a file

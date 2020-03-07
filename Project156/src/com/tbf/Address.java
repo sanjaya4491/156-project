@@ -21,14 +21,10 @@ public class Address {
 		this.country = country;
 	}
 
-	
-
 	@Override
 	public String toString() {
-		return String.format("%s, %s %s %s", this.getCity(), this.getState(), this.getCountry(), this.getZipCode());
+		return String.format("%s, %s %s %s", this.city, this.state, this.country, this.zipCode);
 	}
-
-
 
 	public String getStreet() {
 		return this.street;
@@ -49,27 +45,5 @@ public class Address {
 	public String getCountry() {
 		return this.country;
 	}
-
-	public void setStreet(String street) {
-		this.street = street;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	
-	
 
 }

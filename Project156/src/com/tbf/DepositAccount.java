@@ -6,48 +6,53 @@ package com.tbf;
 
 public class DepositAccount extends Asset {
 
-	private String apr;
+	private double apr;
+	private double totalBalance;
 
-	public DepositAccount(String code, String type, String label, String apr) {
+	public DepositAccount(String code, String type, String label, double apr) {
 		super(code, type, label);
 		this.apr = apr;
 	}
+	
+	public DepositAccount(DepositAccount d) {
+		super(d.code, d.type, d.label);
+		this.code = d.code;
+		this.type = d.type;
+		this.label = d.label;
+		this.apr = d.apr;
+	}
 
-	public String getApr() {
+	public double getApr() {
 		return this.apr;
 	}
-
-	public void setApr(String apr) {
-		this.apr = apr;
-	}
 	
+	public double getTotalBalance() {
+		return this.totalBalance;
+	}
+
 	/**
 	 * This method returns a annualReturn of a deposit account
 	 */
 	@Override
-	public double getAnnualReturn(Portfolio that) {
-		Double assetValue = this.getTotal(that);
-		return ((Math.pow (Math.E, (Double.parseDouble(this.getApr()))/100)) - 1) * assetValue ;
+	public double getAnnualReturn() {
+		return ((Math.pow(Math.E, (this.apr) / 100)) - 1) * this.totalBalance;
 	}
 
 	/**
 	 * This method returns a returnRate of a deposit account
 	 */
 	@Override
-	public double getReturnRate(Portfolio that) {
-		Double assetValue = this.getTotal(that);
-		double annualReturn = this.getAnnualReturn(that);
-		return (annualReturn / assetValue) * 100;
+	public double getReturnRate() {
+		double annualReturn = this.getAnnualReturn();
+		return (annualReturn / this.totalBalance) * 100;
 	}
 
 	/**
 	 * This method returns the value of a deposit account
 	 */
 	@Override
-	public double getTotal(Portfolio that) {
-		String assetCode = this.getCode(); 
-		Double assetValue = that.getAssetList().get(assetCode);
-		return assetValue;
+	public double getTotal() {
+		return this.totalBalance;
 	}
 
 	/**
@@ -57,6 +62,14 @@ public class DepositAccount extends Asset {
 	@Override
 	public double getRisk() {
 		return 0;
+	}
+
+	/**
+	 * Method that sets the total balance of a deposit account
+	 */
+	@Override
+	public double setValue(double assetValue) {
+		return this.totalBalance = assetValue;
 	}
 	
 }
