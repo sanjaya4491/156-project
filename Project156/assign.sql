@@ -32,10 +32,12 @@ foreign key (stateId) references State (stateId)
 
 create table Person (
 personId int not null primary key auto_increment,
-firstName varchar (255),
-lastName varchar (255),
 personCode varchar (255) not null,
+firstName varchar (255),
+lastName varchar (255) not null,
 brokerType varchar (255),
+fee double,
+commissonRate double,
 addressId int not null,
 foreign key (addressId) references Address(addressId)
 );
@@ -94,12 +96,12 @@ insert into Address (street, city, zipCode, stateId) values
 ("1 Independence Plaza" , "New York", 10004, (select stateId from State where state = "NY")),
 ("64516 Golf View Drive" , "Omaha", 68116, (select stateId from State where state = "NE" ));
 
-insert into Person (firstName, lastName, personCode, brokerType, addressId) values
-("Salvatore" , "Cordova", "007Y", "E" , (select addressId from Address where street = "9903 Jenifer Streets")),
-("Adora" , "Sickling", "UIMG", null , (select addressId from Address where street = "1 School Road")),
-("Dionis" , "Handscomb", "YMCA", null , (select addressId from Address where street = "8 Ronald Regan Hill")),
-("Lillian" , "De Angelis", "PK9B", "J" , (select addressId from Address where street = "1 Independence Plaza")),
-("Quinn" , "Carress", "R555RD", null , (select addressId from Address where street = "64516 Golf View Drive"));
+insert into Person (firstName, lastName, personCode, brokerType, fee, commissonRate, addressId) values
+("Salvatore" , "Cordova", "007Y", "E", 0, 3.75, (select addressId from Address where street = "9903 Jenifer Streets")),
+("Adora" , "Sickling", "UIMG", null, null, null, (select addressId from Address where street = "1 School Road")),
+("Dionis" , "Handscomb", "YMCA", null, null, null, (select addressId from Address where street = "8 Ronald Regan Hill")),
+("Lillian" , "De Angelis", "PK9B", "J", 75, 1.25, (select addressId from Address where street = "1 Independence Plaza")),
+("Quinn" , "Carress", "R555RD", null, null, null, (select addressId from Address where street = "64516 Golf View Drive"));
 
 insert into Email (email, personId) values
 ("cordova0@zdnet.com" , (select personId from Person where personCode = "007Y")), 
@@ -130,6 +132,7 @@ insert into Asset (assetName, assetType, assetCode, apr, quarterlydividend ,
 ("Many Midget Manufacturers Man.", "P", "AME21", null, 1000, 2 , -0.15, 4333, null, null);
         
 select * from Asset;
+select * from Email;
 
 insert PortfolioAsset (portfolioId, assetId, value) values
 ((select portfolioId from Portfolio where portfolioCode = "PT001"), 
@@ -154,6 +157,10 @@ insert PortfolioAsset (portfolioId, assetId, value) values
 	(select assetId from Asset where assetCode = "AME21"), 44);
 
 select * from PortfolioAsset;
+
+
+
+
 
 
 
