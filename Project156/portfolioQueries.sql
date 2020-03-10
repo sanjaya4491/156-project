@@ -70,14 +70,14 @@ select * from Portfolio;
 select * from Person;
 
 -- Test Query #14
-select p.portfolioCode, a.assetCode from Asset a
+select p.portfolioCode, sum(a.sharePrice * pa.value) as totalValue from Asset a
 join PortfolioAsset pa on pa.assetId = a.assetId
 join Portfolio p on p.portfolioId = pa.portfolioId
-where a.assetCode = "S";
+where a.assetType = "S";
 
 -- Test Query #15
-
-
-select * from PortfolioAsset;
-
+select a.assetCode, sum(pa.value) as percentage from PortfolioAsset pa
+join Portfolio p on p.portfolioId = pa.portfolioId
+join Asset a on pa.assetId = a.assetId
+where a.assetType = "P" having sum(pa.value) > 100;
 
