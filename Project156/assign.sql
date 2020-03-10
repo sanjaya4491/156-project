@@ -37,7 +37,7 @@ firstName varchar (255),
 lastName varchar (255) not null,
 brokerType varchar (255),
 fee double,
-commissonRate double,
+commissionRate double,
 addressId int not null,
 foreign key (addressId) references Address(addressId)
 );
@@ -96,7 +96,7 @@ insert into Address (street, city, zipCode, stateId) values
 ("1 Independence Plaza" , "New York", 10004, (select stateId from State where state = "NY")),
 ("64516 Golf View Drive" , "Omaha", 68116, (select stateId from State where state = "NE" ));
 
-insert into Person (firstName, lastName, personCode, brokerType, fee, commissonRate, addressId) values
+insert into Person (firstName, lastName, personCode, brokerType, fee, commissionRate, addressId) values
 ("Salvatore" , "Cordova", "007Y", "E", 0, 3.75, (select addressId from Address where street = "9903 Jenifer Streets")),
 ("Adora" , "Sickling", "UIMG", null, null, null, (select addressId from Address where street = "1 School Road")),
 ("Dionis" , "Handscomb", "YMCA", null, null, null, (select addressId from Address where street = "8 Ronald Regan Hill")),
@@ -157,11 +157,6 @@ insert PortfolioAsset (portfolioId, assetId, value) values
 	(select assetId from Asset where assetCode = "AME21"), 44);
 
 select * from PortfolioAsset;
-
-
-
-
-
 
 
 
