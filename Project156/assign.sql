@@ -1,4 +1,5 @@
 use sdhakal;
+-- Authors: Daniel Godoy and Sanjaya Dhakal
 
 drop table if exists PortfolioAsset;
 drop table if exists Portfolio;
@@ -33,9 +34,10 @@ foreign key (stateId) references State (stateId)
 create table Person (
 personId int not null primary key auto_increment,
 personCode varchar (255) not null,
-firstName varchar (255),
+firstName varchar (255) not null,
 lastName varchar (255) not null,
 brokerType varchar (255),
+brokerSection varchar (255),
 fee double,
 commissionRate double,
 addressId int not null,
@@ -51,8 +53,8 @@ foreign key (personId) references Person (personId)
 
 create table Asset(
 assetId int not null primary key auto_increment,
-assetCode varchar (255),
-assetType varchar(255),
+assetCode varchar (255) not null,
+assetType varchar(255) not null,
 assetName varchar(255) not null,
 apr double,
 quarterlydividend double,
@@ -68,7 +70,7 @@ portfolioId int not null primary key auto_increment,
 portfolioCode varchar(255) not null,
 personId int not null,
 brokerid int null,
-beneficiaryId int ,
+beneficiaryId int,
 foreign key (personId) references Person (personId)
 );
 
@@ -96,12 +98,12 @@ insert into Address (street, city, zipCode, stateId) values
 ("1 Independence Plaza" , "New York", 10004, (select stateId from State where state = "NY")),
 ("64516 Golf View Drive" , "Omaha", 68116, (select stateId from State where state = "NE" ));
 
-insert into Person (firstName, lastName, personCode, brokerType, fee, commissionRate, addressId) values
-("Salvatore" , "Cordova", "007Y", "E", 0, 3.75, (select addressId from Address where street = "9903 Jenifer Streets")),
-("Adora" , "Sickling", "UIMG", null, null, null, (select addressId from Address where street = "1 School Road")),
-("Dionis" , "Handscomb", "YMCA", null, null, null, (select addressId from Address where street = "8 Ronald Regan Hill")),
-("Lillian" , "De Angelis", "PK9B", "J", 75, 1.25, (select addressId from Address where street = "1 Independence Plaza")),
-("Quinn" , "Carress", "R555RD", null, null, null, (select addressId from Address where street = "64516 Golf View Drive"));
+insert into Person (firstName, lastName, personCode, brokerType, brokerSection, fee, commissionRate, addressId) values
+("Salvatore" , "Cordova", "007Y", "E", "sec1230", 0, 3.75, (select addressId from Address where street = "9903 Jenifer Streets")),
+("Adora" , "Sickling", "UIMG", null, null, null, null, (select addressId from Address where street = "1 School Road")),
+("Dionis" , "Handscomb", "YMCA", null, null, null, null, (select addressId from Address where street = "8 Ronald Regan Hill")),
+("Lillian" , "De Angelis", "PK9B", "J", "sec290", 75, 1.25, (select addressId from Address where street = "1 Independence Plaza")),
+("Quinn" , "Carress", "R555RD", null, null, null, null, (select addressId from Address where street = "64516 Golf View Drive"));
 
 insert into Email (email, personId) values
 ("cordova0@zdnet.com" , (select personId from Person where personCode = "007Y")), 
@@ -116,9 +118,6 @@ insert into Portfolio (personId, brokerId, beneficiaryId, portfolioCode ) values
 ((select personId from Person where personCode = "UIMG"), (select personId from Person where personCode = "PK9B"),null, "PT002"),
 ((select personId from Person where personCode = "R555RD"), (select personId from Person where personCode = "PK9B"),null, "PT003");
 
-select * from Person;
-select * from Portfolio;
-
 insert into Asset (assetName, assetType, assetCode, apr, quarterlydividend ,
 					baseReturn ,omegaMeasure ,totalValue ,stockSymbol ,sharePrice ) values
 ("Money Market Savings", "D", "BX001-23", 13.05, null, null, null, null, null, null),
@@ -130,9 +129,6 @@ insert into Asset (assetName, assetType, assetCode, apr, quarterlydividend ,
 ("Diageo PLC", "S", "dadooe90", null, 12.00, 3.2, 0.01, null, "DEO", 12.75),
 ("acccv", "S", "324yoo", null, 24.50, 4.3, -0.07, null, "abc", 42.80),
 ("Many Midget Manufacturers Man.", "P", "AME21", null, 1000, 2 , -0.15, 4333, null, null);
-        
-select * from Asset;
-select * from Email;
 
 insert PortfolioAsset (portfolioId, assetId, value) values
 ((select portfolioId from Portfolio where portfolioCode = "PT001"), 
@@ -155,9 +151,3 @@ insert PortfolioAsset (portfolioId, assetId, value) values
 	(select assetId from Asset where assetCode = "324yoo"), 333),
 ((select portfolioId from Portfolio where portfolioCode = "PT003"), 
 	(select assetId from Asset where assetCode = "AME21"), 44);
-
-select * from PortfolioAsset;
-
-
-
-
