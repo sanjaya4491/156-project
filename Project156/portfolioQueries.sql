@@ -23,6 +23,8 @@ delete from Portfolio where personId = (select personId from Person where person
 delete from Email where personId = (select personId from Person where personCode = "PK9B");
 delete from Person where personCode = "PK9B";
 
+SET SQL_SAFE_UPDATES = 1;
+
 -- Test Query #6 Create a person record
 insert into State (state, countryId) values
 ("CA", (select countryId from Country where country = "USA"));
@@ -79,7 +81,7 @@ where a.assetType = "S"
 group by p.portfolioCode;
 
 -- Test Query #15 Detect an invalid distribution of private investment assets (exceeding 100%)
--- Add private investments with values to exceed 100 to better test the query
+-- Add private investments with values to exceed 100
 insert into PortfolioAsset (portfolioId, assetId, value) values 
 ((select portfolioId from Portfolio where portfolioCode = "PT002"), (select assetId from Asset where assetCode = "TEST1"), 99),
 ((select portfolioId from Portfolio where portfolioCode = "PT001"), (select assetId from Asset where assetCode = "AME21"), 57);

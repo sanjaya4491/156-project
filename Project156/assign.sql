@@ -33,7 +33,7 @@ foreign key (stateId) references State (stateId)
 
 create table Person (
 personId int not null primary key auto_increment,
-personCode varchar (255) not null,
+personCode varchar (255) not null unique key,
 firstName varchar (255) not null,
 lastName varchar (255) not null,
 brokerType varchar (255),
@@ -53,7 +53,7 @@ foreign key (personId) references Person (personId)
 
 create table Asset(
 assetId int not null primary key auto_increment,
-assetCode varchar (255) not null,
+assetCode varchar (255) not null unique key,
 assetType varchar(255) not null,
 assetName varchar(255) not null,
 apr double,
@@ -61,13 +61,13 @@ quarterlydividend double,
 baseReturn double,
 omegaMeasure double,
 totalValue double,
-stockSymbol varchar(255),
+stockSymbol varchar(255) unique key,
 sharePrice double
 );
 
 create table Portfolio(
 portfolioId int not null primary key auto_increment,
-portfolioCode varchar(255) not null,
+portfolioCode varchar(255) not null unique key,
 personId int not null,
 brokerid int null,
 beneficiaryId int,
