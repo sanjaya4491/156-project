@@ -66,12 +66,12 @@ insert into PortfolioAsset (portfolioId, assetId, value) values
 ((select portfolioId from Portfolio where portfolioCode = "PT004"), (select assetId from Asset where assetCode = "TEST1"), 50);
 
 -- Test Query #12 Find the total number of portfolios owned by each person
-select p.firstName, p.lastName, count(p.personId) as numPortfolios from Person p
-join Portfolio po on po.personId = p.personId group by p.personId;
+select p.firstName, p.lastName, count(po.personId) as numPortfolios from Person p
+left join Portfolio po on po.personId = p.personId group by p.personId;
 
 -- Test Query #13 Find the total number of portfolios managed by each person
 select p.firstName, p.lastName, count(brokerId) as numPortfolios from Person p
-join Portfolio po on po.brokerId = p.personId group by p.personId;
+left join Portfolio po on po.brokerId = p.personId group by p.personId;
 
 -- Test Query #14 Find the total value of all stocks in each portfolio
 -- Add a stock to a different portfolio to better test the query
