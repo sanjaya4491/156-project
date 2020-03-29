@@ -38,8 +38,6 @@ firstName varchar (255) not null,
 lastName varchar (255) not null,
 brokerType varchar (255),
 brokerSection varchar (255),
-fee double,
-commissionRate double,
 addressId int not null,
 foreign key (addressId) references Address(addressId)
 );
@@ -71,7 +69,9 @@ portfolioCode varchar(255) not null unique key,
 personId int not null,
 brokerid int null,
 beneficiaryId int,
-foreign key (personId) references Person (personId)
+foreign key (personId) references Person (personId),
+foreign key (brokerId) references Person (personId),
+foreign key (beneficiaryId) references Person (personId)
 );
 
 create table PortfolioAsset (
@@ -98,12 +98,12 @@ insert into Address (street, city, zipCode, stateId) values
 ("1 Independence Plaza" , "New York", 10004, (select stateId from State where state = "NY")),
 ("64516 Golf View Drive" , "Omaha", 68116, (select stateId from State where state = "NE" ));
 
-insert into Person (firstName, lastName, personCode, brokerType, brokerSection, fee, commissionRate, addressId) values
-("Salvatore" , "Cordova", "007Y", "E", "sec1230", 0, 3.75, (select addressId from Address where street = "9903 Jenifer Streets")),
-("Adora" , "Sickling", "UIMG", null, null, null, null, (select addressId from Address where street = "1 School Road")),
-("Dionis" , "Handscomb", "YMCA", null, null, null, null, (select addressId from Address where street = "8 Ronald Regan Hill")),
-("Lillian" , "De Angelis", "PK9B", "J", "sec290", 75, 1.25, (select addressId from Address where street = "1 Independence Plaza")),
-("Quinn" , "Carress", "R555RD", null, null, null, null, (select addressId from Address where street = "64516 Golf View Drive"));
+insert into Person (firstName, lastName, personCode, brokerType, brokerSection, addressId) values
+("Salvatore" , "Cordova", "007Y", "E", "sec1230", (select addressId from Address where street = "9903 Jenifer Streets")),
+("Adora" , "Sickling", "UIMG", null, null, (select addressId from Address where street = "1 School Road")),
+("Dionis" , "Handscomb", "YMCA", null, null, (select addressId from Address where street = "8 Ronald Regan Hill")),
+("Lillian" , "De Angelis", "PK9B", "J", "sec290", (select addressId from Address where street = "1 Independence Plaza")),
+("Quinn" , "Carress", "R555RD", null, null, (select addressId from Address where street = "64516 Golf View Drive"));
 
 insert into Email (email, personId) values
 ("cordova0@zdnet.com", (select personId from Person where personCode = "007Y")), 
