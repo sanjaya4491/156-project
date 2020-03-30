@@ -7,6 +7,7 @@ package com.tbf;
 
 public class Address {
 	
+	private Integer addressId;
 	private String street;
 	private String city;
 	private String state;
@@ -14,6 +15,15 @@ public class Address {
 	private String country;
 	
 	public Address(String street, String city, String state, String zipCode, String country) {
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zipCode = zipCode;
+		this.country = country;
+	}
+
+	public Address(Integer addressId, String street, String city, String state, String zipCode, String country) {
+		this.addressId = addressId;
 		this.street = street;
 		this.city = city;
 		this.state = state;
@@ -45,5 +55,11 @@ public class Address {
 	public String getCountry() {
 		return this.country;
 	}
+
+	public Integer getAddressId() {
+		return this.addressId;
+	}
+	
+	
 
 }

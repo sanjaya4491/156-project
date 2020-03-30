@@ -14,6 +14,11 @@ public class DepositAccount extends Asset {
 		this.apr = apr;
 	}
 	
+	public DepositAccount(Integer assetId, String code, String type, String label, double apr) {
+		super(assetId, code, type, label);
+		this.apr = apr;
+	}
+	
 	public DepositAccount(DepositAccount d) {
 		super(d.code, d.type, d.label);
 		this.code = d.code;
@@ -71,5 +76,11 @@ public class DepositAccount extends Asset {
 	public double setValue(double assetValue) {
 		return this.totalBalance = assetValue;
 	}
+
+	@Override
+	public String toString() {
+		return "DepositAccount [apr=" + apr + ", totalBalance=" + totalBalance + "]";
+	}
+	
 	
 }

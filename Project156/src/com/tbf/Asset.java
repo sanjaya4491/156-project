@@ -6,11 +6,20 @@ package com.tbf;
  */
 
 public abstract class Asset {
+	
+	private Integer assetId;
 	protected String code;
 	protected String type;
 	protected String label;
 	
 	public Asset(String code, String type, String label) {
+		this.code = code;
+		this.type = type;
+		this.label = label;
+	}
+
+	public Asset(Integer assetId, String code, String type, String label) {
+		this.assetId = assetId;
 		this.code = code;
 		this.type = type;
 		this.label = label;
@@ -26,6 +35,10 @@ public abstract class Asset {
 
 	public String getLabel() {
 		return this.label;
+	}
+
+	public Integer getAssetId() {
+		return this.assetId;
 	}
 
 	/**
@@ -61,5 +74,12 @@ public abstract class Asset {
 	 * @return
 	 */
 	public abstract double setValue(double assetValue);
+
+	@Override
+	public String toString() {
+		return "Asset [assetId=" + assetId + ", code=" + code + ", type=" + type + ", label=" + label + "]";
+	}
+	
+	
 	
 }

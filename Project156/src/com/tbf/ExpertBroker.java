@@ -14,6 +14,11 @@ public class ExpertBroker extends Broker {
 		super(personCode, lastName, firstName, address, email, title, section);
 	}
 	
+	public ExpertBroker(Integer personId, String personCode, String lastName, String firstName, Address address, List<Email> email,
+			String title, String section) {
+		super(personId, personCode, lastName, firstName, address, email, title, section);
+	}
+	
 	/**
 	 * method that returns the fees of an expert broker which is always 0
 	 */

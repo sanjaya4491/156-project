@@ -14,7 +14,7 @@ public class PortfolioReport {
 	 */
 	public static void main(String args[]) {
 
-		List<Portfolio> portfolio = DataParser.parsePortfolioDataFile();
+		List<Portfolio> portfolio = DatabaseLoader.getAllPortfolio();
 		
 		PortfolioUtils.portfolioSummaryReport(portfolio);
 		PortfolioUtils.portfolioDetails(portfolio);

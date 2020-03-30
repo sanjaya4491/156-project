@@ -19,6 +19,15 @@ public class PrivateInvestment extends Asset {
 		this.totalValue = totalValue;
 	}
 	
+	public PrivateInvestment(Integer assetId, String code, String type, String label, double quarterlyDividend, double baseReturn,
+			double baseOmegaMeasure, double totalValue) {
+		super(assetId, code, type, label);
+		this.quarterlyDividend = quarterlyDividend;
+		this.baseReturn = baseReturn;
+		this.baseOmegaMeasure = baseOmegaMeasure;
+		this.totalValue = totalValue;
+	}
+	
 	public PrivateInvestment(PrivateInvestment p) {
 		super(p.code, p.type, p.label);
 		this.code = p.code;
@@ -90,6 +99,13 @@ public class PrivateInvestment extends Asset {
 	@Override
 	public double setValue(double assetValue) {
 		return this.percentageStake = assetValue;
+	}
+
+	@Override
+	public String toString() {
+		return "PrivateInvestment [quarterlyDividend=" + quarterlyDividend + ", baseReturn=" + baseReturn
+				+ ", baseOmegaMeasure=" + baseOmegaMeasure + ", totalValue=" + totalValue + ", percentageStake="
+				+ percentageStake + "]";
 	}
 	
 }

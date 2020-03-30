@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Portfolio {
 
+	private Integer portfolioId;
 	private String portfolioCode;
 	private Person owner;
 	private Broker manager;
@@ -22,8 +23,18 @@ public class Portfolio {
 		this.assetList = assetList;
 	}
 
+	public Portfolio(Integer portfolioId, String portfolioCode, Person owner, Broker manager, Person beneficiary,
+			List<Asset> assetList) {
+		this.portfolioId = portfolioId;
+		this.portfolioCode = portfolioCode;
+		this.owner = owner;
+		this.manager = manager;
+		this.beneficiary = beneficiary;
+		this.assetList = assetList;
+	}
+
 	public String getPortfolioCode() {
-		return portfolioCode;
+		return this.portfolioCode;
 	}
 
 	public Person getOwner() {
@@ -31,7 +42,7 @@ public class Portfolio {
 	}
 
 	public Broker getManager() {
-		return manager;
+		return this.manager;
 	}
 
 	public Person getBeneficiary() {
@@ -40,6 +51,10 @@ public class Portfolio {
 
 	public List<Asset> getAssetList() {
 		return this.assetList;
+	}
+
+	public Integer getPortfolioId() {
+		return this.portfolioId;
 	}
 
 	/**
@@ -74,6 +89,12 @@ public class Portfolio {
 			total = total + a.getAnnualReturn();
 		}
 		return total;
+	}
+
+	@Override
+	public String toString() {
+		return "Portfolio [portfolioId=" + portfolioId + ", portfolioCode=" + portfolioCode + ", owner=" + owner
+				+ ", manager=" + manager + ", beneficiary=" + beneficiary + ", assetList=" + assetList + "]";
 	}
 
 }

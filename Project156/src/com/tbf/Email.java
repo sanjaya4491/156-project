@@ -6,14 +6,24 @@ package com.tbf;
 
 public class Email {
 	
+	private Integer emailId;
 	private String address;
 
 	public Email(String address) {
 		this.address = address;
 	}
 
+	public Email(Integer emailId, String address) {
+		this.emailId = emailId;
+		this.address = address;
+	}
+
 	public String getAddress() {
-		return address;
+		return this.address;
+	}
+
+	public Integer getEmailId() {
+		return this.emailId;
 	}
 
 	@Override

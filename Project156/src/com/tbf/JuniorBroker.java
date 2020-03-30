@@ -14,6 +14,11 @@ public class JuniorBroker extends Broker {
 			String title, String section) {
 		super(personCode, lastName, firstName, address, email, title, section);
 	}
+	
+	public JuniorBroker(Integer personId, String personCode, String lastName, String firstName, Address address, List<Email> email,
+			String title, String section) {
+		super(personId, personCode, lastName, firstName, address, email, title, section);
+	}
 
 	/**
 	 * Method that gets the fees of a junior broker.

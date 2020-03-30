@@ -18,6 +18,13 @@ public abstract class Broker extends Person {
 		this.section = section;
 	}
 	
+	public Broker(Integer personId, String personCode, String lastName, String firstName, Address address, List<Email> email,
+			String title, String section) {
+		super(personId, personCode, lastName, firstName, address, email);
+		this.title = title;
+		this.section = section;
+	}
+	
 	public String getTitle() {
 		return this.title;
 	}

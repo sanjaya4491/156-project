@@ -3,6 +3,7 @@ package com.tbf;
  * This class stores all the information about the stock for ex the name and the symbol and the price.
  */
 public class Stock extends Asset {
+	
 	private double quarterlyDividend;
 	private double baseReturn;
 	private double betaMeasure;
@@ -13,6 +14,16 @@ public class Stock extends Asset {
 	public Stock(String code, String type, String label, double quarterlyDividend, double baseReturn,
 			double betaMeasure, String stockSymbol, double sharePrice) {
 		super(code, type, label);
+		this.quarterlyDividend = quarterlyDividend;
+		this.baseReturn = baseReturn;
+		this.betaMeasure = betaMeasure;
+		this.stockSymbol = stockSymbol;
+		this.sharePrice = sharePrice;
+	}
+	
+	public Stock(Integer assetId, String code, String type, String label, double quarterlyDividend, double baseReturn,
+			double betaMeasure, String stockSymbol, double sharePrice) {
+		super(assetId, code, type, label);
 		this.quarterlyDividend = quarterlyDividend;
 		this.baseReturn = baseReturn;
 		this.betaMeasure = betaMeasure;
@@ -92,6 +103,13 @@ public class Stock extends Asset {
 	@Override
 	public double setValue(double assetValue) {
 		return this.numberOfShares = assetValue;
+	}
+
+	@Override
+	public String toString() {
+		return "Stock [quarterlyDividend=" + quarterlyDividend + ", baseReturn=" + baseReturn + ", betaMeasure="
+				+ betaMeasure + ", stockSymbol=" + stockSymbol + ", sharePrice=" + sharePrice + ", numberOfShares="
+				+ numberOfShares + "]";
 	}
 	
 }

@@ -7,6 +7,7 @@ package com.tbf;
 import java.util.List;
 public class Person {
 	
+	private Integer personId;
 	private String personCode;
 	private String lastName;
 	private String firstName;
@@ -20,6 +21,16 @@ public class Person {
 		this.firstName = firstName;
 		this.address = address;
 		this.emails = email;
+	}
+
+	public Person(Integer personId, String personCode, String lastName, String firstName, Address address,
+			List<Email> emails) {
+		this.personId = personId;
+		this.personCode = personCode;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.address = address;
+		this.emails = emails;
 	}
 
 	@Override
@@ -46,5 +57,10 @@ public class Person {
 	public List<Email> getEmail() {
 		return this.emails;
 	}
+
+	public Integer getPersonId() {
+		return this.personId;
+	}
+
 
 }
