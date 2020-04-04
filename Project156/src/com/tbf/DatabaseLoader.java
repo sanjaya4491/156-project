@@ -68,9 +68,9 @@ public class DatabaseLoader {
 			ps = conn.prepareStatement(query);
 			ps.setInt(1, personId);
 			rs = ps.executeQuery();
-			while(rs.next()) {
-				int emailId = rs.getInt("emailId");
-				String email = rs.getString("email");
+		    while(rs.next()) {
+		    	int emailId = rs.getInt("emailId");
+			    String email = rs.getString("email");
 				//add email to list
 				emails.add(new Email(emailId, email));
 			}
@@ -292,6 +292,20 @@ public class DatabaseLoader {
 			throw new RuntimeException(e);
 		}
 		
+		try {
+			if(rs != null && !rs.isClosed()) {
+				rs.close();
+			}
+			if(ps != null && !ps.isClosed()) {
+				ps.close();
+			}
+			if(conn != null && !conn.isClosed()) {
+				conn.close();
+			}
+		} catch (SQLException ex) {
+			throw new RuntimeException(ex);
+		}
+		
 		return assets;
 	}
 	
@@ -363,10 +377,28 @@ public class DatabaseLoader {
 					beneficiary = getPerson(beneficiaryId);
 				}
 				p = new Portfolio(portfolioId, portfolioCode, owner, manager, beneficiary, assets);
+			} else {
+				//no portfolio with the id exists
+				throw new IllegalStateException("no such portfolio with portfolioId = " + portfolioId);
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+		
+		try {
+			if(rs != null && !rs.isClosed()) {
+				rs.close();
+			}
+			if(ps != null && !ps.isClosed()) {
+				ps.close();
+			}
+			if(conn != null && !conn.isClosed()) {
+				conn.close();
+			}
+		} catch (SQLException ex) {
+			throw new RuntimeException(ex);
+		}
+		
 		return p;
 	}
 	
@@ -398,6 +430,20 @@ public class DatabaseLoader {
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
+		}
+		
+		try {
+			if(rs != null && !rs.isClosed()) {
+				rs.close();
+			}
+			if(ps != null && !ps.isClosed()) {
+				ps.close();
+			}
+			if(conn != null && !conn.isClosed()) {
+				conn.close();
+			}
+		} catch (SQLException ex) {
+			throw new RuntimeException(ex);
 		}
 		
 		return portfolios;
