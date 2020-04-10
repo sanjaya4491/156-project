@@ -11,7 +11,7 @@ public class DatabaseInfo {
 	public static final String password = "y6vZmRmP";
 	
 	/**
-	 * Method that returns the connection to my database
+	 * Method that returns the connection to a database
 	 * @return
 	 */
 	public static Connection databaseConnector() {
