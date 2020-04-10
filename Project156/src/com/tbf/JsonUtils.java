@@ -13,6 +13,9 @@ import com.google.gson.GsonBuilder;
 
 public class JsonUtils {
 	
+	public static final String Person_file = "data/Persons.dat";
+	public static final String Asset_file = "data/Assets.dat";
+	
 	/**
 	 *	Method that converts a list of person objects into Json strings and prints them to a file
 	 */
@@ -20,7 +23,7 @@ public class JsonUtils {
 		personList = DataParser.parsePersonDataFile();
 		PrintWriter out = null;
 		try {
-			out = new PrintWriter("data/Persons.json");
+			out = new PrintWriter(Person_file);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -38,7 +41,7 @@ public class JsonUtils {
 		assetList = DataParser.parseAssetDataFile();
 		PrintWriter out = null;
 		try {
-			out = new PrintWriter("data/Assets.json");
+			out = new PrintWriter(Asset_file);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

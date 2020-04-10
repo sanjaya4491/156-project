@@ -16,34 +16,6 @@ import java.util.List;
 public class DatabaseLoader {
 	
 	/**
-	 * Method that returns the connection to my database
-	 * @return
-	 */
-	public static Connection databaseConnector() {
-		
-		String DRIVER_CLASS = "com.mysql.cj.jdbc.Driver";
-		try {
-			Class.forName(DRIVER_CLASS).getDeclaredConstructor().newInstance();
-		} catch(Exception e) {
-			throw new RuntimeException(e);
-		}
-		
-		Connection conn = null;
-		String url = "jdbc:mysql://cse.unl.edu/sdhakal?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatatimeCode=false&serverTimezone=UTC";
-		String username = "sdhakal";
-		String password = "y6vZmRmP";
-		
-		try {
-			conn = DriverManager.getConnection(url, username, password);
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-		
-		return conn;
-	}
-	
-	
-	/**
 	 * Method that returns a person given the corresponding id
 	 * and all major information the person has
 	 * @param personId
@@ -54,7 +26,7 @@ public class DatabaseLoader {
 		Person p = null;
 		List<Email> emails = new ArrayList<Email>();
 		
-		Connection conn = databaseConnector();
+		Connection conn = DatabaseInfo.databaseConnector();
 		
 		//get the email(s) of the person
 		String query = "select e.emailid, e.email from Email e " + 
@@ -149,7 +121,7 @@ public class DatabaseLoader {
 	public static List<Person> getAllPerson() {
 		List<Person> people = new ArrayList<>();
 		
-		Connection conn = databaseConnector();
+		Connection conn = DatabaseInfo.databaseConnector();
 		
 		//get id's of all people
 		String query = "select p.personId from Person p;";
@@ -197,7 +169,7 @@ public class DatabaseLoader {
 	public static Asset getAsset(int assetId) {
 		Asset a = null;
 		
-		Connection conn = databaseConnector();
+		Connection conn = DatabaseInfo.databaseConnector();
 		
 		//get all major fields of all the asset types
 		String query = "select a.assetCode, a.assetType, a.assetName, a.apr, a.quarterlyDividend, " + 
@@ -269,7 +241,7 @@ public class DatabaseLoader {
 	public static List<Asset> getAllAsset() {
 		List<Asset> assets = new ArrayList<>();
 		
-		Connection conn = databaseConnector();
+		Connection conn = DatabaseInfo.databaseConnector();
 		
 		//get id's of all assets
 		String query = "select a.assetId from Asset a;";
@@ -320,7 +292,7 @@ public class DatabaseLoader {
 		Portfolio p = null;
 		List<Asset> assets = new ArrayList<>();
 		
-		Connection conn = databaseConnector();
+		Connection conn = DatabaseInfo.databaseConnector();
 		
 		//get the assets associated with the portfolio
 		String query = "select a.assetId, pa.value from Portfolio p " + 
@@ -409,7 +381,7 @@ public class DatabaseLoader {
 	public static List<Portfolio> getAllPortfolio() {
 		List<Portfolio> portfolios = new ArrayList<>();
 		
-		Connection conn = databaseConnector();
+		Connection conn = DatabaseInfo.databaseConnector();
 		
 		//get all id's of porfolios
 		String query = "select p.portfolioId from Portfolio p;";
