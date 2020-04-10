@@ -16,10 +16,6 @@ import java.util.Scanner;
 */
 
 public class DataParser {
-	
-	public static final String Person_file = "data/Persons.dat";
-	public static final String Asset_file = "data/Assets.dat";
-	public static final String Portfolio_file = "data/Portfolios.dat";
 
 	/**
 	 * Method that reads from a flat data file containing person information and
@@ -31,7 +27,7 @@ public class DataParser {
 		// create empty list of people
 		List<Person> result = new ArrayList<Person>();
 		// open file
-		File file = new File(Person_file);
+		File file = new File("data/Persons.dat");
 		Scanner sc = null;
 		try {
 			sc = new Scanner(file);
@@ -127,7 +123,7 @@ public class DataParser {
 		// create list of assets
 		List<Asset> result = new ArrayList<Asset>();
 		// open file
-		File file = new File(Asset_file);
+		File file = new File("data/Assets.dat");
 		Scanner sc = null;
 		try {
 			sc = new Scanner(file);
@@ -206,7 +202,7 @@ public class DataParser {
 		// create list of assets calling method
 		List<Asset> allAssets = parseAssetDataFile();
 		// open file
-		File file = new File(Portfolio_file);
+		File file = new File("data/Portfolios.dat");
 		Scanner sc = null;
 		try {
 			sc = new Scanner(file);
