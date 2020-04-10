@@ -3,8 +3,8 @@
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="com.tbf.PrivateInvestment" project="Project156" 
     file="/Project156/src/com/tbf/PrivateInvestment.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="679" y="544"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="433" width="414" x="823" y="908"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="com.tbf.Email" project="Project156" file="/Project156/src/com/tbf/Email.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1818" y="86"/>    
+    <position height="-1" width="-1" x="2122" y="138"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="com.tbf.Portfolio" project="Project156" 
     file="/Project156/src/com/tbf/Portfolio.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1485" y="511"/>    
+    <position height="-1" width="-1" x="1709" y="539"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="com.tbf.Asset" project="Project156" file="/Project156/src/com/tbf/Asset.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1080" y="534"/>    
+    <position height="-1" width="-1" x="1378" y="554"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="com.tbf.Broker" project="Project156" file="/Project156/src/com/tbf/Broker.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1998" y="353"/>    
+    <position height="-1" width="-1" x="2080" y="517"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="com.tbf.DepositAccount" project="Project156" 
     file="/Project156/src/com/tbf/DepositAccount.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1024" y="960"/>    
+    <position height="-1" width="-1" x="1388" y="1122"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="com.tbf.Stock" project="Project156" file="/Project156/src/com/tbf/Stock.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1402" y="967"/>    
+    <position height="-1" width="-1" x="1716" y="1183"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,8 +66,8 @@
   </class>  
   <class id="8" language="java" name="com.tbf.Address" project="Project156" file="/Project156/src/com/tbf/Address.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1060" y="142"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="353" width="349" x="1175" y="-30"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="com.tbf.ExpertBroker" project="Project156" 
     file="/Project156/src/com/tbf/ExpertBroker.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2148" y="666"/>    
+    <position height="-1" width="-1" x="2112" y="1002"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="com.tbf.Person" project="Project156" file="/Project156/src/com/tbf/Person.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1462" y="141"/>    
+    <position height="-1" width="-1" x="1734" y="137"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="com.tbf.JuniorBroker" project="Project156" 
     file="/Project156/src/com/tbf/JuniorBroker.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1836" y="834"/>    
+    <position height="-1" width="-1" x="1882" y="818"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      

@@ -1,9 +1,11 @@
 package com.tbf;
 
+import java.util.List;
+
 public class Test {
 
 	public static void main(String args[]) {
-		
+
 		//PortfolioData.addEmail("YMCA", "HELLODANIEL@FUCKYOU.com");
 		//PortfolioData.addPerson("NNNN", "Howard", "Stark", "llll", "llll", "llll", "68025", "llll", null, null);
 		//PortfolioData.addDepositAccount("YMCA", "DANIEL DA", .5);
@@ -12,5 +14,5 @@ public class Test {
 		//PortfolioData.addPortfolio("PT005", "AAAA", "BBBB", "CCCC");
 		//PortfolioData.addAsset("PT001", "google", 50);
 	}
-	
+
 }
