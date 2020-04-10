@@ -1,154 +1,96 @@
 use sdhakal;
 -- Authors: Daniel Godoy and Sanjaya Dhakal
 
-drop table if exists PortfolioAsset;
-drop table if exists Portfolio;
-drop table if exists Asset;
-drop table if exists Email;
-drop table if exists Person;
-drop table if exists Address;
-drop table if exists State;
-drop table if exists Country;
+-- Test Query #1 Retrieve the major fields for every person
+select p.personCode, p.firstName, p.lastName, p.brokerType, p.brokerSection,
+a.street, a.city, s.state, a.zipcode, c.country, e.email from Person p
+join Address a on p.addressId = a.addressId
+join State s on s.stateId = a.stateId
+join Country c on c.countryId = s.countryId
+join Email e on e.personId = p.personId;
 
-create table Country (
-countryId int not null primary key auto_increment,
-country varchar (255) not null
-);
+-- Test Query #2 Retrieve the email(s) of a given person
+select p.firstName, p.lastName, e.email from Person p
+join Email e on p.personId = e.personId
+where p.lastName = "Sickling";
 
-create table State(
-stateId int not null primary key auto_increment,
-state varchar (255) not null,
-countryId int not null,
-foreign key (countryId) references Country(countryId)
-);
+-- Test Query #3 Add an email to a specific person
+insert into Email(email, personId) values 
+("TestEmail@TEST.com", (select personId from Person where lastName = "Carress"));
 
-create table Address(
-addressId int not null primary key auto_increment,
-street varchar(255) not null,
-city varchar (255) not null,
-zipCode int not null,
-stateId int not null,
-foreign key (stateId) references State (stateId)
-);
+-- Test Query #4 Change the email address of a given email record
+update Email set email = "ChangeEmail@TEST.com" where emailId = 5;
 
-create table Person (
-personId int not null primary key auto_increment,
-personCode varchar (255) not null unique key,
-firstName varchar (255) not null,
-lastName varchar (255) not null,
-brokerType varchar (255),
-brokerSection varchar (255),
-addressId int not null,
-foreign key (addressId) references Address(addressId)
-);
+-- Test Query #5 Remove a given person record
+delete from PortfolioAsset where portfolioId = (select portfolioId from Portfolio where personId = (select personId from Person where personCode = "YMCA"));
+delete from Portfolio where personId = (select personId from Person where personCode = "YMCA");
+delete from Email where personId = (select personId from Person where personCode = "YMCA");
+delete from Person where personCode = "YMCA";
 
-create table Email(
-emailId int not null primary key auto_increment,
-email varchar (255),
-personId int not null,
-foreign key (personId) references Person (personId)
-);
+-- Test Query #6 Create a person record
+insert into State (state, countryId) values
+("CA", (select countryId from Country where country = "USA"));
+insert into Address (street, city, zipCode, stateId) values 
+("testStreet", "testCity", 12345, (select stateId from State where state = "CA"));
+insert into Person (personCode, firstName, lastName, brokerType, addressId) values
+("TEST", "John", "Doe", "J", (select addressId from Address where street = "testStreet"));
 
-create table Asset(
-assetId int not null primary key auto_increment,
-assetCode varchar (255) not null unique key,
-assetType varchar(255) not null,
-assetName varchar(255) not null,
-apr double,
-quarterlydividend double,
-baseReturn double,
-omegaMeasure double,
-totalValue double,
-stockSymbol varchar(255) unique key,
-sharePrice double
-);
+-- Test Query #7 Get all the assets in a particular portfolio
+select p.portfolioCode, a.assetCode, a.assetName from Asset a
+join PortfolioAsset pa on pa.assetId = a.assetId
+join Portfolio p on p.portfolioId = pa.portfolioId
+where p.portfolioCode = "PT002";
 
-create table Portfolio(
-portfolioId int not null primary key auto_increment,
-portfolioCode varchar(255) not null unique key,
-personId int not null,
-brokerid int null,
-beneficiaryId int,
-foreign key (personId) references Person (personId),
-foreign key (brokerId) references Person (personId),
-foreign key (beneficiaryId) references Person (personId)
-);
+-- Test Query #8 Get all the assets of a particular person
+select pe.firstName, pe.lastName, a.assetCode from Asset a
+join PortfolioAsset pa on pa.assetId = a.assetId
+join Portfolio p on p.portfolioId = pa.portfolioId
+join Person pe on pe.personId = p.personId
+where pe.personCode = "UIMG";
 
-create table PortfolioAsset (
-portfolioAssetId int not null primary key auto_increment,
-portfolioId int not null,
-assetId int not null,
-value double not null,
-foreign key (portfolioId) references Portfolio (portfolioId),
-foreign key (assetId) references Asset (assetId)
-);
+-- Test Query #9 Create a new asset record
+insert into Asset (assetName, assetType, assetCode, quarterlydividend,
+					baseReturn, omegaMeasure, totalValue) values
+("TEST ASSET Co.", "P", "TEST1", 1000, 5, .35, 10000);
 
-insert into Country (country)values
-("USA");
+-- Test Query #10 Create a new portfolio record
+insert into Portfolio (portfolioCode, personId, brokerId) values
+("PT004", (select personId from Person where personCode = "R555RD"), 
+(select personId from Person where personCode = "TEST"));
 
-insert into State (state , countryId) values
-("NE", (select countryId from Country where country = "USA")),
-("IL", (select countryId from Country where country = "USA")),
-("NY", (select countryId from Country where country = "USA"));
+-- Test Query #11 Associate a particular asset with a particular portfolio
+insert into PortfolioAsset (portfolioId, assetId, value) values 
+((select portfolioId from Portfolio where portfolioCode = "PT004"), 
+(select assetId from Asset where assetCode = "TEST1"), 50);
 
-insert into Address (street, city, zipCode, stateId) values
-("9903 Jenifer Streets", "Fremont", 68025, (select stateId from State where state = "NE")),
-("1 School Road" , "Chicago", 60613, (select stateId from State where state = "IL")),
-("8 Ronald Regan Hill" , "Omaha", 68116, (select stateId from State where state = "NE")),
-("1 Independence Plaza" , "New York", 10004, (select stateId from State where state = "NY")),
-("64516 Golf View Drive" , "Omaha", 68116, (select stateId from State where state = "NE" ));
+-- Test Query #12 Find the total number of portfolios owned by each person
+select p.firstName, p.lastName, count(po.personId) as numPortfolios from Person p
+left join Portfolio po on po.personId = p.personId group by p.personId;
 
-insert into Person (firstName, lastName, personCode, brokerType, brokerSection, addressId) values
-("Salvatore" , "Cordova", "007Y", "E", "sec1230", (select addressId from Address where street = "9903 Jenifer Streets")),
-("Adora" , "Sickling", "UIMG", null, null, (select addressId from Address where street = "1 School Road")),
-("Dionis" , "Handscomb", "YMCA", null, null, (select addressId from Address where street = "8 Ronald Regan Hill")),
-("Lillian" , "De Angelis", "PK9B", "J", "sec290", (select addressId from Address where street = "1 Independence Plaza")),
-("Quinn" , "Carress", "R555RD", null, null, (select addressId from Address where street = "64516 Golf View Drive"));
+-- Test Query #13 Find the total number of portfolios managed by each person
+select p.firstName, p.lastName, count(brokerId) as numPortfolios from Person p
+left join Portfolio po on po.brokerId = p.personId group by p.personId;
 
-insert into Email (email, personId) values
-("cordova0@zdnet.com", (select personId from Person where personCode = "007Y")), 
-("asickling1@a8.net", (select personId from Person where personCode = "UIMG")), 
-("ohyeah@ohyea.com", (select personId from Person where personCode = "UIMG")), 
-(null, (select personId from Person where personCode = "YMCA")), 
-("ldeangelis3@weebly.com", (select personId from Person where personCode = "PK9B")), 
-("qcarress4@toplist.cz", (select personId from Person where personCode = "R555RD")), 
-("whatever@whatever.com", (select personId from Person where personCode = "R555RD"));
-
-insert into Portfolio (personId, brokerId, beneficiaryId, portfolioCode ) values
-((select personId from Person where personCode = "YMCA"), (select personId from Person where personCode = "007Y"), (select personId from Person where personCode = "UIMG"), "PT001"),
-((select personId from Person where personCode = "UIMG"), (select personId from Person where personCode = "PK9B"), null, "PT002"),
-((select personId from Person where personCode = "R555RD"), (select personId from Person where personCode = "PK9B"), null, "PT003"); 
-
-insert into Asset (assetName, assetType, assetCode, apr, quarterlydividend ,
-					baseReturn ,omegaMeasure ,totalValue ,stockSymbol ,sharePrice ) values
-("Money Market Savings", "D", "BX001-23", 13.05, null, null, null, null, null, null),
-("Savings Account", "D", "CCBB00", 0.24, null, null, null, null, null, null),
-("4-year CD", "D", "99800", 4.35, null, null, null, null, null, null),
-("3-year Rollover CD", "D", "apple", 2.35, null, null, null, null, null, null),
-("2-year Rollover CD", "D", "dell22", 2.75, null, null, null, null, null, null),		
-("chrome Inc.", "S", "google", null, 0.0, 5.6, -0.05, null, "alpabte", 84.708),
-("Diageo PLC", "S", "dadooe90", null, 12.00, 3.2, 0.01, null, "DEO", 12.75),
-("acccv", "S", "324yoo", null, 24.50, 4.3, -0.07, null, "abc", 42.80),
-("Many Midget Manufacturers Man.", "P", "AME21", null, 1000, 2 , -0.15, 4333, null, null);
-
+-- Test Query #14 Find the total value of all stocks in each portfolio
+-- Add a stock to a different portfolio to better test the query
 insert PortfolioAsset (portfolioId, assetId, value) values
-((select portfolioId from Portfolio where portfolioCode = "PT001"), 
-	(select assetId from Asset where assetCode = "BX001-23"), 100),
+((select portfolioId from Portfolio where portfolioCode = "PT002"), 
+(select assetId from Asset where assetCode = "dadooe90"), 100);
     
-((select portfolioId from Portfolio where portfolioCode = "PT002"), 
-	(select assetId from Asset where assetCode = "CCBB00"), 200),
-((select portfolioId from Portfolio where portfolioCode = "PT002"), 
-	(select assetId from Asset where assetCode = "99800"), 300),
-((select portfolioId from Portfolio where portfolioCode = "PT002"), 
-	(select assetId from Asset where assetCode = "apple"), 400),
-((select portfolioId from Portfolio where portfolioCode = "PT002"), 
-	(select assetId from Asset where assetCode = "dell22"), 500),
-    
-((select portfolioId from Portfolio where portfolioCode = "PT003"), 
-	(select assetId from Asset where assetCode = "google"), 111),
-((select portfolioId from Portfolio where portfolioCode = "PT003"), 
-	(select assetId from Asset where assetCode = "dadooe90"), 222),
-((select portfolioId from Portfolio where portfolioCode = "PT003"), 
-	(select assetId from Asset where assetCode = "324yoo"), 333),
-((select portfolioId from Portfolio where portfolioCode = "PT003"), 
-	(select assetId from Asset where assetCode = "AME21"), 44);
+select p.portfolioCode, sum(a.sharePrice * pa.value) as stockTotalValue from Portfolio p
+join PortfolioAsset pa on pa.portfolioId = p.portfolioId
+join Asset a on pa.assetId = a.assetId
+group by p.portfolioCode;
+
+-- Test Query #15 Detect an invalid distribution of private investment assets (exceeding 100%)
+-- Add private investments with values to exceed 100
+insert into PortfolioAsset (portfolioId, assetId, value) values 
+((select portfolioId from Portfolio where portfolioCode = "PT002"), (select assetId from Asset where assetCode = "TEST1"), 99),
+((select portfolioId from Portfolio where portfolioCode = "PT003"), (select assetId from Asset where assetCode = "AME21"), 57);
+
+select a.assetCode, sum(pa.value) as percentage from PortfolioAsset pa
+join Portfolio po on pa.portfolioId = po.portfolioId
+join Asset a on pa.assetId = a.assetId
+where a.assetType = "P" 
+group by a.assetCode
+having sum(pa.value) > 100;
