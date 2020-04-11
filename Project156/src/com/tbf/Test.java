@@ -11,6 +11,12 @@ public class Test {
 		//PortfolioData.addStock("LLLL", "DANIEL STOCK", 777., .5, .1, "IDGAF", 12345.);
 		//PortfolioData.addPortfolio("PT005", "AAAA", "BBBB", "CCCC");
 		//PortfolioData.addAsset("PT001", "google", 50);
+		//PortfolioData.removePerson("UIMG");
+		PortfolioData.removeAllPersons();
+		//PortfolioData.removeAsset("apple");
+		//PortfolioData.removeAllAssets();
+		//PortfolioData.removePortfolio("PT002");
+		//PortfolioData.removeAllPortfolios();
 	}
 
 }

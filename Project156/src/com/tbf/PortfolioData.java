@@ -16,16 +16,64 @@ public class PortfolioData {
 	 * Method that removes every person record from the database
 	 */
 	public static void removeAllPersons() {
+		// establish connection to database
 		Connection conn = DatabaseInfo.databaseConnector();
-		String dropQuery = "truncate Asset"+ "truncate PortfolioAsset" + "turncate Portfolio" + "turncate Person" + "turncate Email" +  "turncate Country" + "turncate State" + "turncate Address";
-		//String turncateQuery = "truncate Asset";
-		java.sql.PreparedStatement ps = null;
-		
+
+		// query to remove all people
+		String removeAllPersonsQuery = "delete from Person;";
+
+		PreparedStatement ps = null;
+
 		try {
-			ps = conn.prepareStatement(dropQuery);
+			// prepare and execute remove all persons query
+			ps = conn.prepareStatement(removeAllPersonsQuery);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+		// query to remove all addresses
+		String removeAllAddressesQuery = "delete from Address;";
+
+		try {
+			// prepare and excute remove all addresses query
+			ps = conn.prepareStatement(removeAllAddressesQuery);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+		// query to remove all states
+		String removeAllStatesQuery = "delete from State;";
+
+		try {
+			// prepare and execute remove all states query
+			ps = conn.prepareStatement(removeAllStatesQuery);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+		// query to remove all countries
+		String removeAllCountriesQuery = "delete from Country;";
+
+		try {
+			// prepare and execute remove all countries query
+			ps = conn.prepareStatement(removeAllCountriesQuery);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+		try {
+			if (ps != null && !ps.isClosed()) {
+				ps.close();
+			}
+			if (conn != null && !conn.isClosed()) {
+				conn.close();
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -36,23 +84,51 @@ public class PortfolioData {
 	 * @param personCode
 	 */
 	public static void removePerson(String personCode) {
+		// establish connection to database
 		Connection conn = DatabaseInfo.databaseConnector();
-		String dropQuery = "";//TODO
-		
-		java.sql.PreparedStatement ps = null;
 
-		
+		// query to select a person
+		String selectPersonQuery = "select personId from Person where personCode = ?;";
+
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
 		try {
-			ps = conn.prepareStatement(dropQuery);
-		      ps.setString(1, personCode);
+			// prepare and execute select person query
+			ps = conn.prepareStatement(selectPersonQuery);
+			ps.setString(1, personCode);
+			rs = ps.executeQuery();
+			// if the person does not exist in the database, throw an exception
+			if (!rs.next()) {
+				throw new IllegalStateException("person does not exist with personCode = " + personCode);
+				// else get the id from the person and delete the person
+			} else {
+				int personId = rs.getInt("personId");
 
-			ps.executeQuery();
+				String removePersonQuery = "delete from Person where personId = ?;";
+
+				ps = conn.prepareStatement(removePersonQuery);
+				ps.setInt(1, personId);
+				ps.executeUpdate();
+			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 
-		
-		
+		try {
+			if (rs != null && !rs.isClosed()) {
+				rs.close();
+			}
+			if (ps != null && !ps.isClosed()) {
+				ps.close();
+			}
+			if (conn != null && !conn.isClosed()) {
+				conn.close();
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
 	}
 
 	/**
@@ -154,7 +230,7 @@ public class PortfolioData {
 			ps.setInt(4, stateId);
 			ps.executeUpdate();
 
-			// retrieve the state id
+			// retrieve the address id
 			ps = conn.prepareStatement("select last_insert_id()");
 			rs = ps.executeQuery();
 			rs.next();
@@ -267,18 +343,33 @@ public class PortfolioData {
 	 * Removes all asset records from the database
 	 */
 	public static void removeAllAssets() {
+		// establish connection database
 		Connection conn = DatabaseInfo.databaseConnector();
-		String turncateQuery = "truncate Asset";		
-		java.sql.PreparedStatement ps = null;
 
-		
+		// query to remove all assets
+		String removeAllAssetsQuery = "delete from Asset;";
+
+		PreparedStatement ps = null;
+
 		try {
-			ps = conn.prepareStatement(turncateQuery);
+			// prepare and execute remove all assets query
+			ps = conn.prepareStatement(removeAllAssetsQuery);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
-	
+
+		try {
+			if (ps != null && !ps.isClosed()) {
+				ps.close();
+			}
+			if (conn != null && !conn.isClosed()) {
+				conn.close();
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
 	}
 
 	/**
@@ -288,19 +379,49 @@ public class PortfolioData {
 	 * @param assetCode
 	 */
 	public static void removeAsset(String assetCode) {
-		
+		// establish connection to database
 		Connection conn = DatabaseInfo.databaseConnector();
-		String removeQuery = "delete from  Asset where assetId = ?";		
-		java.sql.PreparedStatement ps = null;
 
-		
+		// query to select an asset
+		String selectAssetQuery = "select assetId from Asset where assetCode = ?";
+
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
 		try {
-			ps = conn.prepareStatement(removeQuery);
-		      ps.setString(1, assetCode);
+			// prepare and execute select asset query
+			ps = conn.prepareStatement(selectAssetQuery);
+			ps.setString(1, assetCode);
+			rs = ps.executeQuery();
+			// if asset does not exist, throw an exception
+			if (!rs.next()) {
+				throw new IllegalStateException("asset does not exist with assetCode = " + assetCode);
+				// else get the asset id and delete the asset
+			} else {
+				int assetId = rs.getInt("assetId");
 
-			ps.executeUpdate();
+				String removeAssetQuery = "delete from Asset where assetId = ?;";
+
+				ps = conn.prepareStatement(removeAssetQuery);
+				ps.setInt(1, assetId);
+				ps.executeUpdate();
+			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+		try {
+			if (rs != null && !rs.isClosed()) {
+				rs.close();
+			}
+			if (ps != null && !ps.isClosed()) {
+				ps.close();
+			}
+			if (conn != null && !conn.isClosed()) {
+				conn.close();
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -500,20 +621,33 @@ public class PortfolioData {
 	 * Removes all portfolio records from the database
 	 */
 	public static void removeAllPortfolios() {
-		
+		// establish connection to database
 		Connection conn = DatabaseInfo.databaseConnector();
-		String removeQuery = ("truncate Asset"+ "truncate PortfolioAsset" + "turncate Portfolio");		
-		java.sql.PreparedStatement ps = null;
 
-		
+		// query to remove all portfolios
+		String removeAllPortfoliosQuery = "delete from Portfolio;";
+
+		PreparedStatement ps = null;
+
 		try {
-			ps = conn.prepareStatement(removeQuery);
-
+			// prepare and execute remove all portfolios query
+			ps = conn.prepareStatement(removeAllPortfoliosQuery);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
-		
+
+		try {
+			if (ps != null && !ps.isClosed()) {
+				ps.close();
+			}
+			if (conn != null && !conn.isClosed()) {
+				conn.close();
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
 	}
 
 	/**
@@ -523,21 +657,51 @@ public class PortfolioData {
 	 * @param portfolioCode
 	 */
 	public static void removePortfolio(String portfolioCode) {
-
+		// establish connection to database
 		Connection conn = DatabaseInfo.databaseConnector();
-		String removeQuery = "delete from  Asset bm join PortfolioAsset m on bm.assetId == m.assetId where bm.portfolioId = ?";	 //TODO	
-		java.sql.PreparedStatement ps = null;
 
-		
+		// query to select a portfolio
+		String selectPortfolioQuery = "select portfolioId from Portfolio where portfolioCode = ?;";
+
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
 		try {
-			ps = conn.prepareStatement(removeQuery);
-		      ps.setString(1, portfolioCode);
+			// prepare and execute select portfolio query
+			ps = conn.prepareStatement(selectPortfolioQuery);
+			ps.setString(1, portfolioCode);
+			rs = ps.executeQuery();
+			// if the portfolio does not exist with the given code, throw an exception
+			if (!rs.next()) {
+				throw new IllegalStateException("portfolio does not exist with portfolioCode = " + portfolioCode);
+				// else get the portfolio id and delete the portfolio
+			} else {
+				int portfolioId = rs.getInt("portfolioId");
 
-			ps.executeUpdate();
+				String removePortfolioQuery = "delete from Portfolio where portfolioId = ?;";
+
+				ps = conn.prepareStatement(removePortfolioQuery);
+				ps.setInt(1, portfolioId);
+				ps.executeUpdate();
+			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException();
 		}
-		
+
+		try {
+			if (rs != null && !rs.isClosed()) {
+				rs.close();
+			}
+			if (ps != null && !ps.isClosed()) {
+				ps.close();
+			}
+			if (conn != null && !conn.isClosed()) {
+				conn.close();
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
 	}
 
 	/**

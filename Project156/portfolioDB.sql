@@ -39,14 +39,14 @@ lastName varchar (255) not null,
 brokerType varchar (255),
 brokerSection varchar (255),
 addressId int not null,
-foreign key (addressId) references Address(addressId)
+foreign key (addressId) references Address(addressId) on delete cascade
 );
 
 create table Email(
 emailId int not null primary key auto_increment,
 email varchar (255),
 personId int not null,
-foreign key (personId) references Person (personId)
+foreign key (personId) references Person (personId) on delete cascade
 );
 
 create table Asset(
@@ -67,11 +67,11 @@ create table Portfolio(
 portfolioId int not null primary key auto_increment,
 portfolioCode varchar(255) not null unique key,
 personId int not null,
-brokerid int null,
+brokerid int not null,
 beneficiaryId int,
-foreign key (personId) references Person (personId),
-foreign key (brokerId) references Person (personId),
-foreign key (beneficiaryId) references Person (personId)
+foreign key (personId) references Person (personId) on delete cascade,
+foreign key (brokerId) references Person (personId) on delete cascade,
+foreign key (beneficiaryId) references Person (personId) on delete cascade
 );
 
 create table PortfolioAsset (
@@ -79,8 +79,8 @@ portfolioAssetId int not null primary key auto_increment,
 portfolioId int not null,
 assetId int not null,
 value double not null,
-foreign key (portfolioId) references Portfolio (portfolioId),
-foreign key (assetId) references Asset (assetId)
+foreign key (portfolioId) references Portfolio (portfolioId) on delete cascade,
+foreign key (assetId) references Asset (assetId) on delete cascade
 );
 
 insert into Country (country)values
@@ -109,7 +109,6 @@ insert into Email (email, personId) values
 ("cordova0@zdnet.com", (select personId from Person where personCode = "007Y")), 
 ("asickling1@a8.net", (select personId from Person where personCode = "UIMG")), 
 ("ohyeah@ohyea.com", (select personId from Person where personCode = "UIMG")), 
-(null, (select personId from Person where personCode = "YMCA")), 
 ("ldeangelis3@weebly.com", (select personId from Person where personCode = "PK9B")), 
 ("qcarress4@toplist.cz", (select personId from Person where personCode = "R555RD")), 
 ("whatever@whatever.com", (select personId from Person where personCode = "R555RD"));
