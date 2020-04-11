@@ -16,6 +16,17 @@ public class PortfolioData {
 	 * Method that removes every person record from the database
 	 */
 	public static void removeAllPersons() {
+		Connection conn = DatabaseInfo.databaseConnector();
+		String dropQuery = "truncate Asset"+ "truncate PortfolioAsset" + "turncate Portfolio" + "turncate Person" + "turncate Email" +  "turncate Country" + "turncate State" + "turncate Address";
+		//String turncateQuery = "truncate Asset";
+		java.sql.PreparedStatement ps = null;
+		
+		try {
+			ps = conn.prepareStatement(dropQuery);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -25,6 +36,23 @@ public class PortfolioData {
 	 * @param personCode
 	 */
 	public static void removePerson(String personCode) {
+		Connection conn = DatabaseInfo.databaseConnector();
+		String dropQuery = "";//TODO
+		
+		java.sql.PreparedStatement ps = null;
+
+		
+		try {
+			ps = conn.prepareStatement(dropQuery);
+		      ps.setString(1, personCode);
+
+			ps.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		
+		
 	}
 
 	/**
@@ -239,6 +267,18 @@ public class PortfolioData {
 	 * Removes all asset records from the database
 	 */
 	public static void removeAllAssets() {
+		Connection conn = DatabaseInfo.databaseConnector();
+		String turncateQuery = "truncate Asset";		
+		java.sql.PreparedStatement ps = null;
+
+		
+		try {
+			ps = conn.prepareStatement(turncateQuery);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
 	}
 
 	/**
@@ -248,6 +288,20 @@ public class PortfolioData {
 	 * @param assetCode
 	 */
 	public static void removeAsset(String assetCode) {
+		
+		Connection conn = DatabaseInfo.databaseConnector();
+		String removeQuery = "delete from  Asset where assetId = ?";		
+		java.sql.PreparedStatement ps = null;
+
+		
+		try {
+			ps = conn.prepareStatement(removeQuery);
+		      ps.setString(1, assetCode);
+
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -446,6 +500,20 @@ public class PortfolioData {
 	 * Removes all portfolio records from the database
 	 */
 	public static void removeAllPortfolios() {
+		
+		Connection conn = DatabaseInfo.databaseConnector();
+		String removeQuery = ("truncate Asset"+ "truncate PortfolioAsset" + "turncate Portfolio");		
+		java.sql.PreparedStatement ps = null;
+
+		
+		try {
+			ps = conn.prepareStatement(removeQuery);
+
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	/**
@@ -455,6 +523,21 @@ public class PortfolioData {
 	 * @param portfolioCode
 	 */
 	public static void removePortfolio(String portfolioCode) {
+
+		Connection conn = DatabaseInfo.databaseConnector();
+		String removeQuery = "delete from  Asset bm join PortfolioAsset m on bm.assetId == m.assetId where bm.portfolioId = ?";	 //TODO	
+		java.sql.PreparedStatement ps = null;
+
+		
+		try {
+			ps = conn.prepareStatement(removeQuery);
+		      ps.setString(1, portfolioCode);
+
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	/**
