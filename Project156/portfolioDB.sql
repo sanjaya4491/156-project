@@ -26,7 +26,7 @@ create table Address(
 addressId int not null primary key auto_increment,
 street varchar(255) not null,
 city varchar (255) not null,
-zipCode int not null,
+zipCode varchar (255) not null,
 stateId int not null,
 foreign key (stateId) references State (stateId)
 );
@@ -92,11 +92,11 @@ insert into State (state , countryId) values
 ("NY", (select countryId from Country where country = "USA"));
 
 insert into Address (street, city, zipCode, stateId) values
-("9903 Jenifer Streets", "Fremont", 68025, (select stateId from State where state = "NE")),
-("1 School Road" , "Chicago", 60613, (select stateId from State where state = "IL")),
-("8 Ronald Regan Hill" , "Omaha", 68116, (select stateId from State where state = "NE")),
-("1 Independence Plaza" , "New York", 10004, (select stateId from State where state = "NY")),
-("64516 Golf View Drive" , "Omaha", 68116, (select stateId from State where state = "NE" ));
+("9903 Jenifer Streets", "Fremont", "68025", (select stateId from State where state = "NE")),
+("1 School Road" , "Chicago", "60613", (select stateId from State where state = "IL")),
+("8 Ronald Regan Hill" , "Omaha", "68116", (select stateId from State where state = "NE")),
+("1 Independence Plaza" , "New York", "10004", (select stateId from State where state = "NY")),
+("64516 Golf View Drive" , "Omaha", "68116", (select stateId from State where state = "NE" ));
 
 insert into Person (firstName, lastName, personCode, brokerType, brokerSection, addressId) values
 ("Salvatore" , "Cordova", "007Y", "E", "sec1230", (select addressId from Address where street = "9903 Jenifer Streets")),

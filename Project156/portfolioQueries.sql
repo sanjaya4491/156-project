@@ -31,7 +31,7 @@ delete from Person where personCode = "YMCA";
 insert into State (state, countryId) values
 ("CA", (select countryId from Country where country = "USA"));
 insert into Address (street, city, zipCode, stateId) values 
-("testStreet", "testCity", 12345, (select stateId from State where state = "CA"));
+("testStreet", "testCity", "12345", (select stateId from State where state = "CA"));
 insert into Person (personCode, firstName, lastName, brokerType, addressId) values
 ("TEST", "John", "Doe", "J", (select addressId from Address where street = "testStreet"));
 
