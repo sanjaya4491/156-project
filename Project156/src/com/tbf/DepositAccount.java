@@ -40,7 +40,11 @@ public class DepositAccount extends Asset {
 	 */
 	@Override
 	public double getAnnualReturn() {
-		return ((Math.pow(Math.E, (this.apr) / 100)) - 1) * this.totalBalance;
+		if(this.apr >= 0 && this.apr <= 1) {
+			return ((Math.pow(Math.E, (this.apr))) - 1) * this.totalBalance;
+		} else {
+			return ((Math.pow(Math.E, (this.apr) / 100)) - 1) * this.totalBalance;
+		}
 	}
 
 	/**

@@ -93,8 +93,13 @@ public class Stock extends Asset {
 	 */
 	@Override
 	public double getAnnualReturn() {
-		return ((this.baseReturn / 100) * this.sharePrice * this.numberOfShares) +
-				(4 * this.quarterlyDividend * this.numberOfShares);
+		if(this.baseReturn >= 0 && this.baseReturn <= 1) {
+			return (this.baseReturn * this.sharePrice * this.numberOfShares) +
+					(4 * this.quarterlyDividend * this.numberOfShares);
+		} else {
+			return ((this.baseReturn / 100) * this.sharePrice * this.numberOfShares) +
+					(4 * this.quarterlyDividend * this.numberOfShares);
+		}
 	}
 
 	/**

@@ -64,8 +64,13 @@ public class PrivateInvestment extends Asset {
 	 */
 	@Override
 	public double getAnnualReturn() {
-		return (((this.baseReturn / 100) * this.totalValue) + 
-				(4 * this.quarterlyDividend)) * (this.percentageStake / 100);
+		if(this.baseReturn >= 0 && this.baseReturn <= 1 && this.percentageStake >= 0 && this.percentageStake <= 1) {
+			return ((this.baseReturn * this.totalValue) + 
+					(4 * this.quarterlyDividend)) * this.percentageStake;
+		} else {
+			return (((this.baseReturn / 100) * this.totalValue) + 
+					(4 * this.quarterlyDividend)) * (this.percentageStake / 100);
+		}
 	}
 	
 	/**
@@ -74,7 +79,11 @@ public class PrivateInvestment extends Asset {
 	@Override
 	public double getReturnRate() {
 		double annualReturn = this.getAnnualReturn();
-		return (annualReturn / (this.getTotalValue() * (this.percentageStake / 100))) * 100;
+		if(this.percentageStake >= 0 && this.percentageStake <= 1) {
+			return (annualReturn / (this.getTotalValue() * (this.percentageStake))) * 100;
+		} else {
+			return (annualReturn / (this.getTotalValue() * (this.percentageStake / 100))) * 100;
+		}
 	}
 	
 	/**
@@ -82,7 +91,11 @@ public class PrivateInvestment extends Asset {
 	 */
 	@Override
 	public double getTotal() {
-		return this.totalValue * (this.percentageStake / 100);
+		if(this.percentageStake >= 0 && this.percentageStake <= 1) {
+			return this.totalValue * this.percentageStake;
+		} else {
+			return this.totalValue * (this.percentageStake / 100);
+		}
 	}
 	
 	/**

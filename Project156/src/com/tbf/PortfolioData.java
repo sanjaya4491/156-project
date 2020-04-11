@@ -226,7 +226,7 @@ public class PortfolioData {
 			ps = conn.prepareStatement(insertAddressQuery);
 			ps.setString(1, street);
 			ps.setString(2, city);
-			ps.setInt(3, Integer.parseInt(zip));
+			ps.setString(3, zip);
 			ps.setInt(4, stateId);
 			ps.executeUpdate();
 
