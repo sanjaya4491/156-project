@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ *	Class that holds information to connect to a database
+ */
+
 public class DatabaseInfo {
 	
 	public static final String url = "jdbc:mysql://cse.unl.edu/sdhakal?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatatimeCode=false&serverTimezone=UTC";
