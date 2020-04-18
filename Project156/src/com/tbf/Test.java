@@ -4,7 +4,7 @@ public class Test {
 
 	public static void main(String args[]) {
 
-		//PortfolioData.addEmail("YMCA", "HELLODANIEL@FUCKYOU.com");
+		//PortfolioData.addEmail("YMCA", "HELLODANIEL@nnnnn.com");
 		//PortfolioData.addPerson("NNNN", "Howard", "Stark", "llll", "llll", "llll", "68025", "llll", null, null);
 		//PortfolioData.addDepositAccount("YMCA", "DANIEL DA", .5);
 		//PortfolioData.addPrivateInvestment("YOLO", "DANIEL PI", 500., .2, .3, 10000.);
@@ -12,7 +12,7 @@ public class Test {
 		//PortfolioData.addPortfolio("PT005", "AAAA", "BBBB", "CCCC");
 		//PortfolioData.addAsset("PT001", "google", 50);
 		//PortfolioData.removePerson("UIMG");
-		PortfolioData.removeAllPersons();
+		//PortfolioData.removeAllPersons();
 		//PortfolioData.removeAsset("apple");
 		//PortfolioData.removeAllAssets();
 		//PortfolioData.removePortfolio("PT002");
