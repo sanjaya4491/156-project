@@ -294,40 +294,22 @@ public class PortfolioData {
 		// establish connection to database
 		Connection conn = DatabaseInfo.databaseConnector();
 
-		// query to select an email
-		String selectEmailQuery = "select email from Email where email = ?;";
-
 		PreparedStatement ps = null;
-		ResultSet rs = null;
 
 		try {
-			// prepare and execute the select email query
-			ps = conn.prepareStatement(selectEmailQuery);
-			ps.setString(1, email);
-			rs = ps.executeQuery();
-			// if the email exists, do not duplicate the record and throw an exception
-			if (rs.next()) {
-				throw new IllegalStateException(email + " already exists");
-				// else the email does not exist and add it to the database
-			} else {
-				// query to insert an email
-				String insertEmailQuery = "insert into Email(email, personId) values "
-						+ "(?, (select personId from Person where personCode = ?));";
+			String insertEmailQuery = "insert into Email(email, personId) values "
+					+ "(?, (select personId from Person where personCode = ?));";
 
-				ps = conn.prepareStatement(insertEmailQuery);
-				ps.setString(1, email);
-				ps.setString(2, personCode);
-				ps.executeUpdate();
-			}
+			ps = conn.prepareStatement(insertEmailQuery);
+			ps.setString(1, email);
+			ps.setString(2, personCode);
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			// no person exists with the given personCode
 			throw new RuntimeException("no such person with personCode = " + personCode, e);
 		}
 
 		try {
-			if (rs != null && !rs.isClosed()) {
-				rs.close();
-			}
 			if (ps != null && !ps.isClosed()) {
 				ps.close();
 			}
