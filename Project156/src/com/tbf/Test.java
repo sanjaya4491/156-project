@@ -1,5 +1,7 @@
 package com.tbf;
 
+import java.util.List;
+
 public class Test {
 
 	public static void main(String args[]) {
@@ -17,6 +19,14 @@ public class Test {
 		//PortfolioData.removeAllAssets();
 		//PortfolioData.removePortfolio("PT002");
 		//PortfolioData.removeAllPortfolios();
+		SortedList<Portfolio> listSort = new SortedList<>(new Portfolio.ManagerNameComparator());
+		List<Portfolio> list = DataParser.parsePortfolioDataFile();
+		for(Portfolio p : list) {
+			listSort.insert(p);
+			System.out.println(p);
+		}
+		System.out.println();
+		listSort.print();
 	}
 
 }
