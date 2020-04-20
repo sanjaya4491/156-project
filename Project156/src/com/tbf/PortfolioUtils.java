@@ -16,7 +16,7 @@ public class PortfolioUtils {
 	 * @param assetList
 	 * @param personList
 	 */
-	public static void portfolioSummaryReport(List<Portfolio> portfolioList) {
+	public static void portfolioSummaryReport(SortedList<Portfolio> portfolioList) {
 		
 		//empty variables to store totals to print later
 		double feesTotal = 0;
@@ -61,7 +61,7 @@ public class PortfolioUtils {
 	 * @param assetList
 	 * @param personList
 	 */
-	public static void portfolioDetails(List<Portfolio> portfolioList) {
+	public static void portfolioDetails(SortedList<Portfolio> portfolioList) {
 		
 		System.out.println("Portfolio Details");
 		System.out.println("==================================================================================================================");

@@ -14,8 +14,6 @@ public class PortfolioReport {
 	 */
 	public static void main(String args[]) {
 
-		//List<Portfolio> portfolio = DatabaseLoader.getAllPortfolio();
-
 		SortedList<Portfolio> listSort = new SortedList<>(new Portfolio.OwnerNameComparator());
 		List<Portfolio> list = DatabaseLoader.getAllPortfolio();
 
@@ -26,43 +24,30 @@ public class PortfolioReport {
 		List<Portfolio> list2 = DatabaseLoader.getAllPortfolio();
 
 
-
 		for(Portfolio p : list) {
 			listSort.insert(p);
 			//System.out.println(p);
 		}
-
-		System.out.println();
 
 		for(Portfolio p1 : list1) {
 			listSort1.insert(p1);
 			//System.out.println(p1);
 		}
 
-		System.out.println();
-
-
 		for(Portfolio p2 : list2) {
 			listSort2.insert(p2);
-			//System.out.println(p1);
 		}
 
 
-
-
-
-
 		//sorted with OwnerNameComparator
-		SortedUtils.sortedArrayReport(listSort);
+		PortfolioUtils.portfolioSummaryReport(listSort);
 
 		//sorted with TotalValueComparator
-		SortedUtils.sortedArrayReport(listSort1);
+		PortfolioUtils.portfolioSummaryReport(listSort1);
 
 		//sorted with ManagerNameComparator
-		SortedUtils.sortedArrayReport(listSort2);
+		PortfolioUtils.portfolioSummaryReport(listSort2);
 
 
-		//PortfolioUtils.portfolioSummaryReport(portfolio);
-		//PortfolioUtils.portfolioDetails(portfolio);
 	}
 }
