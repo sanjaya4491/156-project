@@ -1,10 +1,11 @@
 package com.tbf;
 
+import java.util.List;
+
 /**
- * Persons class with their names, address, email's, broker, and personCode.
+ * Persons class with their name, address, email's, and personCode.
  */
 
-import java.util.List;
 public class Person {
 	
 	private Integer personId;

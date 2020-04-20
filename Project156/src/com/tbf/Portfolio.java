@@ -1,10 +1,11 @@
 package com.tbf;
 
 import java.util.Comparator;
+import java.util.List;
+
 /**
  * Class that holds information of a clients portfolio
  */
-import java.util.List;
 
 public class Portfolio {
 
@@ -168,7 +169,7 @@ public class Portfolio {
 				} else {
 					String firstName1 = o1.getManager().getFirstName();
 					String firstName2 = o2.getManager().getFirstName();
-					return (firstName1.compareTo(firstName2));
+					return firstName1.compareTo(firstName2);
 				}
 			}
 		}

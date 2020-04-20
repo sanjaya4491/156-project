@@ -1,7 +1,9 @@
 package com.tbf;
+
 /**
  * This class has the total value of the investment , qurterlyDividend, baseReturn, and baseOmegaMeasure.
  */
+
 public class PrivateInvestment extends Asset {
 	
 	private double quarterlyDividend;

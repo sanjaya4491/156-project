@@ -1,12 +1,12 @@
 package com.tbf;
 
+import java.util.List;
+
 /**
  * Class that holds information on a junior broker.
  * Extends super class Broker
  * 
  */
-
-import java.util.List;
 
 public class JuniorBroker extends Broker {
 	

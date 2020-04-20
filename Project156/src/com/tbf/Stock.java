@@ -1,7 +1,9 @@
 package com.tbf;
+
 /**
  * This class stores all the information about the stock for ex the name and the symbol and the price.
  */
+
 public class Stock extends Asset {
 	
 	private double quarterlyDividend;

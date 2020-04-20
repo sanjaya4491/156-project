@@ -23,7 +23,6 @@ public class SortedList<T> implements Iterable<T>{
 		this.size = 0;
 	}
 
-
 	/**
 	 * Returns the size of the list, the number of elements currently stored in it.
 	 */
@@ -65,40 +64,33 @@ public class SortedList<T> implements Iterable<T>{
 	}
 	
 	/**
-	 * This method removes the node with the given key, indices start at 0.
-	 * Remaining elements' indices are reduces.
+	 * Given a generic list, inserts each element in the list into the sorted list
 	 * 
-	 * @param key
+	 * @param keys
 	 */
-	public void removeWithValue(T key) {
-		if(this.size == 0) {
-			throw new IllegalStateException("You cannot remove from an empty list");
-		} else if(this.head == getNodeWithValue(key)) {
-			this.head = this.head.getNext();
-			size--;
-			return;
+	public void batchInsert(List<T> keys) {
+		for(int i=0; i<keys.size(); i++) {
+			insert(keys.get(i));
 		}
-		Node<T> curr = getNodeWithValue(key);
-		Node<T> prev = null;
-		prev.setNext(curr.getNext());
-		this.size--;
 	}
 
 	/**
-	 * This method removes the node from the given position, indices start at 0.
+	 * This method removes the node from the given index, indices start at 0.
 	 * Remaining elements' indices are reduced.
 	 * 
 	 * @param position
 	 */
-	public void removeAtIndex(int position) {
+	public void removeAtIndex(int index) {
 		if(this.size == 0) {
 			throw new IllegalStateException("You cannot remove from an empty list");
-		} else if(position == 0) {
+		} else if(index == 0) {
 			this.head = this.head.getNext();
 			size--;
 			return;
+		} else if(index >= this.size) {
+			throw new IndexOutOfBoundsException("Invalid Position Provided");
 		}
-		Node<T> prev = getNodeAtIndex(position-1);
+		Node<T> prev = getNodeAtIndex(index-1);
 		Node<T> curr = prev.getNext();
 		prev.setNext(curr.getNext());
 		this.size--;
@@ -106,48 +98,34 @@ public class SortedList<T> implements Iterable<T>{
 	
 	/**
 	 * This is a private helper method that returns a corresponding node
-	 * to the given position.
+	 * to the given index.
 	 * 
 	 * @param position
 	 * @return
 	 */
-	private Node<T> getNodeAtIndex(int position) {
-		if(position < 0 || position >= this.size) {
+	private Node<T> getNodeAtIndex(int index) {
+		if(index < 0 || index >= this.size) {
 			throw new IndexOutOfBoundsException("Invalid Position Provided");
 		}
 		Node<T> curr = this.head;
-		for(int i=0; i<position; i++) {
+		for(int i=0; i<index; i++) {
 			curr = curr.getNext();
 		}
 		return curr;
 	}
 	
 	/**
-	 * Returns the node with the given key
-	 * 
-	 * @param item
-	 * @return
-	 */
-	private Node<T> getNodeWithValue(T key) {
-		Node<T> curr = this.head;
-		while(curr != null && !curr.getItem().equals(key)) {
-			curr = curr.getNext();
-		}
-		return curr;
-	}
-	
-	/**
-	 * Returns the element stored at the given position.
+	 * Returns the element stored at the given index.
 	 * 
 	 * @param position
 	 * @return
 	 */
-	public T getItemAtIndex(int position) {
-		return getNodeAtIndex(position).getItem();
+	public T getItemAtIndex(int index) {
+		return getNodeAtIndex(index).getItem();
 	}
 	
 	/**
-	 * Prints this list to the standard output.
+	 * Prints the list to the standard output.
 	 */
 	public void print() {
 		Node<T> curr = this.head;
@@ -156,8 +134,7 @@ public class SortedList<T> implements Iterable<T>{
 			curr = curr.getNext();
 		}
 	}
-
-
+	
 	@Override
 	public Iterator<T> iterator() {
 		return new Iterator<T>() {

@@ -1,11 +1,11 @@
 package com.tbf;
 
+import java.util.List;
+
 /**
  * Class that holds the information of an expert broker.
  * Extends the super class Broker
  */
-
-import java.util.List;
 
 public class ExpertBroker extends Broker {
 

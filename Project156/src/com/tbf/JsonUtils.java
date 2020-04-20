@@ -1,15 +1,15 @@
 package com.tbf;
 
-/**
- * Class that contains methods for serializing lists of objects into Json files
- */
-
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+/**
+ * Class that contains methods for serializing lists of objects into Json files
+ */
 
 public class JsonUtils {
 	

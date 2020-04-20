@@ -1,7 +1,5 @@
 package com.tbf;
 
-import java.util.List;
-
 /**
  * Class that holds methods that print summary's about portfolio's to the standard output
  */

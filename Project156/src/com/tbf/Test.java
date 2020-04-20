@@ -23,50 +23,9 @@ public class Test {
 		SortedList<Portfolio> listSort = new SortedList<>(new Portfolio.TotalValueComparator());
 		List<Portfolio> list = DataParser.parsePortfolioDataFile();
 
-
-		List<Portfolio> list1 = DataParser.parsePortfolioDataFile();
-		SortedList<Portfolio> listSort1 = new SortedList<> (new Portfolio.OwnerNameComparator());
-
-
-		List<Portfolio> list2 = DataParser.parsePortfolioDataFile();
-		SortedList<Portfolio> listSort2 = new SortedList<> (new Portfolio.ManagerNameComparator());
-
-
-		for(Portfolio p : list) {
-			listSort.insert(p);
-			//System.out.println(p);
-		}
+		listSort.batchInsert(list);
 		
-		System.out.println();
-
-		for(Portfolio p1 : list1) {
-			listSort1.insert(p1);
-			//System.out.println(p1);
-		}
-
-		System.out.println();
-
-
-		for(Portfolio p2 : list2) {
-			listSort2.insert(p2);
-			//System.out.println(p1);
-		}
-
-		System.out.println();
-
-		System.out.println("Sorted by Total value comparator");
-		System.out.println();
 		listSort.print();
-
-		System.out.println();
-		System.out.println("Sorted by Owner name comparator");
-		System.out.println();
-		listSort1.print();
-
-		System.out.println();
-		System.out.println("Sorted by manager name comparator");
-		System.out.println();
-		listSort2.print();
 	}
 
 }
