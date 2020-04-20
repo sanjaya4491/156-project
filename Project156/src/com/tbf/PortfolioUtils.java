@@ -7,7 +7,7 @@ import java.util.List;
  */
 
 public class PortfolioUtils {
-	
+
 	/**
 	 * Method thats lists of portfolios, assets, and people and prints the portfolio code, owner,
 	 * manager, the fees and commissions for the manager, and the weighted risk, return, and total of each
@@ -114,5 +114,6 @@ public class PortfolioUtils {
 			System.out.println();
 		}
 	}
+
 
 }

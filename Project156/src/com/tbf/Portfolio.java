@@ -168,7 +168,7 @@ public class Portfolio {
 				} else {
 					String firstName1 = o1.getManager().getFirstName();
 					String firstName2 = o2.getManager().getFirstName();
-					return firstName1.compareTo(firstName2);
+					return -(firstName1.compareTo(firstName2));
 				}
 			}
 		}

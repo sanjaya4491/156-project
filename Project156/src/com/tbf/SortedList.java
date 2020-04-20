@@ -1,6 +1,8 @@
 package com.tbf;
 
 import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * A sorted list that uses a linked list for its structure.
@@ -9,8 +11,8 @@ import java.util.Comparator;
  * @param <T>
  */
 
-public class SortedList<T> {
-	
+public class SortedList<T> implements Iterable<T>{
+
 	private Node<T> head;
 	private int size;
 	private Comparator<T> comparator;
@@ -20,7 +22,8 @@ public class SortedList<T> {
 		this.head = null;
 		this.size = 0;
 	}
-	
+
+
 	/**
 	 * Returns the size of the list, the number of elements currently stored in it.
 	 */
@@ -154,6 +157,27 @@ public class SortedList<T> {
 		}
 	}
 
-	
 
+	@Override
+	public Iterator<T> iterator() {
+		return new Iterator<T>() {
+			Node<T> curr = head;
+			@Override
+			public boolean hasNext() {
+				if(curr == null)
+					return false;
+				else
+					return true;
+			}
+			@Override
+			public T next() {
+				T item = curr.getItem();
+				curr = curr.getNext();
+				return item;
+			}
+
+			@Override
+			public void remove() {
+				throw new UnsupportedOperationException("not implemented");
+			}};	}
 }

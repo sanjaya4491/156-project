@@ -1,6 +1,6 @@
-# 156-project Phase 2
+# 156-project Phase VI
 Authors: Daniel Godoy & Sanjaya Dhakal
 
-Date: 2/28/20
+Date: 4/19/20
 
-Portfolio summary's
+Final Project
