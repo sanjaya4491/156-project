@@ -97,6 +97,35 @@ public class SortedList<T> implements Iterable<T>{
 	}
 	
 	/**
+	 * Removes the node with the given value
+	 * 
+	 * @param key
+	 */
+	public void removeWithValue(T key) {
+		if(this.size == 0) {
+			throw new IllegalStateException("You cannot remove from an empty list");
+		}
+		Node<T> prev = null;
+		Node<T> curr = this.head;
+		while(curr != null && !curr.getItem().equals(key)) {
+			prev = curr;
+			curr = curr.getNext();
+		}
+		//removing first node
+		if(prev == null) {
+			this.head = this.head.getNext();
+			size--;
+			//removing last node
+		} else if(curr.getNext() == null) {
+			prev.setNext(null);
+			size--;
+		} else {
+			prev.setNext(curr.getNext());
+			size--;
+		}
+	}
+	
+	/**
 	 * This is a private helper method that returns a corresponding node
 	 * to the given index.
 	 * 
@@ -109,6 +138,21 @@ public class SortedList<T> implements Iterable<T>{
 		}
 		Node<T> curr = this.head;
 		for(int i=0; i<index; i++) {
+			curr = curr.getNext();
+		}
+		return curr;
+	}
+	
+	/**
+	 * Private helper method that returns a corresponding node to the
+	 * given key
+	 * 
+	 * @param key
+	 * @return
+	 */
+	private Node<T> getNodeWithValue(T key) {
+		Node<T> curr = this.head;
+		while(curr != null && !curr.getItem().equals(key)) {
 			curr = curr.getNext();
 		}
 		return curr;
@@ -128,10 +172,8 @@ public class SortedList<T> implements Iterable<T>{
 	 * Prints the list to the standard output.
 	 */
 	public void print() {
-		Node<T> curr = this.head;
-		while(curr != null) {
-			System.out.println(curr.getItem().toString());
-			curr = curr.getNext();
+		for(T item : this) {
+			System.out.println(item.toString());
 		}
 	}
 	
